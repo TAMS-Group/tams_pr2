@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <name>tams_pr2_robot</name>
+  <version>0.0.0</version>
+  <description>The tams_pr2_robot meta package</description>
+
+  <maintainer email="goerner@informatik.uni-hamburg.de">Michael Goerner</maintainer>
+  <license>BSD</license>
+
+  <url type="website">https://redmine.mafiasi.de/projects/tams_pr2_robot</url>
+  <url type="repository">https://redmine.mafiasi.de/tams_pr2_robot.git</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>
