@@ -1,10 +1,10 @@
-<?xml version="1.0"?>
 <package>
-  <name>tams_pr2_robot</name>
+  <name>tams_pr2_description</name>
   <version>0.0.0</version>
-  <description>The tams_pr2_robot meta package</description>
+  <description>The description of TAMS' PR2 robot Trixi</description>
 
   <maintainer email="goerner@informatik.uni-hamburg.de">Michael Goerner</maintainer>
+
   <license>BSD</license>
 
   <url type="website">https://redmine.mafiasi.de/projects/tams_pr2_robot</url>
@@ -12,9 +12,5 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <run_depend>tams_pr2_description</run_depend>
-
-  <export>
-    <metapackage/>
-  </export>
+  <run_depend>xacro</run_depend>
 </package>
