@@ -5,9 +5,9 @@
        xmlns:xacro="http://ros.org/wiki/xacro">
 
   <include filename="$(find pr2_description)/urdf/sensors/hokuyo_lx30_laser.urdf.xacro" />
-  <include filename="$(find race_pr2_description)/urdf/sensors/tray_hokuyo_lx30_laser.urdf.xacro" />
   <include filename="$(find pr2_description)/urdf/base_v0/base.gazebo.xacro" />
   <include filename="$(find pr2_description)/urdf/base_v0/base.transmission.xacro" />
+  <include filename="$(find tams_pr2_description)/urdf/sensors/tray_hokuyo_lx30_laser.urdf.xacro" />
 
   <!-- DATA SOURCES -->
   <!-- all link offsets, CG, limits are obtained from Function Engineering spreadsheet 090224_link_data.xls unless stated otherwise -->
@@ -199,7 +199,7 @@
       <visual>
         <origin xyz="-0.08 0 -0.295" rpy="0 0 0.0" />
         <geometry>
-          <mesh filename="package://race_pr2_description/meshes/base_v0/tray.dae" />
+          <mesh filename="package://tams_pr2_description/meshes/base_v0/tray.dae" />
         </geometry>
 
         <material name="White" />
@@ -209,7 +209,7 @@
       <collision>
         <origin xyz="-0.08 0 -0.295" rpy="0 0 0.0" />
        <geometry>
-          <mesh filename="package://race_pr2_description/meshes/base_v0/tray.dae" />
+          <mesh filename="package://tams_pr2_description/meshes/base_v0/tray.dae" />
           <!--Dummy box as otherwise tray is not rendered in Gazebo-->
           <!--<box size="0.0001 0.0001 0.0001" />-->
        </geometry>
