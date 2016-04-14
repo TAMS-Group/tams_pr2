@@ -199,19 +199,19 @@
       <visual>
         <origin xyz="-0.08 0 -0.295" rpy="0 0 0.0" />
         <geometry>
-          <mesh filename="package://tams_pr2_description/meshes/base_v0/tray.dae" />
+          <mesh filename="package://tams_pr2_description/meshes/base_v0/tray.stl" />
         </geometry>
 
-        <material name="White" />
+        <material name="Metallic">
+          <texture filename="package://tams_pr2_description/meshes/base_v0/metallic.png" />
+        </material>
       </visual>
 
       <!--Collision is defined in base_L.stl and part of the base collision model-->
       <collision>
         <origin xyz="-0.08 0 -0.295" rpy="0 0 0.0" />
        <geometry>
-          <mesh filename="package://tams_pr2_description/meshes/base_v0/tray.dae" />
-          <!--Dummy box as otherwise tray is not rendered in Gazebo-->
-          <!--<box size="0.0001 0.0001 0.0001" />-->
+          <mesh filename="package://tams_pr2_description/meshes/base_v0/tray_L.stl" />
        </geometry>
       </collision>
     </link>
