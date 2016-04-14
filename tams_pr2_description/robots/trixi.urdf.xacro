@@ -21,7 +21,7 @@
   <!-- PR2 torso -->
   <xacro:include filename="$(find pr2_description)/urdf/torso_v0/torso.urdf.xacro" />
   <!-- PR2 base -->
-  <xacro:include filename="$(find tams_pr2_description)/urdf/base_v0/base.urdf.xacro" />
+  <xacro:include filename="$(find pr2_description)/urdf/base_v0/base.urdf.xacro" />
   <!-- Head sensors -->
   <xacro:include filename="$(find pr2_description)/urdf/sensors/head_sensor_package.urdf.xacro" />
   <xacro:include filename="$(find pr2_description)/urdf/sensors/kinect_prosilica_camera.urdf.xacro" />
@@ -35,6 +35,9 @@
   <!-- materials for visualization -->
   <xacro:include filename="$(find pr2_description)/urdf/materials.urdf.xacro" />
 
+  <!-- TAMS' additions -->
+  <xacro:include filename="$(find tams_pr2_description)/urdf/tams_pr2_tray.urdf.xacro" />
+
   <!-- Now we can start using the macros included above to define the actual PR2 -->
 
   <!-- The first use of a macro.  This one was defined in base.urdf.xacro above.
@@ -45,6 +48,10 @@
        the origin block defines where the component is w.r.t its parent (in this case the parent
        is the world frame). For more, see http://www.ros.org/wiki/xacro -->
   <xacro:pr2_base_v0 name="base"/>
+
+  <xacro:tams_pr2_tray name="tray" parent="base_link">
+    <origin xyz="0.08 0 0.295" rpy="0 0 0" />
+  </xacro:tams_pr2_tray>
 
   <xacro:pr2_torso_v0 name="torso_lift" parent="base_link">
     <origin xyz="-0.05 0 0.739675" rpy="0 0 0" />

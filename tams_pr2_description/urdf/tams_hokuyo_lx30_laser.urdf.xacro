@@ -1,19 +1,23 @@
 <?xml version="1.0"?>
-
+<!--
+pr2_description's hokuyo macro does not provide a visual link
+as the internal scanner is part of the pr2 base.
+-->
 <robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find tams_pr2_description)/urdf/sensors/tray_hokuyo_lx30_laser.gazebo.xacro" />
+  <xacro:include filename="$(find pr2_description)/urdf/sensors/hokuyo_lx30_laser.gazebo.xacro" />
 
-  <xacro:macro name="tray_hokuyo_lx30_laser_v0" params="name parent *origin ros_topic update_rate min_angle max_angle">
+  <xacro:macro name="tams_hokuyo_lx30_laser" params="name parent *origin ros_topic update_rate min_angle max_angle">
     <joint name="${name}_joint" type="fixed">
       <axis xyz="0 1 0" />
       <insert_block name="origin" />
-      <parent link="${parent}_link"/>
+      <parent link="${parent}"/>
       <child link="${name}_link"/>
     </joint>
+
     <link name="${name}_link" type="laser">
       <inertial>
         <mass value="0.370" />
@@ -23,8 +27,7 @@
     <visual>
       <origin xyz="-0.01 0 -0.015" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://tams_pr2_description/meshes/hokuyo/hokuyo.dae" />
-        <!--box size="0.05 0.05 0.1" /-->
+        <mesh filename="package://tams_pr2_description/meshes/hokuyo.dae" />
       </geometry>
     </visual>
     <collision>
@@ -34,7 +37,8 @@
       </geometry>
     </collision>
     </link>
+
     <!-- gazebo extensions -->
-    <xacro:tray_hokuyo_lx30_laser_gazebo_v0 name="${name}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" />
+    <xacro:hokuyo_lx30_laser_gazebo_v0 name="${name}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" />
   </xacro:macro>
 </robot>
