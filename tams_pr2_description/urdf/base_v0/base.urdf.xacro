@@ -197,7 +197,7 @@
       </inertial>
 
       <visual>
-        <origin xyz="-0.08 0 -0.295" rpy="0 0 0.0" />
+        <origin xyz="0.0 0 0.0" rpy="0 0 0.0" />
         <geometry>
           <mesh filename="package://tams_pr2_description/meshes/base_v0/tray.stl" />
         </geometry>
@@ -207,12 +207,11 @@
         </material>
       </visual>
 
-      <!--Collision is defined in base_L.stl and part of the base collision model-->
       <collision>
-        <origin xyz="-0.08 0 -0.295" rpy="0 0 0.0" />
-       <geometry>
+        <origin xyz="-0.08 0 -0.290" rpy="0 0 0.0" />
+        <geometry>
           <mesh filename="package://tams_pr2_description/meshes/base_v0/tray_L.stl" />
-       </geometry>
+        </geometry>
       </collision>
     </link>
 
