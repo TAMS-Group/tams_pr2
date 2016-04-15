@@ -36,6 +36,7 @@
 
   <!-- TAMS' additions -->
   <xacro:include filename="$(find tams_pr2_description)/urdf/tams_pr2_tray.urdf.xacro" />
+  <xacro:include filename="$(find tams_pr2_description)/urdf/ft_forearm/pr2_ft_forearm.urdf.xacro" />
 
   <!-- Now we can start using the macros included above to define the actual PR2 -->
 
@@ -126,11 +127,11 @@
     <origin xyz="0.0 0.188 0.0" rpy="0 0 0" />
   </xacro:pr2_shoulder_v0>
   <xacro:pr2_upper_arm_v0 side="l" reflect="1" parent="l_upper_arm_roll_link"/>
-  <xacro:pr2_forearm_v0 side="l" reflect="1" parent="l_forearm_roll_link">
+  <xacro:pr2_ft_forearm side="l" reflect="1" parent="l_forearm_roll_link">
     <origin xyz="0 0 0" rpy="0 0 0" />
-  </xacro:pr2_forearm_v0>
+  </xacro:pr2_ft_forearm>
 
-  <xacro:pr2_gripper_v0 reflect="1.0" side="l" parent="l_wrist_roll_link"
+  <xacro:pr2_gripper_v0 reflect="1.0" side="l" parent="l_force_torque_link"
                screw_reduction="${4.0/1000.0}"
                gear_ratio="${(729.0/25.0)*(22.0/16.0)}"
                theta0="${3.6029*M_PI/180.0}"
@@ -141,7 +142,7 @@
                a="${68.3698/1000.0}"
                b="${43.3849/1000.0}"
                r="${91.5/1000.0}" >
-    <origin xyz="0 0 0" rpy="0 0 0" />
+    <origin xyz="0 0 0" rpy="0 1.5707963267948966 -1.2217304763960306" />
   </xacro:pr2_gripper_v0>
 
   <!-- Forearm cam Position is a guess, based on full robot calibration -->

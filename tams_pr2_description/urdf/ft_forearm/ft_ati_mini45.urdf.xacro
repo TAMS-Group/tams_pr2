@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="ft_at_mini45" params="side parent *origin">
+    <joint name="${side}_force_torque_adapter_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="${side}_force_torque_adapter_link"/>
+      <insert_block name="origin"/>
+    </joint>
+
+    <link name="${side}_force_torque_adapter_link"/>
+
+    <joint name="${side}_force_torque_joint" type="fixed">
+      <parent link="${side}_force_torque_adapter_link"/>
+      <child link="${side}_force_torque_link"/>
+      <origin rpy="0 0 1.2217304763960306" xyz="0 0 0"/>
+    </joint>
+
+    <link name="${side}_force_torque_link">
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 -0.0120"/>
+        <geometry>
+         <cylinder length="0.0356" radius="0.0225"/>
+        </geometry>
+        <material name="Grey"/>
+      </visual>
+    </link>
+  </xacro:macro>
+
+</robot>
