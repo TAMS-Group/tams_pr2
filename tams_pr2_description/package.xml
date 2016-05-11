@@ -1,7 +1,7 @@
 <package>
   <name>tams_pr2_description</name>
   <version>0.0.0</version>
-  <description>The description of TAMS' PR2 robot Trixi</description>
+  <description>The urdf description of TAMS' PR2 robot Trixi</description>
 
   <maintainer email="goerner@informatik.uni-hamburg.de">Michael Goerner</maintainer>
 
@@ -13,4 +13,6 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <run_depend>xacro</run_depend>
+  <run_depend>pr2_description</run_depend>
+  <run_depend>sr_description</run_depend>
 </package>
