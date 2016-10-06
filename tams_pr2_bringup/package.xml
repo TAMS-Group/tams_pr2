@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <name>tams_pr2_bringup</name>
+  <version>0.0.0</version>
+  <description>The launch files for TAMS' PR2</description>
+
+  <maintainer email="goerner@informatik.uni-hamburg.de">Michael Goerner</maintainer>
+  <license>BSD</license>
+
+  <url type="website">https://redmine.mafiasi.de/projects/tams_pr2_robot</url>
+  <url type="repository">https://redmine.mafiasi.de/tams_pr2_robot.git</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>tams_pr2_description</run_depend>
+
+</package>

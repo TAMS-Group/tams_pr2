@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- Top-Level launch file -->
+<launch>
+    <arg name="c2" default="true"/>
+
+    <include file="$(find tams_pr2_description)/launch/upload_pr2.launch" />
+
+    <rosparam command="load" file="$(find tams_pr2_bringup)/config/analyzers.yaml" ns="diag_agg" />
+
+    <!-- Robot bringup -->
+    <include file="$(find tams_pr2_bringup)/launch/include/pr2.launch">
+        <arg name="c2" value="$(arg c2)"/>
+        <arg name="no-prosilica" value="true"/>
+    </include>
+
+    <!-- <include file="$(find tams_pr2_bringup)/launch/include/tams_changes.launch" /> -->
+    
+    <rosparam file="$(find tams_pr2_bringup)/config/robot.yaml" />
+</launch> 
