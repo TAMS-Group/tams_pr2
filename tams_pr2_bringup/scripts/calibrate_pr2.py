@@ -415,6 +415,8 @@ def main():
         joints_status = True
         status.publish()
 
+    except Exception as e:
+        rospy.logerr("Calibration failed: %s" % str(e))
         
     finally:
         rospy.loginfo("Bringing down calibration node")
