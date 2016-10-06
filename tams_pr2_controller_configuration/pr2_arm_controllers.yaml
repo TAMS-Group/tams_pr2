@@ -74,16 +74,12 @@ r_arm_controller:
     - r_upper_arm_roll_joint
     - r_elbow_flex_joint
     - r_forearm_roll_joint
-    - r_wrist_flex_joint
-    - r_wrist_roll_joint
   gains:
     r_shoulder_pan_joint:    *shoulder_pan_gains
     r_shoulder_lift_joint:   *shoulder_lift_gains
     r_upper_arm_roll_joint:  *upper_arm_roll_gains
     r_elbow_flex_joint:      *elbow_flex_gains
     r_forearm_roll_joint:    *forearm_roll_gains
-    r_wrist_flex_joint:      *wrist_flex_gains
-    r_wrist_roll_joint:      *wrist_roll_gains
   joint_trajectory_action_node:
     joints:
       - r_shoulder_pan_joint
@@ -91,8 +87,6 @@ r_arm_controller:
       - r_upper_arm_roll_joint
       - r_elbow_flex_joint
       - r_forearm_roll_joint
-      - r_wrist_flex_joint
-      - r_wrist_roll_joint
     constraints:
       goal_time: 0.6
       r_shoulder_pan_joint:
@@ -104,10 +98,6 @@ r_arm_controller:
       r_elbow_flex_joint:
         goal: 0.02
       r_forearm_roll_joint:
-        goal: 0.02
-      r_wrist_flex_joint:
-        goal: 0.02
-      r_wrist_roll_joint:
         goal: 0.02
   
 l_arm_controller:

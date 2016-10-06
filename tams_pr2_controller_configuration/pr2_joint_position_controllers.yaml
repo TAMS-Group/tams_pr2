@@ -48,36 +48,6 @@ r_forearm_roll_position_controller:
     i_clamp: 2.0
     i_clamp_max: 2.0
     i_clamp_min: -2.0
-r_wrist_flex_position_controller:
-  type: robot_mechanism_controllers/JointPositionController
-  joint: r_wrist_flex_joint
-  pid: &wrist_flex_position_gains
-    p: 300.0
-    d: 4.0
-    i: 300.0
-    i_clamp: 2.0
-    i_clamp_max: 2.0
-    i_clamp_min: -2.0
-r_wrist_roll_position_controller:
-  type: robot_mechanism_controllers/JointPositionController
-  joint: r_wrist_roll_joint
-  pid: &wrist_roll_position_gains
-    p: 300.0
-    d: 4.0
-    i: 300.0
-    i_clamp: 2.0
-    i_clamp_max: 2.0
-    i_clamp_min: -2.0
-r_gripper_position_controller:
-  type: robot_mechanism_controllers/JointPositionController
-  joint: r_gripper_joint
-  pid: &gripper_position_gains
-    p: 10000.0
-    d: 1000.0
-    i: 0.0
-    i_clamp: 0.0
-    i_clamp_max: 0.0
-    i_clamp_min: -0.0
 
 l_shoulder_pan_position_controller:
   type: robot_mechanism_controllers/JointPositionController
