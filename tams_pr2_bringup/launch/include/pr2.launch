@@ -78,7 +78,9 @@
   <include file="$(find pr2_bringup)/config/dualstereo_camera.launch"/>
 
   <!-- Forearm Camera -->
+  <!-- TAMS modification
   <include file="$(find pr2_bringup)/config/r_forearm_cam.launch" />
+  -->
   <include file="$(find pr2_bringup)/config/l_forearm_cam.launch" />
 
   <!-- Sound -->
