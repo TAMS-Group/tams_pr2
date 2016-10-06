@@ -304,7 +304,7 @@ def main():
 
         # load controller configuration
         rospy.loginfo("Loading controller configuration on parameter server...")
-        pr2_controller_configuration_dir = roslib.packages.get_pkg_dir('pr2_controller_configuration')
+        pr2_controller_configuration_dir = roslib.packages.get_pkg_dir('tams_pr2_controller_configuration')
         calibration_yaml = '%s/pr2_calibration_controllers.yaml' % pr2_controller_configuration_dir
         hold_yaml = '%s/pr2_joint_position_controllers.yaml' % pr2_controller_configuration_dir
         if len(args) < 3:
