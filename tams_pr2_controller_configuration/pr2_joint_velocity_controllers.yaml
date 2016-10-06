@@ -74,11 +74,25 @@ l_forearm_roll_velocity_controller:
 l_wrist_flex_velocity_controller:
   type: robot_mechanism_controllers/JointVelocityController
   joint: l_wrist_flex_joint
-  pid: *wrist_flex_velocity_gains
+  pid:
+    p: 4.0
+    i: 25.0
+    d: 0
+    i_clamp: 100.0
+    i_clamp_max: 100.0
+    i_clamp_min: -100.0
+
 l_wrist_roll_velocity_controller:
   type: robot_mechanism_controllers/JointVelocityController
   joint: l_wrist_roll_joint
-  pid: *wrist_roll_velocity_gains
+  pid:
+    p: 4.0
+    i: 25.0
+    d: 0
+    i_clamp: 100.0
+    i_clamp_max: 100.0
+    i_clamp_min: -100.0
+
 
 
 torso_lift_velocity_controller:
