@@ -352,14 +352,14 @@ def main():
         if arms == 'both':
             arm_list = [['r_shoulder_pan', 'l_shoulder_pan'], ['r_elbow_flex', 'l_elbow_flex'],
                         ['r_upper_arm_roll', 'l_upper_arm_roll'], ['r_shoulder_lift', 'l_shoulder_lift'],
-                        ['r_forearm_roll', 'r_wrist', 'l_forearm_roll', 'l_wrist']]
-            gripper_list = ['r_gripper', 'l_gripper']
+                        ['r_forearm_roll', 'l_forearm_roll', 'l_wrist']]
+            gripper_list = ['l_gripper']
         if arms == 'left':
             arm_list = [['l_shoulder_pan'], ['l_elbow_flex'], ['l_upper_arm_roll'], ['l_shoulder_lift'], ['l_forearm_roll', 'l_wrist']]
             gripper_list = ['l_gripper']
         if arms == 'right':
-            arm_list = [['r_shoulder_pan'], ['r_elbow_flex'], ['r_upper_arm_roll'], ['r_shoulder_lift'], ['r_forearm_roll', 'r_wrist']]
-            gripper_list = ['r_gripper']
+            arm_list = [['r_shoulder_pan'], ['r_elbow_flex'], ['r_upper_arm_roll'], ['r_shoulder_lift'], ['r_forearm_roll']]
+            gripper_list = []
         arm = CalibrateSequence(arm_list, status)
         gripper = CalibrateSequence([gripper_list], status)
         head = CalibrateSequence([head_list, ['laser_tilt']], status)
