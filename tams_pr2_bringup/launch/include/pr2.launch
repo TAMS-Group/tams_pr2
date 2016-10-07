@@ -6,7 +6,10 @@
 
   <!-- New in Indigo, now c2's functionality is separated from c1s -->
   <group if="$(arg c2)">
+<!-- TAMS modification
     <include file="$(find pr2_bringup)/pr2-c2.launch" />
+-->
+    <include file="$(find tams_pr2_bringup)/launch/include/pr2-c2.launch" />
   </group>
 
   <!-- Remap diagnostics if we are pushed into a namespace. -->
@@ -100,6 +103,7 @@
   <node pkg="pr2_computer_monitor" name="realtime_cpu_monitor" type="cpu_monitor.py" args="--diag-hostname=c1" machine="c1" >
     <param name="check_core_temps" type="bool" value="False" />
     <param name="num_cores" value="12.0" />
+    <param name="check_ipmi_tool" type="bool" value="False" /> <!-- TAMS modification -->
   </node>
 
   <!-- Monitor Wifi/ddwrt -->
