@@ -26,16 +26,12 @@
       r_upper_arm_roll_joint: 0.1
       r_elbow_flex_joint: 0.25
       r_forearm_roll_joint: 0.133
-      r_wrist_flex_joint: 0.0727
-      r_wrist_roll_joint: 0.0727
     joint_max_effort:
       r_shoulder_pan_joint: 11.88
       r_shoulder_lift_joint: 11.64
       r_upper_arm_roll_joint: 6.143
       r_elbow_flex_joint: 6.804
       r_forearm_roll_joint: 8.376
-      r_wrist_flex_joint: 5.568
-      r_wrist_roll_joint: 5.568
 
     vel_saturation_trans: 2.0
     vel_saturation_rot: 4.0
