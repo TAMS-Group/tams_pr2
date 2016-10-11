@@ -63,16 +63,6 @@ analyzers:
         path: Wide (Right)
         find_and_remove_prefix: wide_stereo_right
         num_items: 2
-      prosilica:
-        type: diagnostic_aggregator/GenericAnalyzer
-        path: Prosilica
-        find_and_remove_prefix: prosilica_driver
-        num_items: 4
-      forearm_r:
-        type: diagnostic_aggregator/GenericAnalyzer
-        path: Forearm (Right)
-        find_and_remove_prefix: r_forearm_cam
-        num_items: 2
       forearm_l:
         type: diagnostic_aggregator/GenericAnalyzer
         path: Forearm (Left)
@@ -134,9 +124,6 @@ analyzers:
       'EtherCAT Device (head_tilt_motor)',
       'EtherCAT Device (led_projector)',
       'EtherCAT Device (torso_lift_motor)',
-      'EtherCAT Device (r_gripper_motor)',
-      'EtherCAT Device (r_wrist_l_motor)',
-      'EtherCAT Device (r_wrist_r_motor)',
       'EtherCAT Device (r_forearm_roll_motor)',
       'EtherCAT Device (r_elbow_flex_motor)',
       'EtherCAT Device (r_upper_arm_roll_motor)',
@@ -172,9 +159,6 @@ analyzers:
       'Joint (head_pan_joint)',
       'Joint (head_tilt_joint)',
       'Joint (torso_lift_joint)',
-      'Joint (r_gripper_joint)',
-      'Joint (r_wrist_flex_joint)',
-      'Joint (r_wrist_roll_joint)',
       'Joint (r_forearm_roll_joint)',
       'Joint (r_elbow_flex_joint)',
       'Joint (r_upper_arm_roll_joint)',
@@ -229,7 +213,6 @@ analyzers:
       'Controller (projector_controller)',
       'Controller (projector_trigger)',
       'Controller (prosilica_inhibit_projector_controller)',
-      'Controller (r_forearm_cam_trigger)',
       'Controller (l_forearm_cam_trigger)' ]
     startswith: [
       'Controller',
