@@ -16,7 +16,7 @@ cal_r_shoulder_pan:
   joint: r_shoulder_pan_joint
   actuator: r_shoulder_pan_motor
   transmission: r_shoulder_pan_trans
-  velocity: 1.0
+  velocity: 0.6
   pid:
     p: 7
     i: 0.5
@@ -42,7 +42,7 @@ cal_r_shoulder_lift:
   joint: r_shoulder_lift_joint
   actuator: r_shoulder_lift_motor
   transmission: r_shoulder_lift_trans
-  velocity: 1.0
+  velocity: 0.6
   pid:
     p: 9
     i: 1.0
@@ -68,7 +68,7 @@ cal_r_upper_arm_roll:
   joint: r_upper_arm_roll_joint
   actuator: r_upper_arm_roll_motor
   transmission: r_upper_arm_roll_trans
-  velocity: 1.0
+  velocity: 0.6
   pid:
     p: 6
     i: 0.2
@@ -94,7 +94,7 @@ cal_r_elbow_flex:
   joint: r_elbow_flex_joint
   actuator: r_elbow_flex_motor
   transmission: r_elbow_flex_trans
-  velocity: 1.0
+  velocity: 0.6
   pid:
     p: 6
     i: 0.2
@@ -121,7 +121,7 @@ cal_r_forearm_roll:
   joint: r_forearm_roll_joint
   actuator: r_forearm_roll_motor
   transmission: r_forearm_roll_trans
-  velocity: 1.2
+  velocity: 0.6
   pid:
     p: 5.0
     i: 0.0
