@@ -12,6 +12,7 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
+  <run_depend>pr2_motors_analyzer</run_depend>
   <run_depend>tams_pr2_description</run_depend>
 
 </package>

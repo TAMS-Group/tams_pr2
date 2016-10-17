@@ -100,44 +100,11 @@ analyzers:
         #num_items: 5
         #find_and_remove_prefix: 'multi_interface_roam: '
 
-
   motors:
-    type: diagnostic_aggregator/GenericAnalyzer
+    type: pr2_motors_analyzer/PR2MotorsAnalyzer
     path: Motors
-    startswith: [
-      'EtherCAT Device']
-    expected: [
-      'EtherCAT Master',
-      'EtherCAT Device (bl_caster_l_wheel_motor)',
-      'EtherCAT Device (bl_caster_r_wheel_motor)',
-      'EtherCAT Device (bl_caster_rotation_motor)',
-      'EtherCAT Device (br_caster_l_wheel_motor)',
-      'EtherCAT Device (br_caster_r_wheel_motor)',
-      'EtherCAT Device (br_caster_rotation_motor)',
-      'EtherCAT Device (fl_caster_l_wheel_motor)',
-      'EtherCAT Device (fl_caster_r_wheel_motor)',
-      'EtherCAT Device (fl_caster_rotation_motor)',
-      'EtherCAT Device (fr_caster_l_wheel_motor)',
-      'EtherCAT Device (fr_caster_r_wheel_motor)',
-      'EtherCAT Device (fr_caster_rotation_motor)',
-      'EtherCAT Device (laser_tilt_mount_motor)',
-      'EtherCAT Device (head_pan_motor)',
-      'EtherCAT Device (head_tilt_motor)',
-      'EtherCAT Device (led_projector)',
-      'EtherCAT Device (torso_lift_motor)',
-      'EtherCAT Device (r_forearm_roll_motor)',
-      'EtherCAT Device (r_elbow_flex_motor)',
-      'EtherCAT Device (r_upper_arm_roll_motor)',
-      'EtherCAT Device (r_shoulder_lift_motor)',
-      'EtherCAT Device (r_shoulder_pan_motor)',
-      'EtherCAT Device (l_gripper_motor)',
-      'EtherCAT Device (l_wrist_l_motor)',
-      'EtherCAT Device (l_wrist_r_motor)',
-      'EtherCAT Device (l_forearm_roll_motor)',
-      'EtherCAT Device (l_elbow_flex_motor)',
-      'EtherCAT Device (l_upper_arm_roll_motor)',
-      'EtherCAT Device (l_shoulder_lift_motor)',
-      'EtherCAT Device (l_shoulder_pan_motor)']
+    power_board_name: 'Power board 1090'
+
   joints:
     type: diagnostic_aggregator/GenericAnalyzer
     path: Joints
