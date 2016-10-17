@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
 
   r= rospy.Rate(60)
-  while True:
+  while not(rospy.is_shutdown()):
     js.header.stamp= rospy.Time.now()
     pub.publish(js)
     r.sleep()
