@@ -21,11 +21,20 @@
   <rosparam command="load" file="$(find tams_pr2_controller_configuration)/pr2_torso_controller.yaml" />
 
   <!-- Controllers that come up started -->
+  <!-- TAMS modification
   <node name="default_controllers_spawner"
         pkg="pr2_controller_manager" type="spawner" output="screen"
-        args="--wait-for=calibrated base_controller base_odometry head_traj_controller laser_tilt_controller torso_controller l_gripper_controller r_arm_controller l_arm_controller" />
+        args="- -wait-for=calibrated base_controller base_odometry head_traj_controller laser_tilt_controller torso_controller l_gripper_controller r_arm_controller l_arm_controller" />
+  -->
 
+  <!-- Controllers that come up started -->
+  <node name="default_controllers_spawner"
+        pkg="pr2_controller_manager" type="spawner" output="screen"
+        args="--wait-for=calibrated base_controller base_odometry head_traj_controller laser_tilt_controller torso_controller l_gripper_controller l_arm_controller" />
 
+  <node name="r_arm_controller_spawner"
+        pkg="pr2_controller_manager" type="spawner" output="screen"
+        args="--wait-for=calibrated_r_arm r_arm_controller" />
   
   <!-- Nodes on top of the controllers -->
   <group ns="l_gripper_controller">

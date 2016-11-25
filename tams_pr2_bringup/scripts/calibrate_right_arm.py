@@ -58,13 +58,8 @@ unload_controller = rospy.ServiceProxy('pr2_controller_manager/unload_controller
 switch_controller = rospy.ServiceProxy('pr2_controller_manager/switch_controller', SwitchController)
 list_controllers = rospy.ServiceProxy('pr2_controller_manager/list_controllers', ListControllers)
 
-hold_position = {'r_shoulder_pan': -0.7, 'r_elbow_flex': -2.0, 'r_upper_arm_roll': 0.0, 'r_shoulder_lift': 1.0}
-
 def get_controller_name(joint_name):
     return calibration_params_namespace+"/calibrate/cal_%s" % joint_name
-
-def get_holding_name(joint_name):
-    return "%s/hold/%s_position_controller" % (calibration_params_namespace, joint_name)
 
 def get_service_name(joint_name):
     return '%s/is_calibrated'%get_controller_name(joint_name)
@@ -101,40 +96,15 @@ def diagnostics(level, msg_short, msg_long):
     d.status = [ds] 
     pub_diag.publish(d) 
 
-
-
-class HoldingController:
-    def __init__(self, joint_name):
-        self.joint_name = joint_name
-        rospy.logdebug("Loading holding controller: %s" %get_holding_name(joint_name))
-        resp = load_controller(get_holding_name(joint_name)) 
-        if resp.ok:
-            rospy.logdebug("Starting holding controller for joint %s."%joint_name)
-            switch_controller([get_holding_name(joint_name)], [], SwitchControllerRequest.STRICT)
-            self.pub_cmd = rospy.Publisher("%s/command" %get_holding_name(joint_name), Float64, latch=True, queue_size=10)
-        else:
-            rospy.logerr("Failed to load holding controller for joint %s."%joint_name)
-            raise Exception('Failure to load holding controller')
-                                  
-    def __del__(self):
-        switch_controller([], [get_holding_name(self.joint_name)], SwitchControllerRequest.STRICT)
-        unload_controller(get_holding_name(self.joint_name))
-        self.pub_cmd.unregister()
-                               
-    def hold(self, position):
-        self.pub_cmd.publish(Float64(position))
-
-
 class Calibrate:
     def __init__(self, joints):
         self.joints = []
-        self.hold_controllers = []
         self.services = {}
 
         # spawn calibration controllers for all joints
         for j in joints:
-            rospy.logdebug("Loading controller: %s" %get_controller_name(joint))
-            resp = load_controller(get_controller_name(j)) 
+            rospy.logdebug("Loading controller: %s" %get_controller_name(j))
+            resp = load_controller(get_controller_name(j))
             if resp.ok:
                 # get service call to calibration controller to check calibration state
                 rospy.logdebug("Waiting for service: %s" %get_service_name(j))
@@ -184,18 +154,7 @@ class Calibrate:
         rospy.logdebug("Stop calibration controllers for joints %s"%self.joints)
         switch_controller([], [get_controller_name(j) for j in self.joints], SwitchControllerRequest.BEST_EFFORT)
 
-        # hold joints in place
-        rospy.logdebug("Loading holding controllers for joints %s"%self.joints)
-        self.hold_controllers = []
-        for j in self.joints:
-            if j in hold_position:
-                holder = HoldingController(j)
-                holder.hold(hold_position[j])
-                self.hold_controllers.append(holder)
 
-
-
-            
 def main():
     try:
         rospy.init_node('calibration', anonymous=True, disable_signals=True)
@@ -213,38 +172,34 @@ def main():
         rospy.loginfo("Loading controller configuration on parameter server...")
         pr2_controller_configuration_dir = roslib.packages.get_pkg_dir('tams_pr2_controller_configuration')
         calibration_yaml = '%s/pr2_calibration_controllers.yaml' % pr2_controller_configuration_dir
-        hold_yaml = '%s/pr2_joint_position_controllers.yaml' % pr2_controller_configuration_dir
         if len(args) < 3:
-            rospy.loginfo("No yaml files specified for calibration and holding controllers, using defaults")
+            rospy.loginfo("No yaml files specified for calibration controllers, using defaults")
         else:
             calibration_yaml = args[1]
-            hold_yaml  = args[2]
         rospy.set_param(calibration_params_namespace+"/calibrate", yaml.load(open(calibration_yaml)))
-        rospy.set_param(calibration_params_namespace+"/hold", yaml.load(open(hold_yaml)))
 
         joints_status = False
 
         # define calibration sequence objects
         arm_list = [['r_shoulder_pan'], ['r_shoulder_lift'], ['r_upper_arm_roll'], ['r_elbow_flex'], ['r_forearm_roll']]
 
-        torso = Calibrate([['torso_lift']])
-        if not torso.is_calibrated():
-            print "Torso is not calibrated"
-            sys.exit(1)
-        
-        torso_holder = HoldingController('torso_lift')
-        torso_holder.hold(0.25)
-        rospy.sleep(5.0)
-        rospy.loginfo('Moving up spine to allow arm to calibrate')
+        pub_calibrated = rospy.Publisher('calibrated_r_arm', Bool, latch=True, queue_size=1)
+        pub_calibrated.publish(False)
+
+        # TODO: use torso_controller
+        #torso_holder = HoldingController('torso_lift')
+        #torso_holder.hold(0.25)
+        #rospy.sleep(10.0)
+        #rospy.loginfo('Moving up spine to allow arm to calibrate')
         
         for joint in arm_list:
             raw_input("Press 'Enter' to calibrate joint %s"%joint)
             calibrate_joint = Calibrate(joint)
             calibrate_joint.calibrate()
 
-        rospy.loginfo('Moving down spine after arm calibration')
-        torso_holder.hold(0.01)
-        rospy.sleep(20.0)
+        #rospy.loginfo('Moving down spine after arm calibration')
+        #torso_holder.hold(0.01)
+        #rospy.sleep(20.0)
 
         joints_status = True
 
@@ -255,12 +210,13 @@ def main():
         rospy.loginfo("Bringing down calibration node")
 
         rospy.set_param(calibration_params_namespace, "")
-        del torso_holder
+        #del torso_holder
 
         if not joints_status:
             rospy.logerr("Mechanism calibration failed")
         else:
             rospy.loginfo('Calibration completed in %f sec' %(rospy.Time.now() - calibration_start_time).to_sec())
+            pub_calibrated.publish(True)
             rospy.spin()
             
 
