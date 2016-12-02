@@ -421,12 +421,6 @@ def main():
         rospy.loginfo("Bringing down calibration node")
 
         rospy.set_param(calibration_params_namespace, "")
-        del arm
-        del gripper
-        del torso
-        del torso_holder
-        del caster
-        del head
 
         if not imustatus and not joints_status:
             rospy.logerr("Both mechanism and IMU calibration failed")
@@ -444,7 +438,8 @@ def main():
         if not recalibrate:
             if joints_status:
                 pub_calibrated.publish(True)
-            rospy.spin()
+                # give external controller nodes enough time to receive the calibration signal we sent above
+                rospy.sleep(rospy.Duration(10))
             
 
 if __name__ == '__main__': main()
