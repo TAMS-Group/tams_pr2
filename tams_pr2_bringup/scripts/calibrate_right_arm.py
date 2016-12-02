@@ -217,7 +217,8 @@ def main():
         else:
             rospy.loginfo('Calibration completed in %f sec' %(rospy.Time.now() - calibration_start_time).to_sec())
             pub_calibrated.publish(True)
-            rospy.spin()
+            # give the r_arm_controller spawner enough time to realize it should start
+            rospy.sleep(rospy.Duration(5.0))
             
 
 if __name__ == '__main__': main()
