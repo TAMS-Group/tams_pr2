@@ -13,6 +13,8 @@
         <arg name="no-prosilica" value="true"/>
     </include>
 
+    <include file="$(find pr2_teleop)/launch/teleop_joystick.launch" />
+
     <!-- Stub joint values of right hand -->
     <node name="right_hand_stub" type="joint_state_publisher_hand.py" pkg="tams_pr2_bringup" />
 
