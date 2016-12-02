@@ -58,7 +58,7 @@ unload_controller = rospy.ServiceProxy('pr2_controller_manager/unload_controller
 switch_controller = rospy.ServiceProxy('pr2_controller_manager/switch_controller', SwitchController)
 list_controllers = rospy.ServiceProxy('pr2_controller_manager/list_controllers', ListControllers)
 
-hold_position = {'l_shoulder_pan': 0.7, 'l_elbow_flex': -2.0,
+hold_position = {'l_shoulder_pan': 0.7, 'l_elbow_flex': -1.0,
                  'l_upper_arm_roll': 0.0, 'l_shoulder_lift': 1.0,
                  'head_tilt': 0.0}
 
