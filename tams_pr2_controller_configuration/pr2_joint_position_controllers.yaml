@@ -111,3 +111,15 @@ torso_lift_position_controller:
     i_clamp: 0.0
     i_clamp_max: 0.0
     i_clamp_min: -0.0
+
+
+head_tilt_position_controller:
+  type: robot_mechanism_controllers/JointPositionController
+  joint: head_tilt_joint
+  pid:
+    p: 120.0
+    d: 10.0
+    i: 120.0
+    i_clamp: 2.0
+    i_clamp_max: 2.0
+    i_clamp_min: -2.0
