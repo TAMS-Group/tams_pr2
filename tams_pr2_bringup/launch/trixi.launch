@@ -19,4 +19,12 @@
     <node name="right_hand_stub" type="joint_state_publisher_hand.py" pkg="tams_pr2_bringup" />
 
     <rosparam file="$(find tams_pr2_bringup)/config/robot.yaml" />
+
+    <!-- Start up Kinect2 connected to pr2-head-->
+    <include file="$(find pr2_machine)/pr2.machine"/>
+    <include file="$(find tams_pr2_bringup)/launch/kinect2_bridge.launch">
+        <arg name="machine" value="pr2-head"/>
+        <arg name="use_machine" value="false"/>
+        <arg name="calib_path" value="/home/pr2-head/kinect_ws/iai_kinect2/kinect2_bridge/data/"/>
+    </include>
 </launch> 
