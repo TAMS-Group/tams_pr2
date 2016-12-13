@@ -52,7 +52,7 @@ from sensor_msgs.msg import *
 
 
 
-calibration_params_namespace = "calibration_controllers"
+calibration_params_namespace = "calibration_r_arm_controller"
 load_controller = rospy.ServiceProxy('pr2_controller_manager/load_controller', LoadController)
 unload_controller = rospy.ServiceProxy('pr2_controller_manager/unload_controller', UnloadController)
 switch_controller = rospy.ServiceProxy('pr2_controller_manager/switch_controller', SwitchController)
@@ -156,6 +156,7 @@ class Calibrate:
 
 
 def main():
+    calibrate = True
     try:
         rospy.init_node('calibration', anonymous=True, disable_signals=True)
         calibration_start_time = rospy.Time.now()
@@ -164,9 +165,12 @@ def main():
         rospy.wait_for_service('pr2_controller_manager/switch_controller')
         rospy.wait_for_service('pr2_controller_manager/unload_controller')
 
-        
+        allowed_flags = ['check_calibrated']
         # parse options
-        args = rospy.myargv()
+        opts, args = getopt.gnu_getopt(rospy.myargv(),'', allowed_flags)
+        for o, a in opts:
+            if o == '--check_calibrated':
+                calibrate = False
 
         # load controller configuration
         rospy.loginfo("Loading controller configuration on parameter server...")
@@ -178,7 +182,7 @@ def main():
             calibration_yaml = args[1]
         rospy.set_param(calibration_params_namespace+"/calibrate", yaml.load(open(calibration_yaml)))
 
-        joints_status = False
+        joints_status = True
 
         # define calibration sequence objects
         arm_list = [['r_shoulder_pan'], ['r_shoulder_lift'], ['r_upper_arm_roll'], ['r_elbow_flex'], ['r_forearm_roll']]
@@ -186,34 +190,31 @@ def main():
         pub_calibrated = rospy.Publisher('calibrated_r_arm', Bool, latch=True, queue_size=1)
         pub_calibrated.publish(False)
 
-        # TODO: use torso_controller
-        #torso_holder = HoldingController('torso_lift')
-        #torso_holder.hold(0.25)
-        #rospy.sleep(10.0)
-        #rospy.loginfo('Moving up spine to allow arm to calibrate')
-        
         for joint in arm_list:
-            raw_input("Press 'Enter' to calibrate joint %s"%joint)
             calibrate_joint = Calibrate(joint)
-            calibrate_joint.calibrate()
+            if not calibrate_joint.is_calibrated():
+                if calibrate:
+                    raw_input("Press 'Enter' to calibrate joint %s"%joint)
+                    calibrate_joint.calibrate()
+                else:
+                    joints_status = False
 
-        #rospy.loginfo('Moving down spine after arm calibration')
-        #torso_holder.hold(0.01)
-        #rospy.sleep(20.0)
+        if not joints_status:
+            rospy.logwarn("Right arm is not calibrated, please run calibration script")
 
-        joints_status = True
 
     except Exception as e:
         rospy.logerr("Calibration failed: %s" % str(e))
-        
+        joints_status = False
+
     finally:
         rospy.loginfo("Bringing down calibration node")
 
         rospy.set_param(calibration_params_namespace, "")
-        #del torso_holder
 
         if not joints_status:
-            rospy.logerr("Mechanism calibration failed")
+            if calibrate:
+                rospy.logerr("Mechanism calibration failed")
         else:
             rospy.loginfo('Calibration completed in %f sec' %(rospy.Time.now() - calibration_start_time).to_sec())
             pub_calibrated.publish(True)
