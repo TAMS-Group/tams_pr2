@@ -34,6 +34,7 @@
   <node name="calibrate_pr2" pkg="tams_pr2_bringup" type="calibrate_pr2.py" output="screen"
         args=" --arms=left $(find tams_pr2_controller_configuration)/pr2_calibration_controllers.yaml $(find tams_pr2_controller_configuration)/pr2_joint_position_controllers.yaml"/>
 
+  <!-- TAMS addition - allow r_arm_controller to start if all joints are already calibrated -->
   <node name="calibrate_right_arm" pkg="tams_pr2_bringup" type="calibrate_right_arm.py" output="screen" args="--check_calibrated" />
 
   <!-- Controller Manager -->
