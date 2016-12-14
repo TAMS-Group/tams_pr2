@@ -39,6 +39,7 @@
   <xacro:include filename="$(find tams_pr2_description)/urdf/tams_pr2_shadow_adapter.urdf.xacro" />
   <xacro:include filename="$(find tams_pr2_description)/urdf/xtion_camera.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
+  <xacro:include filename="$(find pr2_description)/urdf/sensors/kinect2.urdf.xacro" />
 
   <!-- Now we can start using the macros included above to define the actual PR2 -->
 
@@ -125,4 +126,8 @@
                           image_width="640" image_height="480">
     <origin xyz=".135 0 .044" rpy="${-M_PI/2} ${-32.25*M_PI/180} 0" />
   </xacro:wge100_camera_v0>
+
+  <xacro:kinect2_v0 name="head_mount" parent="head_plate_frame" >
+    <origin xyz="-0.137376 0 0.091746" rpy="0 0 0" />
+  </xacro:kinect2_v0>
 </robot>
