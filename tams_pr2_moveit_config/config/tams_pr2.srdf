@@ -114,6 +114,13 @@
         <joint name="r_hand_FFJ1" />
         <joint name="r_hand_FF_distal_joint" />
     </group>
+    <group_state name="right_arm_to_side" group="right_arm">
+        <joint name="r_shoulder_pan_joint" value="-1.53023121373216" />
+        <joint name="r_shoulder_lift_joint" value="0.5787984638806788" />
+        <joint name="r_upper_arm_roll_joint" value="0.08518796513181504" />
+        <joint name="r_elbow_flex_joint" value="-1.8672258422629988" />
+        <joint name="r_forearm_roll_joint" value="-0.03794768903956753" />
+    </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="left_gripper" parent_link="l_wrist_roll_link" group="left_gripper" />
     <end_effector name="right_hand" parent_link="r_hand_forearm" group="right_hand" />
