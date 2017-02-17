@@ -53,7 +53,7 @@ planner_configs:
   PRMstarkConfigDefault:
     type: geometric::PRMstar
 base:
-  default_planner_config: PRMstarkConfigDefault
+  default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -67,7 +67,7 @@ base:
     - PRMkConfigDefault
     - PRMstarkConfigDefault
 left_arm:
-  default_planner_config: PRMstarkConfigDefault
+  default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -83,7 +83,7 @@ left_arm:
   projection_evaluator: joints(l_shoulder_pan_joint,l_shoulder_lift_joint)
   longest_valid_segment_fraction: 0.01
 left_arm_and_torso:
-  default_planner_config: PRMstarkConfigDefault
+  default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -99,7 +99,7 @@ left_arm_and_torso:
   projection_evaluator: joints(torso_lift_joint,l_shoulder_pan_joint)
   longest_valid_segment_fraction: 0.01
 right_arm:
-  default_planner_config: PRMstarkConfigDefault
+  default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -115,7 +115,7 @@ right_arm:
   projection_evaluator: joints(r_shoulder_pan_joint,r_shoulder_lift_joint)
   longest_valid_segment_fraction: 0.01
 right_arm_and_torso:
-  default_planner_config: PRMstarkConfigDefault
+  default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -131,7 +131,7 @@ right_arm_and_torso:
   projection_evaluator: joints(torso_lift_joint,r_shoulder_pan_joint)
   longest_valid_segment_fraction: 0.01
 arms:
-  default_planner_config: PRMstarkConfigDefault
+  default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -147,7 +147,7 @@ arms:
   projection_evaluator: joints(l_shoulder_pan_joint,l_shoulder_lift_joint)
   longest_valid_segment_fraction: 0.01
 head:
-  default_planner_config: PRMstarkConfigDefault
+  default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -163,7 +163,7 @@ head:
   projection_evaluator: joints(head_pan_joint,head_tilt_joint)
   longest_valid_segment_fraction: 0.01
 torso:
-  default_planner_config: PRMstarkConfigDefault
+  default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -177,7 +177,7 @@ torso:
     - PRMkConfigDefault
     - PRMstarkConfigDefault
 arms_and_torso:
-  default_planner_config: PRMstarkConfigDefault
+  default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -193,7 +193,7 @@ arms_and_torso:
   projection_evaluator: joints(torso_lift_joint,l_shoulder_pan_joint)
   longest_valid_segment_fraction: 0.01
 left_gripper:
-  default_planner_config: PRMstarkConfigDefault
+  default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -207,7 +207,7 @@ left_gripper:
     - PRMkConfigDefault
     - PRMstarkConfigDefault
 right_wrist:
-  default_planner_config: PRMstarkConfigDefault
+  default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -223,7 +223,7 @@ right_wrist:
   projection_evaluator: joints(r_hand_WRJ2,r_hand_WRJ1)
   longest_valid_segment_fraction: 0.01
 right_first_finger:
-  default_planner_config: PRMstarkConfigDefault
+  default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -239,7 +239,7 @@ right_first_finger:
   projection_evaluator: joints(r_hand_FFJ4,r_hand_FFJ3)
   longest_valid_segment_fraction: 0.01
 right_middle_finger:
-  default_planner_config: PRMstarkConfigDefault
+  default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -255,7 +255,7 @@ right_middle_finger:
   projection_evaluator: joints(r_hand_MFJ4,r_hand_MFJ3)
   longest_valid_segment_fraction: 0.01
 right_ring_finger:
-  default_planner_config: PRMstarkConfigDefault
+  default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -271,7 +271,7 @@ right_ring_finger:
   projection_evaluator: joints(r_hand_RFJ4,r_hand_RFJ3)
   longest_valid_segment_fraction: 0.01
 right_little_finger:
-  default_planner_config: PRMstarkConfigDefault
+  default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -287,7 +287,7 @@ right_little_finger:
   projection_evaluator: joints(r_hand_LFJ5,r_hand_LFJ4)
   longest_valid_segment_fraction: 0.01
 right_thumb:
-  default_planner_config: PRMstarkConfigDefault
+  default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -303,7 +303,7 @@ right_thumb:
   projection_evaluator: joints(r_hand_THJ5,r_hand_THJ4)
   longest_valid_segment_fraction: 0.01
 right_fingers:
-  default_planner_config: PRMstarkConfigDefault
+  default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -319,7 +319,7 @@ right_fingers:
   projection_evaluator: joints(r_hand_FFJ4,r_hand_FFJ3)
   longest_valid_segment_fraction: 0.01
 right_hand:
-  default_planner_config: PRMstarkConfigDefault
+  default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
