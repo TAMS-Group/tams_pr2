@@ -13,14 +13,10 @@
         <arg name="no-prosilica" value="true"/>
     </include>
 
-    <!-- move_base-aware teleop -->
-    <include file="$(find pr2_navigation_teleop)/teleop.xml" />
-
-    <!-- teleop left gripper -->
-    <include file="$(find tams_pr2_bringup)/launch/include/pr2_teleop_l_gripper.launch" />
-
     <!-- Stub joint values of right hand -->
     <node name="right_hand_stub" type="joint_state_publisher_hand.py" pkg="tams_pr2_bringup" />
+
+    <include file="$(find tams_pr2_bringup)/launch/include/teleop.launch" />
 
     <rosparam file="$(find tams_pr2_bringup)/config/robot.yaml" />
 
