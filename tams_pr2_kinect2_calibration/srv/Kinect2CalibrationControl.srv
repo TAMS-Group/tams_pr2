@@ -1,0 +1,6 @@
+#request definition
+bool save
+bool quit
+---
+#response definition
+bool suceeded

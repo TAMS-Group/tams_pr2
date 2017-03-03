@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<launch>
+    <include file="$(find pr2_machine)/pr2.machine" />
+
+    <arg name="pattern" default="chess4x5x0.024" />
+    <arg name="path"    default="/home/pr2-head/kinect_cal_data/" />
+    <arg name="record"  default="true" />
+    <arg name="type"    default="color" />
+
+    <!-- launch kinect2_calibration node with the record and type paramer.
+         correct order:
+         roslaunch tams_pr2_kinect2_calibration kinect2_calibration_steps.launch record:=true type:=color
+         roslaunch tams_pr2_kinect2_calibration kinect2_calibration_steps.launch record:=false type:=color
+         roslaunch tams_pr2_kinect2_calibration kinect2_calibration_steps.launch record:=true type:=ir
+         roslaunch tams_pr2_kinect2_calibration kinect2_calibration_steps.launch record:=false type:=ir
+         roslaunch tams_pr2_kinect2_calibration kinect2_calibration_steps.launch record:=true type:=sync
+         roslaunch tams_pr2_kinect2_calibration kinect2_calibration_steps.launch record:=false type:=sync
+         roslaunch tams_pr2_kinect2_calibration kinect2_calibration_steps.launch record:=false type:=depth
+    -->
+
+    <!-- launches the calibration_move node for each time that images should be recorded -->
+    <group if="$(arg record)">
+        <include file="$(find tams_pr2_moveit_config)/launch/move_group.launch" />
+        <node name="calibration_move" type="calibration_move" pkg="tams_pr2_kinect2_calibration" output="screen" />
+        <node name="kinect2_calibration_steps" type="kinect2_calibration" pkg="kinect2_calibration" args="$(arg pattern) -path $(arg path) record $(arg type) headless" machine="pr2-head" output="screen"/>
+    </group>
+    <group unless="$(arg record)">
+        <node name="kinect2_calibration_steps" type="kinect2_calibration" pkg="kinect2_calibration" args="$(arg pattern) -path $(arg path) calibrate $(arg type) headless" machine="pr2-head" output="screen"/>
+    </group>
+
+</launch> 
