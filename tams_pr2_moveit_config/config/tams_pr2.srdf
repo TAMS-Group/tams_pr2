@@ -121,8 +121,24 @@
         <joint name="r_elbow_flex_joint" value="-1.8672258422629988" />
         <joint name="r_forearm_roll_joint" value="-0.03794768903956753" />
     </group_state>
+    <group_state name="open" group="left_gripper">
+        <joint name="l_gripper_joint" value="0.09" />
+        <joint name="l_gripper_motor_screw_joint" value="1.0" />
+        <joint name="l_gripper_l_finger_joint" value="0.477" />
+        <joint name="l_gripper_r_finger_joint" value="0.477" />
+        <joint name="l_gripper_r_finger_tip_joint" value="0.477" />
+        <joint name="l_gripper_l_finger_tip_joint" value="0.477" />
+    </group_state>
+    <group_state name="closed" group="left_gripper">
+        <joint name="l_gripper_joint" value="0.0" />
+        <joint name="l_gripper_motor_screw_joint" value="0.0" />
+        <joint name="l_gripper_l_finger_joint" value="0.002" />
+        <joint name="l_gripper_r_finger_joint" value="0.002" />
+        <joint name="l_gripper_r_finger_tip_joint" value="0.002" />
+        <joint name="l_gripper_l_finger_tip_joint" value="0.002" />
+    </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-    <end_effector name="left_gripper" parent_link="l_wrist_roll_link" group="left_gripper" />
+    <end_effector name="left_gripper" parent_group="left_arm" parent_link="l_wrist_roll_link" group="left_gripper" />
     <end_effector name="right_hand" parent_link="r_hand_forearm" group="right_hand" />
     <end_effector name="r_hand_thumb_ee" parent_link="r_hand_thtip" group="right_thumb" />
     <end_effector name="r_hand_first_finger_ee" parent_link="r_hand_fftip" group="right_first_finger" />
