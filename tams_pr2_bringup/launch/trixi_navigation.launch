@@ -6,5 +6,8 @@
     <include file="$(find pr2_navigation_perception)/ground_plane.xml"/>
     <node name="map_server" pkg="map_server" type="map_server" args="$(find tams_maps)/maps/ikum_f2_pr2_localization.pgm 0.05" machine="c2" />
 
+<!-- our copy of move_base.xml
     <include file="$(find pr2_navigation_global)/move_base.xml"/>
+-->
+    <include file="$(find tams_pr2_bringup)/launch/include/move_base.xml"/>
 </launch>
