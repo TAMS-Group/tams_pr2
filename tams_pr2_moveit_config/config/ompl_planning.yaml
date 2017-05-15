@@ -220,7 +220,7 @@ right_wrist:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-  projection_evaluator: joints(r_hand_WRJ2,r_hand_WRJ1)
+  projection_evaluator: joints(rh_WRJ2,rh_WRJ1)
   longest_valid_segment_fraction: 0.01
 right_first_finger:
   default_planner_config: RRTConnectkConfigDefault
@@ -236,7 +236,7 @@ right_first_finger:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-  projection_evaluator: joints(r_hand_FFJ4,r_hand_FFJ3)
+  projection_evaluator: joints(rh_FFJ4,rh_FFJ3)
   longest_valid_segment_fraction: 0.01
 right_middle_finger:
   default_planner_config: RRTConnectkConfigDefault
@@ -252,7 +252,7 @@ right_middle_finger:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-  projection_evaluator: joints(r_hand_MFJ4,r_hand_MFJ3)
+  projection_evaluator: joints(rh_MFJ4,rh_MFJ3)
   longest_valid_segment_fraction: 0.01
 right_ring_finger:
   default_planner_config: RRTConnectkConfigDefault
@@ -268,7 +268,7 @@ right_ring_finger:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-  projection_evaluator: joints(r_hand_RFJ4,r_hand_RFJ3)
+  projection_evaluator: joints(rh_RFJ4,rh_RFJ3)
   longest_valid_segment_fraction: 0.01
 right_little_finger:
   default_planner_config: RRTConnectkConfigDefault
@@ -284,7 +284,7 @@ right_little_finger:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-  projection_evaluator: joints(r_hand_LFJ5,r_hand_LFJ4)
+  projection_evaluator: joints(rh_LFJ5,rh_LFJ4)
   longest_valid_segment_fraction: 0.01
 right_thumb:
   default_planner_config: RRTConnectkConfigDefault
@@ -300,7 +300,7 @@ right_thumb:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-  projection_evaluator: joints(r_hand_THJ5,r_hand_THJ4)
+  projection_evaluator: joints(rh_THJ5,rh_THJ4)
   longest_valid_segment_fraction: 0.01
 right_fingers:
   default_planner_config: RRTConnectkConfigDefault
@@ -316,7 +316,7 @@ right_fingers:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-  projection_evaluator: joints(r_hand_FFJ4,r_hand_FFJ3)
+  projection_evaluator: joints(rh_FFJ4,rh_FFJ3)
   longest_valid_segment_fraction: 0.01
 right_hand:
   default_planner_config: RRTConnectkConfigDefault
@@ -332,5 +332,5 @@ right_hand:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-  projection_evaluator: joints(r_hand_WRJ2,r_hand_WRJ1)
+  projection_evaluator: joints(rh_WRJ2,rh_WRJ1)
   longest_valid_segment_fraction: 0.01

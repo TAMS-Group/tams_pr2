@@ -364,172 +364,172 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_adapter_link:
+          rh_adapter_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_ff_J1_dummy:
+          rh_ff_J1_dummy:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          r_hand_ffdistal:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          r_hand_ffknuckle:
+          rh_ffdistal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_ffmiddle:
+          rh_ffknuckle:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_ffproximal:
+          rh_ffmiddle:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_fftip:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          r_hand_forearm:
+          rh_ffproximal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_lf_J1_dummy:
+          rh_fftip:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          r_hand_lfdistal:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          r_hand_lfknuckle:
+          rh_forearm:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_lfmetacarpal:
+          rh_lf_J1_dummy:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          rh_lfdistal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_lfmiddle:
+          rh_lfknuckle:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_lfproximal:
+          rh_lfmetacarpal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_lftip:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          r_hand_mf_J1_dummy:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          r_hand_mfdistal:
+          rh_lfmiddle:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_mfknuckle:
+          rh_lfproximal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_mfmiddle:
+          rh_lftip:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          rh_mf_J1_dummy:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          rh_mfdistal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_mfproximal:
+          rh_mfknuckle:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_mftip:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          r_hand_palm:
+          rh_mfmiddle:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_rf_J1_dummy:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          r_hand_rfdistal:
+          rh_mfproximal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_rfknuckle:
+          rh_mftip:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          rh_palm:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_rfmiddle:
+          rh_rf_J1_dummy:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          rh_rfdistal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_rfproximal:
+          rh_rfknuckle:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_rftip:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          r_hand_thbase:
+          rh_rfmiddle:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_thdistal:
+          rh_rfproximal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_thdistal_J1_dummy:
+          rh_rftip:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          r_hand_thhub:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          r_hand_thmiddle:
+          rh_thbase:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_thproximal:
+          rh_thdistal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_thtip:
+          rh_thdistal_J1_dummy:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          r_hand_wrist:
+          rh_thhub:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          rh_thmiddle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          rh_thproximal:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          rh_thtip:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          rh_wrist:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -949,172 +949,172 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_adapter_link:
+          rh_adapter_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_ff_J1_dummy:
+          rh_ff_J1_dummy:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          r_hand_ffdistal:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          r_hand_ffknuckle:
+          rh_ffdistal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_ffmiddle:
+          rh_ffknuckle:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_ffproximal:
+          rh_ffmiddle:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_fftip:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          r_hand_forearm:
+          rh_ffproximal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_lf_J1_dummy:
+          rh_fftip:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          r_hand_lfdistal:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          r_hand_lfknuckle:
+          rh_forearm:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_lfmetacarpal:
+          rh_lf_J1_dummy:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          rh_lfdistal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_lfmiddle:
+          rh_lfknuckle:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_lfproximal:
+          rh_lfmetacarpal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_lftip:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          r_hand_mf_J1_dummy:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          r_hand_mfdistal:
+          rh_lfmiddle:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_mfknuckle:
+          rh_lfproximal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_mfmiddle:
+          rh_lftip:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          rh_mf_J1_dummy:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          rh_mfdistal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_mfproximal:
+          rh_mfknuckle:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_mftip:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          r_hand_palm:
+          rh_mfmiddle:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_rf_J1_dummy:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          r_hand_rfdistal:
+          rh_mfproximal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_rfknuckle:
+          rh_mftip:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          rh_palm:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_rfmiddle:
+          rh_rf_J1_dummy:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          rh_rfdistal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_rfproximal:
+          rh_rfknuckle:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_rftip:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          r_hand_thbase:
+          rh_rfmiddle:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_thdistal:
+          rh_rfproximal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_thdistal_J1_dummy:
+          rh_rftip:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          r_hand_thhub:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          r_hand_thmiddle:
+          rh_thbase:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_thproximal:
+          rh_thdistal:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_thtip:
+          rh_thdistal_J1_dummy:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          r_hand_wrist:
+          rh_thhub:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          rh_thmiddle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          rh_thproximal:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          rh_thtip:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          rh_wrist:
             Alpha: 1
             Show Axes: false
             Show Trail: false

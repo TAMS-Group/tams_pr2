@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
   pub= rospy.Publisher('joint_states', sensor_msgs.msg.JointState, queue_size= 1)
 
-  joints= ['r_hand_WRJ2', 'r_hand_WRJ1', 'r_hand_FFJ4', 'r_hand_FFJ3', 'r_hand_FFJ2', 'r_hand_FFJ1', 'r_hand_LFJ5', 'r_hand_LFJ4', 'r_hand_LFJ3', 'r_hand_LFJ2', 'r_hand_LFJ1', 'r_hand_MFJ4', 'r_hand_MFJ3', 'r_hand_MFJ2', 'r_hand_MFJ1', 'r_hand_RFJ4', 'r_hand_RFJ3', 'r_hand_RFJ2', 'r_hand_RFJ1', 'r_hand_THJ5', 'r_hand_THJ4', 'r_hand_THJ3', 'r_hand_THJ2', 'r_hand_THJ1']
+  joints= ['rh_WRJ2', 'rh_WRJ1', 'rh_FFJ4', 'rh_FFJ3', 'rh_FFJ2', 'rh_FFJ1', 'rh_LFJ5', 'rh_LFJ4', 'rh_LFJ3', 'rh_LFJ2', 'rh_LFJ1', 'rh_MFJ4', 'rh_MFJ3', 'rh_MFJ2', 'rh_MFJ1', 'rh_RFJ4', 'rh_RFJ3', 'rh_RFJ2', 'rh_RFJ1', 'rh_THJ5', 'rh_THJ4', 'rh_THJ3', 'rh_THJ2', 'rh_THJ1']
   js= sensor_msgs.msg.JointState(
     name= joints,
     position= [0.0]*len(joints),
