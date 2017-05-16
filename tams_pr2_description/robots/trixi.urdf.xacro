@@ -39,6 +39,7 @@
   <xacro:include filename="$(find tams_pr2_description)/urdf/tams_pr2_shadow_adapter.urdf.xacro" />
   <xacro:include filename="$(find tams_pr2_description)/urdf/xtion_camera.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro"/>
   <xacro:include filename="$(find pr2_description)/urdf/sensors/kinect2.urdf.xacro" />
 
   <!-- Now we can start using the macros included above to define the actual PR2 -->
