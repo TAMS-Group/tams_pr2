@@ -9,6 +9,9 @@
         <param name="port3" type="string" value="/etc/ros/sensors/battery3" />
         <param name="debug_level" type="int" value="0" />
       </node> 
+
+      <!-- Power Monitor (responsible for Dashboard Icon) -->
+      <node machine="c2" pkg="power_monitor" type="power_monitor" name="power_monitor" respawn="true"/>
   
       <!-- Base Laser -->
       <node machine="c2" pkg="hokuyo_node" type="hokuyo_node" name="base_hokuyo_node" args="scan:=base_scan">
