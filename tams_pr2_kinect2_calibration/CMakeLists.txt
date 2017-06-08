@@ -31,6 +31,7 @@ include_directories(
 )
 
 add_executable(calibration_move src/calibration_move.cpp)
+add_dependencies(calibration_move ${PROJECT_NAME}_generate_messages_cpp)
 target_link_libraries(calibration_move ${catkin_LIBRARIES})
 
 install(DIRECTORY launch DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
