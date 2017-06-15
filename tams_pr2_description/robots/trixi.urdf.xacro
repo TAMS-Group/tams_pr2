@@ -42,7 +42,7 @@
   <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro"/>
   <xacro:include filename="$(find pr2_description)/urdf/sensors/kinect2.urdf.xacro" />
   <xacro:include filename="$(find tams_pr2_description)/urdf/turn_gravity_off.urdf.xacro" />
-  <xacro:include filename="$(find tams_pr2_description)/urdf/biotac.urdf.xacro" />
+  <xacro:include filename="$(find tams_motorhand_description)/urdf/tams_motorhand.urdf.xacro" />
 
   <!-- Now we can start using the macros included above to define the actual PR2 -->
 
@@ -91,13 +91,14 @@
   <xacro:tams_pr2_shadow_adapter name="rh_adapter" parent="r_forearm_roll_link">
     <origin xyz="0.118 0 0" rpy="0 0 0" />
   </xacro:tams_pr2_shadow_adapter>
-  <xacro:shadowhand muscletrans="false" muscle="false" bio="true" bt_sp="false" ubi="false" eli="false" reflect="1.0" prefix="rh_" lf="true" />
+  <!-- The Shadow Dexterous Motorhand with BioTacs-->
+  <xacro:tams_motorhand prefix="rh_" />
   <joint name="rh_adapter_hand_joint" type="fixed">
     <parent link="rh_adapter_link" />
 	 <child link="rh_forearm" />
 	 <origin xyz="0 0 0" rpy="0 ${-M_PI/2} ${M_PI}" />
   </joint>
-  <xacro:biotac prefix="rh_" />
+  <!-- This is necessary to simulate the 'floating' of the right arm-->
   <xacro:turn_rh_gravity_off enable="true"/>
 
   <xacro:pr2_shoulder_v0 side="l" reflect="1" parent="torso_lift_link">
