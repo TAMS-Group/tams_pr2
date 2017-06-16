@@ -39,7 +39,9 @@
   <!-- Nodes on top of the controllers -->
   <group ns="l_gripper_controller">
     <node name="gripper_action_node" 
-          pkg="pr2_gripper_action" type="pr2_gripper_action" />
+          pkg="tams_pr2_gripper_action" type="pr2_gripper_action" >
+      <param name="max_effort" value="10000.0" type="double" />
+    </node>
   </group>
   <group ns="head_traj_controller">
     <node name="point_head_action" 

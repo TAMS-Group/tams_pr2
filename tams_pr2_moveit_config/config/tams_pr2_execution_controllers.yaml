@@ -38,18 +38,18 @@ controller_list:
       - r_elbow_flex_joint
       - r_forearm_roll_joint
 
-## gripper currently disabled - we do not use the PR2 controller at the moment
-#  - name: l_gripper_controller
-#    action_ns: gripper_action
-#    default: true
-#    joints:
-#      - l_gripper_joint
-#      - l_gripper_l_finger_joint
-#      - l_gripper_r_finger_joint
-#      - l_gripper_l_finger_tip_joint
-#      - l_gripper_r_finger_tip_joint
-#      - l_gripper_motor_screw_joint
-#      - l_gripper_motor_slider_joint
+  - name: l_gripper_controller
+    action_ns: gripper_action
+    type: GripperCommand
+    default: true
+    joints:
+      - l_gripper_joint
+      - l_gripper_l_finger_joint
+      - l_gripper_r_finger_joint
+      - l_gripper_l_finger_tip_joint
+      - l_gripper_r_finger_tip_joint
+      - l_gripper_motor_screw_joint
+      - l_gripper_motor_slider_joint
 
   - name: rh_trajectory_controller
     action_ns: follow_joint_trajectory
