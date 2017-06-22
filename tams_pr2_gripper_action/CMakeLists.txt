@@ -10,8 +10,9 @@ include_directories(${Boost_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS})
 
 catkin_package()
 
-add_executable(pr2_gripper_action src/pr2_gripper_action.cpp)
-target_link_libraries(pr2_gripper_action ${Boost_LIBRARIES} ${catkin_LIBRARIES})
+add_executable(tams_pr2_gripper_action src/pr2_gripper_action.cpp)
+target_link_libraries(tams_pr2_gripper_action ${Boost_LIBRARIES} ${catkin_LIBRARIES})
+set_target_properties(tams_pr2_gripper_action PROPERTIES OUTPUT_NAME pr2_gripper_action)
 
-install(TARGETS pr2_gripper_action
+install(TARGETS tams_pr2_gripper_action
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
