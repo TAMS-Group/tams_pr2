@@ -1,7 +1,11 @@
 <?xml version="1.0"?>
 <!-- Top-Level launch file -->
 <launch>
+    <!-- run some nodes on c2 -->
     <arg name="c2" default="true"/>
+
+    <!-- Is the real hand running? -->
+    <arg name="with_hand" default="true"/>
 
     <include file="$(find tams_pr2_description)/launch/upload_pr2.launch" />
 
@@ -14,7 +18,7 @@
     </include>
 
     <!-- Stub joint values of right hand -->
-    <node name="right_hand_stub" type="joint_state_publisher_hand.py" pkg="tams_pr2_bringup" />
+    <node name="right_hand_stub" type="joint_state_publisher_hand.py" pkg="tams_pr2_bringup" unless="$(arg with_hand)"/>
 
     <include file="$(find tams_pr2_bringup)/launch/include/teleop.launch" />
 
