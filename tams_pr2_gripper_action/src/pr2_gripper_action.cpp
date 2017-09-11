@@ -138,7 +138,8 @@ private:
     min_error_seen_ = 1e10;
 
     pr2_controllers_msgs::Pr2GripperCommand command = active_goal_.getGoal()->command;
-    command.max_effort = max_effort_;
+    if (command.max_effort == 0)
+        command.max_effort = max_effort_;
 
     // Sends the command along to the controller.
     pub_controller_command_.publish(command);
