@@ -12,7 +12,7 @@
 #include <ros/ros.h>
 
 //moveit includes
-#include <moveit/move_group_interface/move_group.h>
+#include <moveit/move_group_interface/move_group_interface.h>
 #include <moveit_msgs/CollisionObject.h>
 #include <moveit_msgs/ApplyPlanningScene.h>
 
@@ -43,8 +43,8 @@ private:
   ros::NodeHandle nh;
   ros::Publisher marker_pub;
   visualization_msgs::Marker move_space;
-  moveit::planning_interface::MoveGroup left_arm;
-  moveit::planning_interface::MoveGroup right_arm;
+  moveit::planning_interface::MoveGroupInterface left_arm;
+  moveit::planning_interface::MoveGroupInterface right_arm;
 
   geometry_msgs::PointStamped head_point;
   ros::ServiceClient controlService;
@@ -183,7 +183,9 @@ public:
     left_arm.setNumPlanningAttempts(10);
     
     left_arm.setPoseTarget(pose);
-    return left_arm.move();
+    if(left_arm.move())
+      return true;
+    return false;
   }
 
   // Add calibration pattern to move group for collision checking
@@ -229,7 +231,9 @@ public:
   // Move the right arm to the side
   bool move_right_arm_to_side() {
     right_arm.setNamedTarget("right_arm_to_side");
-    return right_arm.move();
+    if(right_arm.move())
+      return true;
+    return false;
   }
 
   // Move the torso to target position, all the way up is 0.325, down is 0.0115
