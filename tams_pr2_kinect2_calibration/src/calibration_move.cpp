@@ -183,7 +183,7 @@ public:
     left_arm.setNumPlanningAttempts(10);
     
     left_arm.setPoseTarget(pose);
-    return left_arm.move();
+    return bool(left_arm.move());
   }
 
   // Add calibration pattern to move group for collision checking
@@ -229,7 +229,7 @@ public:
   // Move the right arm to the side
   bool move_right_arm_to_side() {
     right_arm.setNamedTarget("right_arm_to_side");
-    return right_arm.move();
+    return bool(right_arm.move());
   }
 
   // Move the torso to target position, all the way up is 0.325, down is 0.0115
