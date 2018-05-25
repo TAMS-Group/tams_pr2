@@ -18,10 +18,10 @@
         <joint name="world_joint" />
     </group>
     <group name="left_arm">
-        <chain base_link="torso_lift_link" tip_link="l_wrist_roll_link" />
+        <chain base_link="torso_lift_link" tip_link="l_gripper_tool_frame" />
     </group>
     <group name="left_arm_and_torso">
-        <chain base_link="base_link" tip_link="l_wrist_roll_link" />
+        <chain base_link="base_link" tip_link="l_gripper_tool_frame" />
     </group>
     <group name="right_arm">
         <chain base_link="torso_lift_link" tip_link="r_forearm_roll_link" />
@@ -243,7 +243,7 @@
       <joint name="rh_LFJ5" value="0"/>
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-    <end_effector name="left_gripper" parent_group="left_arm" parent_link="l_wrist_roll_link" group="left_gripper" />
+    <end_effector name="left_gripper" parent_group="left_arm" parent_link="l_gripper_tool_frame" group="left_gripper" />
     <end_effector name="right_hand" parent_group="right_arm" parent_link="r_forearm_roll_link" group="right_hand" />
     <end_effector name="right_hand_ee" parent_group="right_arm_and_hand" parent_link="rh_palm" group="right_hand" />
     <end_effector name="rh_thumb_ee" parent_link="rh_thtip" group="right_thumb" />
