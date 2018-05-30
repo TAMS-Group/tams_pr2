@@ -130,7 +130,7 @@
         <joint name="r_forearm_roll_joint" value="-0.03794768903956753" />
     </group_state>
     <group_state name="open" group="left_gripper">
-        <joint name="l_gripper_joint" value="0.09" />
+        <joint name="l_gripper_joint" value="0.088" />
         <joint name="l_gripper_motor_screw_joint" value="1.0" />
         <joint name="l_gripper_l_finger_joint" value="0.477" />
         <joint name="l_gripper_r_finger_joint" value="0.477" />
