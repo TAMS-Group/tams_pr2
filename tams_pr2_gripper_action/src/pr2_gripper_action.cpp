@@ -53,7 +53,7 @@ public:
     ros::NodeHandle pn("~");
 
     pn.param("goal_threshold", goal_threshold_, 0.01);
-    pn.param("stall_velocity_threshold", stall_velocity_threshold_, 1e-6);
+    pn.param("stall_velocity_threshold", stall_velocity_threshold_, 1e-4);
     pn.param("stall_timeout", stall_timeout_, 0.1);
     pn.param("max_effort", max_effort_, 10000.0);
 
@@ -155,7 +155,7 @@ private:
       {
         pr2_controllers_msgs::Pr2GripperCommand stop;
         stop.position = last_controller_state_->process_value;
-        stop.max_effort = 0.0;
+        stop.max_effort = max_effort_;
         pub_controller_command_.publish(stop);
       }
 
@@ -222,10 +222,10 @@ private:
       else if ((ros::Time::now() - last_movement_time_).toSec() > stall_timeout_ &&
                active_goal_.getGoal()->command.max_effort != 0.0)
       {
-        feedback.stalled = true;
+        feedback.reached_goal = true;
 
-        result.stalled = true;
-        active_goal_.setAborted(result);
+        result.reached_goal = true;
+        active_goal_.setSucceeded(result);
         has_active_goal_ = false;
       }
     }
