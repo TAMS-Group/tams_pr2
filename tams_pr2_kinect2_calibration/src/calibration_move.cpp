@@ -130,7 +130,9 @@ public:
   // Point Head at move space center
   void point_head() {
     pr2_controllers_msgs::PointHeadGoal head_goal;
-    head_goal.target = head_point;
+    geometry_msgs::PointStamped tmp = head_point;
+    tmp.point.z = 0.0;
+    head_goal.target = tmp;
     head_goal.min_duration = ros::Duration(0.5);
     head_goal.max_velocity = 1.0;
     point_head_client_->sendGoal(head_goal);
@@ -275,6 +277,11 @@ int main(int argc, char** argv){
   CalibrationMove calibrationMove;
   //calibrationMove.show_move_space_marker();
 
+  // Wait to proceed
+  std::cout << "Press <enter> to move robot to the initial pose.";
+  std::string throwaway;
+  std::getline(std::cin, throwaway);
+
   //Move torso to upper position
   calibrationMove.move_torso(0.1);
 
@@ -294,63 +301,37 @@ int main(int argc, char** argv){
   }
 
   // Open gripper, wait for pattern, add pattern collision and close gripper
-  bool grabbed_pattern = false;
-  while (!grabbed_pattern) {
-    calibrationMove.gripper_open();
-    ROS_INFO("Pressing [ENTER] will close the gripper after 5 seconds. Please hold the calibration pattern into the gripper.");
-    getchar();
-    ros::Duration(5.0).sleep();
-    calibrationMove.gripper_close();
-    ROS_INFO("Press [r] to retry, [q] to quit or [ENTER] if the pattern is correctly positioned.");
+  std::cout << "Please put the checkerboard in the left hand (open/close the gripper with the joystick's left/right D-Pad buttons). Press <enter> to move to the first pose.";
+  std::getline(std::cin, throwaway);
 
-    bool input_ok = false;
-    while (!input_ok) {
-      system("/bin/stty raw");
-      int user_response = getchar();
-      system("/bin/stty cooked");
-      switch(user_response) {
-        case 'q' :  ROS_INFO("Exiting on user request!");
-                    return 0;
-        case 'r' :  ROS_WARN("Releasing pattern in 5 seconds! Please catch it!");
-                    ros::Duration(5.0).sleep();
-                    input_ok = true;
-                    break;
-        case 13 :   ROS_INFO("Pattern successfully grabbed.");
-                    grabbed_pattern = true;
-                    input_ok = true;
-                    break;
-        default :   ROS_WARN("Keypress not recognized!");
-                    break;
-      }
-    }
-  }
-  int imageCount = 0;
-  ROS_INFO("Current Image Count: %d",imageCount);
+  int image_count = 0;
+  int target_image_count = 100;
+  //ROS_INFO("Current Image Count: %d",image_count);
   calibrationMove.add_pattern_collision();
-  if (calibrationMove.control_request(true, false)) { imageCount++; }
-  ROS_INFO("Current Image Count: %d",imageCount);
-  ros::Duration(0.5).sleep();
+  //if (calibrationMove.control_request(true, false)) { image_count++; }
+  //ROS_INFO("Current Image Count: %d",image_count);
+  //ros::Duration(0.5).sleep();
 
   ros::NodeHandle nh("~");
   bool demo;
   nh.param<bool>("demo", demo, false);
 
   if(!demo) {
-    while (imageCount < 100) {
-      bool move_success = calibrationMove.move_arm();
-      if(move_success) {
-        ROS_INFO("Moved left arm, saving calibration image");
+    while (image_count < target_image_count && ros::ok()) {
+      if(calibrationMove.move_arm()) {
+        ROS_INFO("Moved left arm, try to save calibration image");
         ros::Duration(2.0).sleep();
-        if (calibrationMove.control_request(true, false)) { imageCount++; }
-        ROS_INFO("Current Image Count: %d",imageCount);
+        if (calibrationMove.control_request(true, false))
+          image_count++;
+        ROS_INFO("Current Image Count: %d / %d",image_count, target_image_count);
         ros::Duration(0.5).sleep();
-      } else {
-        ROS_WARN("Could not reach random pose, trying another random pose");
-      }
+      } //else {
+        //ROS_WARN("Could not reach random pose, trying another random pose");
+     // }
     }
   } else {
     while(ros::ok()) {
-      bool move_success = calibrationMove.move_arm();
+      calibrationMove.move_arm();
       ros::Duration(2.0).sleep();
     }
   }
@@ -363,11 +344,7 @@ int main(int argc, char** argv){
   }
 
   // Let go of the pattern
-  ROS_INFO("Calibration complete! Press [ENTER] to release the pattern after 5 seconds. Please catch it!");
-  getchar();
-  ros::Duration(5.0).sleep();
-  calibrationMove.gripper_open();
-  calibrationMove.gripper_close();
+  ROS_INFO("Calibration complete!");
   
   // Exit the calibration node
   calibrationMove.control_request(false, true);
