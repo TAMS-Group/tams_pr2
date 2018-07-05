@@ -17,8 +17,10 @@
         <arg name="no-prosilica" value="true"/>
     </include>
 
-    <!-- Stub joint values of right hand -->
-    <node name="right_hand_stub" type="joint_state_publisher_hand.py" pkg="tams_pr2_bringup" unless="$(arg with_hand)"/>
+    <!--
+    <include file="$(find tams_motorhand)/launch/hand_on_trixi.launch" if="$(arg with_hand)"/>
+    -->
+    <include file="$(find tams_motorhand)/launch/hand_stub_on_trixi.launch" unless="$(arg with_hand)"/>
 
     <include file="$(find tams_pr2_bringup)/launch/include/teleop.launch" />
 
