@@ -25,4 +25,6 @@
     <rosparam file="$(find tams_pr2_bringup)/config/robot.yaml" />
 
     <include file="$(find pr2_bringup)/config/kinect2_bridge.launch"/>
+
+    <include file="$(find tams_pr2_moveit_config)/launch/move_group.launch"/>
 </launch> 
