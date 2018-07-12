@@ -40,7 +40,7 @@
   <group ns="l_gripper_controller">
     <node name="gripper_action_node" 
           pkg="tams_pr2_gripper_action" type="pr2_gripper_action" >
-      <param name="max_effort" value="10000.0" type="double" />
+      <param name="max_effort" value="50.0" type="double" />
     </node>
   </group>
   <group ns="head_traj_controller">

@@ -55,7 +55,7 @@ public:
     pn.param("goal_threshold", goal_threshold_, 0.01);
     pn.param("stall_velocity_threshold", stall_velocity_threshold_, 1e-4);
     pn.param("stall_timeout", stall_timeout_, 0.1);
-    pn.param("max_effort", max_effort_, 10000.0);
+    pn.param("max_effort", max_effort_, 50.0);
 
     pub_controller_command_ =
       node_.advertise<pr2_controllers_msgs::Pr2GripperCommand>("command", 1);
