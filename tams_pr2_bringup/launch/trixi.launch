@@ -17,6 +17,8 @@
         <arg name="no-prosilica" value="true"/>
     </include>
 
+    <include file="$(find tams_pr2_bringup)/launch/include/left_gripper.launch" />
+
     <!--
     <include file="$(find tams_motorhand)/launch/hand_on_trixi.launch" if="$(arg with_hand)"/>
     -->
