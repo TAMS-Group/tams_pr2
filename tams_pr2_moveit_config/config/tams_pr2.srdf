@@ -244,8 +244,7 @@
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="left_gripper" parent_group="left_arm" parent_link="l_gripper_tool_frame" group="left_gripper" />
-    <end_effector name="right_hand" parent_group="right_arm" parent_link="r_forearm_roll_link" group="right_hand" />
-    <end_effector name="right_hand_ee" parent_group="right_arm_and_hand" parent_link="rh_palm" group="right_hand" />
+    <end_effector name="right_hand" parent_group="right_arm_and_hand" parent_link="rh_palm" group="right_hand" />
     <end_effector name="rh_thumb_ee" parent_link="rh_thtip" group="right_thumb" />
     <end_effector name="rh_first_finger_ee" parent_link="rh_fftip" group="right_first_finger" />
     <end_effector name="rh_middle_finger_ee" parent_link="rh_mftip" group="right_middle_finger" />
