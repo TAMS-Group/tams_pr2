@@ -34,7 +34,8 @@
     </group>
     <group name="arms">
         <group name="left_arm" />
-        <group name="right_arm" />
+        <group name="right_arm_and_hand" />
+        <group name="right_fingers" />
     </group>
     <group name="head">
         <joint name="head_pan_joint" />
