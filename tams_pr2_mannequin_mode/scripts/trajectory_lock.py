@@ -40,9 +40,13 @@ import time
 import rospy
 
 from trajectory_msgs.msg import *
+from std_srvs.srv import *
 from pr2_controllers_msgs.msg import *
 
 rospy.init_node("trajectory_lock")
+
+global run
+run = False
 
 if len(sys.argv) < 2:
     print "Using default joint bound of .08 per joint"
@@ -51,6 +55,11 @@ else:
     joint_bounds = [float(x) for x in rospy.myargv()[1:]]
 
 def callback(msg):
+    global run
+    if not run:
+        rospy.sleep(0.1)
+        return
+
     global pub
 
     max_error = max([abs(x) for x in msg.error.positions])
@@ -73,8 +82,19 @@ def callback(msg):
     else:
         print "Small: %.4f" % max_error
 
+def toggle_service(req):
+    global run
+    run = req.data
+    if run:
+        message = "trajectory lock active"
+    else:
+        message = "trajectory lock inactive"
+    return SetBoolResponse(True, message)
+
 global pub
 pub = rospy.Publisher("command", trajectory_msgs.msg.JointTrajectory, queue_size=10)
+
+s = rospy.Service('set_trajectory_lock', SetBool, toggle_service)
 
 rospy.Subscriber("state", pr2_controllers_msgs.msg.JointTrajectoryControllerState, callback)
 
