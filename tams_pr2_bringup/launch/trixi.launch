@@ -31,4 +31,7 @@
     <include file="$(find pr2_bringup)/config/kinect2_bridge.launch"/>
 
     <include file="$(find tams_pr2_moveit_config)/launch/move_group.launch"/>
+
+    <!-- TAMS-specific service-based mannequin mode -->
+    <include file="$(find tams_pr2_mannequin_mode)/launch/pr2_mannequin_mode.launch"/>
 </launch> 
