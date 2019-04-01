@@ -32,6 +32,10 @@
     <group name="right_arm_and_torso">
         <chain base_link="base_link" tip_link="r_forearm_roll_link" />
     </group>
+    <group name="arms_pr2">
+        <group name="left_arm" />
+        <group name="right_arm" />
+    </group>
     <group name="arms">
         <group name="left_arm" />
         <group name="right_arm_and_hand" />
