@@ -220,7 +220,7 @@ private:
         last_movement_time_ = ros::Time::now();
       }
       else if ((ros::Time::now() - last_movement_time_).toSec() > stall_timeout_ &&
-               active_goal_.getGoal()->command.max_effort != 0.0)
+               (active_goal_.getGoal()->command.max_effort != 0.0 || max_effort_ != 0.0) /* TODO: fix this by specifying forces in trajectory */)
       {
         feedback.reached_goal = true;
 
