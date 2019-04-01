@@ -13,3 +13,8 @@ torso_controller:
   position_joint_action_node:
     joint: torso_lift_joint
     goal_threshold: 0.01
+  joint_trajectory_action_node:
+    constraints:
+      goal_time: 2.0
+      torso_lift_joint:
+        goal: 0.01
