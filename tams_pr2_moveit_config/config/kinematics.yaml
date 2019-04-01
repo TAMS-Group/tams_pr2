@@ -3,6 +3,7 @@ left_arm:
   kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.05
   kinematics_solver_attempts: 1
+  mode: gd_c
 
 right_arm:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
