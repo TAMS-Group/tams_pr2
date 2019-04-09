@@ -14,9 +14,11 @@
         <group name="right_arm"/>
     </group>
 
+    <!--
     <group name="base">
         <joint name="world_joint" />
     </group>
+    -->
     <group name="left_arm">
         <chain base_link="torso_lift_link" tip_link="l_gripper_tool_frame" />
     </group>
@@ -289,7 +291,7 @@
     <end_effector name="rh_ring_finger_ee" parent_link="rh_rftip" group="right_ring_finger" />
     <end_effector name="rh_little_finger_ee" parent_link="rh_lftip" group="right_little_finger" />
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
-    <virtual_joint name="world_joint" type="floating" parent_frame="odom_combined" child_link="base_footprint" />
+    <!-- <virtual_joint name="world_joint" type="floating" parent_frame="odom_combined" child_link="base_footprint" /> -->
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="base_bellow_link" link2="base_footprint" reason="Never" />
     <disable_collisions link1="base_bellow_link" link2="base_link" reason="Adjacent" />
