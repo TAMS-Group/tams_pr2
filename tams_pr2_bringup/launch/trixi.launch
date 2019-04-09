@@ -32,6 +32,9 @@
 
     <include file="$(find tams_pr2_moveit_config)/launch/move_group.launch"/>
 
+    <rosparam file="$(find pr2_gripper_sensor_controller)/launch/pr2_gripper_sensor_controller_left.yaml" command="load" />
+    <node pkg="pr2_controller_manager" type="spawner" args="l_gripper_sensor_controller" name="l_gripper_sensor_controller_spawner" />
+
     <!-- TAMS-specific service-based mannequin mode -->
     <include file="$(find tams_pr2_mannequin_mode)/launch/pr2_mannequin_mode.launch"/>
 </launch> 
