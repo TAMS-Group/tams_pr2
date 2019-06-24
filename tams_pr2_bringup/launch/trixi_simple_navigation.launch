@@ -9,6 +9,6 @@
     <include file="$(find move_base_interpolate)/launch/move_base_interpolate.launch"/>
 
     <rosparam ns="move_base">
-legal_area: [0,0,0,1,1,1,1,0]
+legal_area: [-49.92,61.39, -48.39,61.37, -47.77,63.21, -50.54,63.09]
     </rosparam>
 </launch>
