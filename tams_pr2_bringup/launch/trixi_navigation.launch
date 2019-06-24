@@ -3,8 +3,11 @@
     <include file="$(find pr2_machine)/pr2.machine"/>
     <include file="$(find pr2_navigation_global)/amcl_node.xml"/>
     <include file="$(find pr2_navigation_perception)/lasers_and_filters.xml"/>
+<!--
     <include file="$(find pr2_navigation_perception)/ground_plane.xml"/>
-    <node name="map_server" pkg="map_server" type="map_server" args="$(find tams_maps)/maps/ikum_f2_pr2_localization.pgm 0.05" machine="c2" />
+-->
+
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find tams_maps)/maps/ikum_f2_pr2_localization.yaml" machine="c2" />
 
 <!-- our copy of move_base.xml
     <include file="$(find pr2_navigation_global)/move_base.xml"/>
