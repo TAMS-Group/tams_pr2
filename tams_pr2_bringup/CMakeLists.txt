@@ -11,5 +11,4 @@ catkin_install_python(
   PROGRAMS
     scripts/calibrate_pr2.py
     scripts/calibrate_right_arm.py
-    scripts/joint_state_publisher_hand.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})

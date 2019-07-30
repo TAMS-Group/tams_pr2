@@ -20,7 +20,6 @@
 
     <!-- launches the calibration_move node for each time that images should be recorded -->
     <group if="$(arg record)">
-        <include file="$(find tams_pr2_moveit_config)/launch/move_group.launch" />
         <node name="calibration_move" type="calibration_move" pkg="tams_pr2_kinect2_calibration" output="screen" />
         <node name="kinect2_calibration_steps" type="kinect2_calibration" pkg="kinect2_calibration" args="$(arg pattern) -path $(arg path) record $(arg type) headless" machine="pr2-head" output="screen"/>
     </group>

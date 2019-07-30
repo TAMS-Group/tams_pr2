@@ -14,9 +14,11 @@
         <group name="right_arm"/>
     </group>
 
+    <!--
     <group name="base">
         <joint name="world_joint" />
     </group>
+    -->
     <group name="left_arm">
         <chain base_link="torso_lift_link" tip_link="l_gripper_tool_frame" />
     </group>
@@ -32,9 +34,14 @@
     <group name="right_arm_and_torso">
         <chain base_link="base_link" tip_link="r_forearm_roll_link" />
     </group>
-    <group name="arms">
+    <group name="arms_pr2">
         <group name="left_arm" />
         <group name="right_arm" />
+    </group>
+    <group name="arms">
+        <group name="left_arm" />
+        <group name="right_arm_and_hand" />
+        <group name="right_fingers" />
     </group>
     <group name="head">
         <joint name="head_pan_joint" />
@@ -129,8 +136,17 @@
         <joint name="r_elbow_flex_joint" value="-1.8672258422629988" />
         <joint name="r_forearm_roll_joint" value="-0.03794768903956753" />
     </group_state>
+    <group_state name="left_arm_to_side" group="left_arm">
+        <joint name="l_shoulder_pan_joint" value="1.53023121373216" />
+        <joint name="l_shoulder_lift_joint" value="0.5787984638806788" />
+        <joint name="l_upper_arm_roll_joint" value="-0.08518796513181504" />
+        <joint name="l_elbow_flex_joint" value="-1.8672258422629988" />
+        <joint name="l_forearm_roll_joint" value="0.03794768903956753" />
+        <joint name="l_wrist_flex_joint" value="0.0" />
+        <joint name="l_wrist_roll_joint" value="1.0" />
+    </group_state>
     <group_state name="open" group="left_gripper">
-        <joint name="l_gripper_joint" value="0.09" />
+        <joint name="l_gripper_joint" value="0.088" />
         <joint name="l_gripper_motor_screw_joint" value="1.0" />
         <joint name="l_gripper_l_finger_joint" value="0.477" />
         <joint name="l_gripper_r_finger_joint" value="0.477" />
@@ -179,6 +195,30 @@
       <joint name="rh_FFJ1" value="0.35"/>
       <joint name="rh_FFJ2" value="1.5707"/>
       <joint name="rh_FFJ3" value="1.5707"/>
+      <joint name="rh_FFJ4" value="0"/>
+      <joint name="rh_MFJ1" value="0.35"/>
+      <joint name="rh_MFJ2" value="1.5707"/>
+      <joint name="rh_MFJ3" value="1.5707"/>
+      <joint name="rh_MFJ4" value="0"/>
+      <joint name="rh_RFJ1" value="0.35"/>
+      <joint name="rh_RFJ2" value="1.5707"/>
+      <joint name="rh_RFJ3" value="1.5707"/>
+      <joint name="rh_RFJ4" value="0"/>
+      <joint name="rh_LFJ1" value="0.35"/>
+      <joint name="rh_LFJ2" value="1.5707"/>
+      <joint name="rh_LFJ3" value="1.5707"/>
+      <joint name="rh_LFJ4" value="0"/>
+      <joint name="rh_LFJ5" value="0"/>
+    </group_state>
+    <group_state group="right_hand" name="pointing">
+      <joint name="rh_THJ1" value="0.35"/>
+      <joint name="rh_THJ2" value="-0.12"/>
+      <joint name="rh_THJ3" value="0.00"/>
+      <joint name="rh_THJ4" value="0.05"/>
+      <joint name="rh_THJ5" value="-0.45"/>
+      <joint name="rh_FFJ1" value="0.35"/>
+      <joint name="rh_FFJ2" value="0"/>
+      <joint name="rh_FFJ3" value="0"/>
       <joint name="rh_FFJ4" value="0"/>
       <joint name="rh_MFJ1" value="0.35"/>
       <joint name="rh_MFJ2" value="1.5707"/>
@@ -244,15 +284,14 @@
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="left_gripper" parent_group="left_arm" parent_link="l_gripper_tool_frame" group="left_gripper" />
-    <end_effector name="right_hand" parent_group="right_arm" parent_link="r_forearm_roll_link" group="right_hand" />
-    <end_effector name="right_hand_ee" parent_group="right_arm_and_hand" parent_link="rh_palm" group="right_hand" />
+    <end_effector name="right_hand" parent_group="right_arm_and_hand" parent_link="rh_palm" group="right_hand" />
     <end_effector name="rh_thumb_ee" parent_link="rh_thtip" group="right_thumb" />
     <end_effector name="rh_first_finger_ee" parent_link="rh_fftip" group="right_first_finger" />
     <end_effector name="rh_middle_finger_ee" parent_link="rh_mftip" group="right_middle_finger" />
     <end_effector name="rh_ring_finger_ee" parent_link="rh_rftip" group="right_ring_finger" />
     <end_effector name="rh_little_finger_ee" parent_link="rh_lftip" group="right_little_finger" />
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
-    <virtual_joint name="world_joint" type="planar" parent_frame="odom_combined" child_link="base_footprint" />
+    <!-- <virtual_joint name="world_joint" type="floating" parent_frame="odom_combined" child_link="base_footprint" /> -->
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="base_bellow_link" link2="base_footprint" reason="Never" />
     <disable_collisions link1="base_bellow_link" link2="base_link" reason="Adjacent" />
