@@ -34,6 +34,8 @@
 //calibration control service
 #include <tams_pr2_kinect2_calibration/Kinect2CalibrationControl.h>
 
+#include <tf/transform_datatypes.h>
+
 class CalibrationMove {
 private:
   actionlib::SimpleActionClient<pr2_controllers_msgs::PointHeadAction>* point_head_client_;
