@@ -282,6 +282,59 @@
       <joint name="rh_LFJ4" value="0"/>
       <joint name="rh_LFJ5" value="0"/>
     </group_state>
+    <group_state group="right_hand" name="open_tripod">
+      <joint name="rh_FFJ1" value="0.349065850398866"/>
+      <joint name="rh_FFJ2" value="0.00233423656826747"/>
+      <joint name="rh_FFJ3" value="0.751208021369652"/>
+      <joint name="rh_FFJ4" value="-0.296542765941605"/>
+      <joint name="rh_LFJ1" value="0.349065850398866"/>
+      <joint name="rh_LFJ2" value="0.00512939694324926"/>
+      <joint name="rh_LFJ3" value="0.400658648331157"/>
+      <joint name="rh_LFJ4" value="-0.355267328836023"/>
+      <joint name="rh_LFJ5" value="0.0420642576487023"/>
+      <joint name="rh_MFJ1" value="0.349065850398866"/>
+      <joint name="rh_MFJ2" value="0.36670758406425"/>
+      <joint name="rh_MFJ3" value="0.655430902183515"/>
+      <joint name="rh_MFJ4" value="0.475488181002691"/>
+      <joint name="rh_RFJ1" value="0.349065850398866"/>
+      <joint name="rh_RFJ2" value="0.231464069066112"/>
+      <joint name="rh_RFJ3" value="0.525232370493002"/>
+      <joint name="rh_RFJ4" value="-0.266104592078405"/>
+      <joint name="rh_THJ1" value="0.349065850398866"/>
+      <joint name="rh_THJ2" value="0.623211336453958"/>
+      <joint name="rh_THJ3" value="0.135011808651831"/>
+      <joint name="rh_THJ4" value="1.04904658858148"/>
+      <joint name="rh_THJ5" value="-1.09287335496744"/>
+      <joint name="rh_WRJ1" value="-0.22723142661999"/>
+      <joint name="rh_WRJ2" value="-0.0890397650488657"/>
+    </group_state>
+    <group_state group="right_hand" name="close_tripod">
+      <joint name="rh_FFJ1" value="0.349065850398866"/>
+      <joint name="rh_FFJ2" value="0.672611170979583"/>
+      <joint name="rh_FFJ3" value="0.882528011583134"/>
+      <joint name="rh_FFJ4" value="-0.281803246579935"/>
+      <joint name="rh_LFJ1" value="0.349065850398866"/>
+      <joint name="rh_LFJ2" value="0.0154225011771942"/>
+      <joint name="rh_LFJ3" value="0.399794209578095"/>
+      <joint name="rh_LFJ4" value="-0.358903744260485"/>
+      <joint name="rh_LFJ5" value="0.316271240830279"/>
+      <joint name="rh_MFJ1" value="0.349065850398866"/>
+      <joint name="rh_MFJ2" value="0.737371343309838"/>
+      <joint name="rh_MFJ3" value="0.948677262991753"/>
+      <joint name="rh_MFJ4" value="0.505555252911946"/>
+      <joint name="rh_RFJ1" value="0.349065850398866"/>
+      <joint name="rh_RFJ2" value="0.218199652500719"/>
+      <joint name="rh_RFJ3" value="0.515865496218105"/>
+      <joint name="rh_RFJ4" value="-0.287650097276203"/>
+      <joint name="rh_THJ1" value="0.349065850398866"/>
+      <joint name="rh_THJ2" value="0.701711164847682"/>
+      <joint name="rh_THJ3" value="0.195525701768318"/>
+      <joint name="rh_THJ4" value="1.06240816782446"/>
+      <joint name="rh_THJ5" value="-0.185815934826781"/>
+      <joint name="rh_WRJ1" value="-0.091197323115242"/>
+      <joint name="rh_WRJ2" value="-0.0882959918506587"/>
+    </group_state>
+
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="left_gripper" parent_group="left_arm" parent_link="l_gripper_tool_frame" group="left_gripper" />
     <end_effector name="right_hand" parent_group="right_arm_and_hand" parent_link="rh_palm" group="right_hand" />
