@@ -136,6 +136,13 @@
         <joint name="r_elbow_flex_joint" value="-1.8672258422629988" />
         <joint name="r_forearm_roll_joint" value="-0.03794768903956753" />
     </group_state>
+    <group_state name="right_arm_pointing forward" group="right_arm">
+        <joint name="r_shoulder_pan_joint" value="-0.21015029706016095" />
+        <joint name="r_shoulder_lift_joint" value="0.2061607482362476" />
+        <joint name="r_upper_arm_roll_joint" value="-0.8412942510753956" />
+        <joint name="r_elbow_flex_joint" value="-0.8539398145176411" />
+        <joint name="r_forearm_roll_joint" value="-0.3294727974415822" />
+    </group_state>
     <group_state name="left_arm_to_side" group="left_arm">
         <joint name="l_shoulder_pan_joint" value="1.53023121373216" />
         <joint name="l_shoulder_lift_joint" value="0.5787984638806788" />
