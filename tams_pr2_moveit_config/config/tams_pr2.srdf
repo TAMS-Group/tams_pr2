@@ -316,7 +316,7 @@
     <group_state group="right_hand" name="close_tripod">
       <joint name="rh_FFJ1" value="0.349065850398866"/>
       <joint name="rh_FFJ2" value="0.672611170979583"/>
-      <joint name="rh_FFJ3" value="0.942528011583134"/>
+      <joint name="rh_FFJ3" value="0.992528011583134"/>
       <joint name="rh_FFJ4" value="-0.281803246579935"/>
       <joint name="rh_LFJ1" value="0.349065850398866"/>
       <joint name="rh_LFJ2" value="0.0154225011771942"/>
@@ -325,7 +325,7 @@
       <joint name="rh_LFJ5" value="0.316271240830279"/>
       <joint name="rh_MFJ1" value="0.349065850398866"/>
       <joint name="rh_MFJ2" value="0.737371343309838"/>
-      <joint name="rh_MFJ3" value="0.998677262991753"/>
+      <joint name="rh_MFJ3" value="1.048677262991753"/>
       <joint name="rh_MFJ4" value="0.505555252911946"/>
       <joint name="rh_RFJ1" value="0.349065850398866"/>
       <joint name="rh_RFJ2" value="0.218199652500719"/>
@@ -335,7 +335,7 @@
       <joint name="rh_THJ2" value="0.701711164847682"/>
       <joint name="rh_THJ3" value="0.195525701768318"/>
       <joint name="rh_THJ4" value="1.06240816782446"/>
-      <joint name="rh_THJ5" value="-0.185815934826781"/>
+      <joint name="rh_THJ5" value="-0.105815934826781"/>
     </group_state>
 
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
