@@ -37,4 +37,12 @@
 
     <!-- TAMS-specific service-based mannequin mode -->
     <include file="$(find tams_pr2_mannequin_mode)/launch/pr2_mannequin_mode.launch"/>
+
+    <!-- Shadow-Hand infrastructure on C2 -->
+    <!-- Start `roslaunch` on C2 to interpret launch parameters there -->
+    <include file="$(find tams_pr2_bringup)/launch/remote.launch">
+        <arg name="machine" value="c2" />
+        <arg name="pkg" value="tams_motorhand" />
+        <arg name="launch" value="hand_on_trixi.launch" />
+    </include>
 </launch> 
