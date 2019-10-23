@@ -40,7 +40,7 @@
 
     <!-- Shadow-Hand infrastructure on C2 -->
     <!-- Start `roslaunch` on C2 to interpret launch parameters there -->
-    <include file="$(find tams_pr2_bringup)/launch/remote.launch">
+    <include file="$(find tams_pr2_bringup)/launch/remote.launch" if="$(arg with_hand)">
         <arg name="machine" value="c2" />
         <arg name="pkg" value="tams_motorhand" />
         <arg name="launch" value="hand_on_trixi.launch" />
