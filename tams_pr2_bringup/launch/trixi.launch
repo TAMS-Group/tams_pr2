@@ -6,6 +6,7 @@
 
     <!-- Is the real hand running? -->
     <arg name="with_hand" default="true"/>
+    <arg name="no_stub" default="$(arg with_hand)"/>
 
     <include file="$(find tams_pr2_description)/launch/upload_pr2.launch" />
 
@@ -22,7 +23,7 @@
     <!--
     <include file="$(find tams_motorhand)/launch/hand_on_trixi.launch" if="$(arg with_hand)"/>
     -->
-    <include file="$(find tams_motorhand)/launch/hand_stub_on_trixi.launch" unless="$(arg with_hand)"/>
+    <include file="$(find tams_motorhand)/launch/hand_stub_on_trixi.launch" unless="$(arg no_stub)"/>
 
     <include file="$(find tams_pr2_bringup)/launch/include/teleop.launch" />
 
