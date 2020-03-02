@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-    <include file="$(find tams_pr2_moveit_config)/launch/move_group.launch" />
-    <node name="calibration_move" type="calibration_move" pkg="tams_pr2_kinect2_calibration" output="screen">
-        <param name="demo" value="true" />
-    </node>
-</launch>
