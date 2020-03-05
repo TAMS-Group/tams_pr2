@@ -1,67 +1,79 @@
+right_arm_and_fingers:
+  kinematics_solver: bio_ik/BioIKKinematicsPlugin
+  kinematics_solver_search_resolution: 0.005
+  kinematics_solver_timeout: 0.005
 left_arm:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
   kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.05
-  kinematics_solver_attempts: 1
   mode: gd_c
-
+left_arm_and_torso:
+  kinematics_solver: bio_ik/BioIKKinematicsPlugin
+  kinematics_solver_search_resolution: 0.005
+  kinematics_solver_timeout: 0.005
 right_arm:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
   kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.05
-  kinematics_solver_attempts: 1
   mode: gd_c
-
 right_arm_and_hand:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
   kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.05
-  kinematics_solver_attempts: 1
   mode: gd_c
-
+right_arm_and_torso:
+  kinematics_solver: bio_ik/BioIKKinematicsPlugin
+  kinematics_solver_search_resolution: 0.005
+  kinematics_solver_timeout: 0.005
+arms_pr2:
+  kinematics_solver: bio_ik/BioIKKinematicsPlugin
+  kinematics_solver_search_resolution: 0.005
+  kinematics_solver_timeout: 0.005
 arms:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
   kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.05
-  kinematics_solver_attempts: 1
-
 head:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
   kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.005
-  kinematics_solver_attempts: 1
-
+torso:
+  kinematics_solver: bio_ik/BioIKKinematicsPlugin
+  kinematics_solver_search_resolution: 0.005
+  kinematics_solver_timeout: 0.005
+arms_and_torso:
+  kinematics_solver: bio_ik/BioIKKinematicsPlugin
+  kinematics_solver_search_resolution: 0.005
+  kinematics_solver_timeout: 0.005
 right_wrist:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
+  kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.005
-  position_only_ik: true
-
 right_first_finger:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
+  kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.005
-  position_only_ik: true
-  tip_name: fftip
-
 right_middle_finger:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
+  kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.005
-  position_only_ik: true
-  tip_name: mftip
-
 right_ring_finger:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
+  kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.005
-  position_only_ik: true
-  tip_name: rftip
-
 right_little_finger:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
+  kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.005
-  position_only_ik: true
-  tip_name: lftip
-
 right_thumb:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
+  kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.005
-  position_only_ik: true
-  tip_name: thtip
+right_fingers:
+  kinematics_solver: bio_ik/BioIKKinematicsPlugin
+  kinematics_solver_search_resolution: 0.005
+  kinematics_solver_timeout: 0.005
+right_hand:
+  kinematics_solver: bio_ik/BioIKKinematicsPlugin
+  kinematics_solver_search_resolution: 0.005
+  kinematics_solver_timeout: 0.005
