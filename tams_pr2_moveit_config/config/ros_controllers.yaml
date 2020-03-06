@@ -22,6 +22,7 @@ hardware_interface:
     - fr_caster_l_wheel_joint
     - fr_caster_r_wheel_joint
     - torso_lift_joint
+    - torso_lift_motor_screw_joint
     - head_pan_joint
     - head_tilt_joint
     - l_shoulder_pan_joint
@@ -65,84 +66,298 @@ hardware_interface:
     - rh_THJ3
     - rh_THJ2
     - rh_THJ1
-    - torso_lift_motor_screw_joint
-  sim_control_mode: 1  # 0: position, 1: velocity
+  sim_control_mode: 0  # 0: position, 1: velocity
 # Publish all joint states
 # Creates the /joint_states topic necessary in ROS
 joint_state_controller:
   type: joint_state_controller/JointStateController
   publish_rate: 50
-controller_list:
-  - name: l_arm_controller
-    action_ns: follow_joint_trajectory
-    default: True
-    type: FollowJointTrajectory
-    joints:
-      - l_shoulder_pan_joint
-      - l_shoulder_lift_joint
-      - l_upper_arm_roll_joint
-      - l_elbow_flex_joint
-      - l_forearm_roll_joint
-      - l_wrist_flex_joint
-      - l_wrist_roll_joint
-  - name: r_arm_controller
-    action_ns: follow_joint_trajectory
-    default: True
-    type: FollowJointTrajectory
-    joints:
-      - r_shoulder_pan_joint
-      - r_shoulder_lift_joint
-      - r_upper_arm_roll_joint
-      - r_elbow_flex_joint
-      - r_forearm_roll_joint
-  - name: head_traj_controller
-    action_ns: follow_joint_trajectory
-    default: True
-    type: FollowJointTrajectory
-    joints:
-      - head_pan_joint
-      - head_tilt_joint
-  - name: torso_controller
-    action_ns: follow_joint_trajectory
-    default: True
-    type: FollowJointTrajectory
-    joints:
-      []
-  - name: l_gripper_controller
-    action_ns: follow_joint_trajectory
-    default: True
-    type: FollowJointTrajectory
-    joints:
-      - l_gripper_l_finger_joint
-      - l_gripper_motor_slider_joint
-      - l_gripper_motor_screw_joint
-      - l_gripper_joint
-  - name: hand/rh_trajectory_controller
-    action_ns: follow_joint_trajectory
-    default: True
-    type: FollowJointTrajectory
-    joints:
-      - rh_WRJ2
-      - rh_WRJ1
-      - rh_FFJ4
-      - rh_FFJ3
-      - rh_FFJ2
-      - rh_FFJ1
-      - rh_LFJ5
-      - rh_LFJ4
-      - rh_LFJ3
-      - rh_LFJ2
-      - rh_LFJ1
-      - rh_MFJ4
-      - rh_MFJ3
-      - rh_MFJ2
-      - rh_MFJ1
-      - rh_RFJ4
-      - rh_RFJ3
-      - rh_RFJ2
-      - rh_RFJ1
-      - rh_THJ5
-      - rh_THJ4
-      - rh_THJ3
-      - rh_THJ2
-      - rh_THJ1
+l_arm_controller:
+  type: velocity_controllers/JointTrajectoryController
+  joints:
+    - l_shoulder_pan_joint
+    - l_shoulder_lift_joint
+    - l_upper_arm_roll_joint
+    - l_elbow_flex_joint
+    - l_forearm_roll_joint
+    - l_wrist_flex_joint
+    - l_wrist_roll_joint
+  gains:
+    l_shoulder_pan_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    l_shoulder_lift_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    l_upper_arm_roll_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    l_elbow_flex_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    l_forearm_roll_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    l_wrist_flex_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    l_wrist_roll_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+r_arm_controller:
+  type: velocity_controllers/JointTrajectoryController
+  joints:
+    - r_shoulder_pan_joint
+    - r_shoulder_lift_joint
+    - r_upper_arm_roll_joint
+    - r_elbow_flex_joint
+    - r_forearm_roll_joint
+  gains:
+    r_shoulder_pan_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r_shoulder_lift_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r_upper_arm_roll_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r_elbow_flex_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r_forearm_roll_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+head_traj_controller:
+  type: velocity_controllers/JointTrajectoryController
+  joints:
+    - head_pan_joint
+    - head_tilt_joint
+  gains:
+    head_pan_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    head_tilt_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+l_gripper_controller:
+  type: position_controllers/GripperActionController
+  joint: l_gripper_joint
+  joints:
+    - l_gripper_l_finger_joint
+    - l_gripper_motor_slider_joint
+    - l_gripper_motor_screw_joint
+    - l_gripper_joint
+  gains:
+    l_gripper_l_finger_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    l_gripper_motor_slider_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    l_gripper_motor_screw_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    l_gripper_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+rh_trajectory_controller:
+  type: velocity_controllers/JointTrajectoryController
+  joints:
+    - rh_WRJ2
+    - rh_WRJ1
+    - rh_FFJ4
+    - rh_FFJ3
+    - rh_FFJ2
+    - rh_FFJ1
+    - rh_LFJ5
+    - rh_LFJ4
+    - rh_LFJ3
+    - rh_LFJ2
+    - rh_LFJ1
+    - rh_MFJ4
+    - rh_MFJ3
+    - rh_MFJ2
+    - rh_MFJ1
+    - rh_RFJ4
+    - rh_RFJ3
+    - rh_RFJ2
+    - rh_RFJ1
+    - rh_THJ5
+    - rh_THJ4
+    - rh_THJ3
+    - rh_THJ2
+    - rh_THJ1
+  gains:
+    rh_WRJ2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_WRJ1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_FFJ4:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_FFJ3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_FFJ2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_FFJ1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_LFJ5:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_LFJ4:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_LFJ3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_LFJ2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_LFJ1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_MFJ4:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_MFJ3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_MFJ2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_MFJ1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_RFJ4:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_RFJ3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_RFJ2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_RFJ1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_THJ5:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_THJ4:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_THJ3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_THJ2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_THJ1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+torso_controller:
+  type: velocity_controllers/JointTrajectoryController
+  joints:
+    - torso_lift_joint
+    - torso_lift_motor_screw_joint
+  gains:
+    torso_lift_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    torso_lift_motor_screw_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
