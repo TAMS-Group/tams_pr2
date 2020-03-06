@@ -263,3 +263,12 @@ controller_list:
       - rh_THJ3
       - rh_THJ2
       - rh_THJ1
+initial:  # Define initial robot poses.
+  - group: left_arm
+    pose: left_arm_to_side
+  - group: right_arm
+    pose: right_arm_to_side
+  - group: left_gripper
+    pose: open
+  - group: right_hand
+    pose: open
