@@ -24,6 +24,13 @@
         </geometry>
         <material name="Grey"/>
       </visual>
+      <collision>
+        <origin rpy="0 0 0" xyz="0 0 -0.0120"/>
+        <geometry>
+         <cylinder length="0.0356" radius="0.0225"/>
+        </geometry>
+        <material name="Grey"/>
+      </collision>
     </link>
   </xacro:macro>
 

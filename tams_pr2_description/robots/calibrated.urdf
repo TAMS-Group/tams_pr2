@@ -1563,13 +1563,6 @@
       <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.01" />
     </inertial>
     <!-- Should probably get real visuals here at some point -->
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <box size="0.01 0.01 0.01" />
-      </geometry>
-      <material name="Blue" />
-    </visual>
   </link>
   <!-- Prosilica Camera -->
   <joint name="high_def_frame_joint" type="fixed">
@@ -1647,14 +1640,6 @@
       <origin rpy="0 0 0" xyz="0 0 0" />
       <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.01" />
     </inertial>
-    <!-- Should probably get real visuals here at some point -->
-    <visual>
-      <origin rpy="0 0 0" xyz="-0.01 0 0.025" />
-      <geometry>
-        <box size="0.02 0.12 0.05" />
-      </geometry>
-      <material name="Blue" />
-    </visual>
   </link>
   <!-- Wide camera is on robot right (hca1), narrow on left (hca2)? -->
   <!-- 15mm offset from center needs check with CAD -->
@@ -4885,6 +4870,13 @@
       </geometry>
       <material name="Grey" />
     </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 -0.0120" />
+      <geometry>
+        <cylinder length="0.0356" radius="0.0225" />
+      </geometry>
+      <material name="Grey" />
+    </collision>
   </link>
   <!-- extensions-->
   <gazebo reference="l_forearm_link">
