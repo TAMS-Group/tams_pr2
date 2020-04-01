@@ -2,13 +2,15 @@
 <launch>
   <arg name="hand_id" default="rh"/>
   <arg name="hand_trajectory" default="true"/>
-  <arg name="hand_serial" default="1322"/>
+  <arg name="hand_serial" default="554"/>
 
   <arg name="gui" default="true"/>
   <arg name="paused" value="false"/>
 
+  <param name="/use_sim_time" value="true"/>
+
   <!-- robot description -->
-  <include file="$(find tams_pr2_description)/launch/upload_pr2.launch" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(find tams_pr2_description)/robots/trixi.urdf.xacro'" />
 
   <param name="/hand/mapping/$(arg hand_serial)" value="$(arg hand_id)"/>
   <param name="/hand/joint_prefix/$(arg hand_serial)" value="$(arg hand_id)_"/>
@@ -17,10 +19,10 @@
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="gui" default="$(arg gui)"/>
     <arg name="paused" value="$(arg paused)"/>
-    <arg name="world_name" value ="$(find tams_pr2_simulation)/worlds/tams_lab.world"/>
+    <arg name="world_name" value ="$(find tams_pr2_simulation)/worlds/empty.world"/>
   </include>
 
-  <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" args="$(optenv ROBOT_INITIAL_POSE) -urdf -param robot_description -model trixi -ros_namespace /gazebo -J r_elbow_flex_joint -1.7 -J head_tilt_joint 0.5" respawn="false" output="screen" />
+  <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" args="$(optenv ROBOT_INITIAL_POSE) -urdf -param robot_description -model trixi -J r_elbow_flex_joint -1.7 -J head_tilt_joint 0.5" respawn="false" output="screen" />
 
   <include file="$(find tams_pr2_simulation)/launch/pr2_bringup.launch" />
 
