@@ -34,6 +34,7 @@
   <!-- Hand trajectory controller -->
   <node name="$(arg hand_id)_trajectory_controller" pkg="sr_utilities" type="trajectory_controller_spawner.py" output="screen">
     <param name="hand_trajectory" value ="$(arg hand_trajectory)"/>
+    <param name="service_timeout" value ="260"/>
   </node>
 
   <!-- Shadow Hand joint state controller. We can't use the ros_ethercat launch
