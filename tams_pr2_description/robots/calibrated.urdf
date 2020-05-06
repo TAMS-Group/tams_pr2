@@ -1563,13 +1563,6 @@
       <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.01" />
     </inertial>
     <!-- Should probably get real visuals here at some point -->
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <box size="0.01 0.01 0.01" />
-      </geometry>
-      <material name="Blue" />
-    </visual>
   </link>
   <!-- Prosilica Camera -->
   <joint name="high_def_frame_joint" type="fixed">
@@ -1647,14 +1640,6 @@
       <origin rpy="0 0 0" xyz="0 0 0" />
       <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.01" />
     </inertial>
-    <!-- Should probably get real visuals here at some point -->
-    <visual>
-      <origin rpy="0 0 0" xyz="-0.01 0 0.025" />
-      <geometry>
-        <box size="0.02 0.12 0.05" />
-      </geometry>
-      <material name="Blue" />
-    </visual>
   </link>
   <!-- Wide camera is on robot right (hca1), narrow on left (hca2)? -->
   <!-- 15mm offset from center needs check with CAD -->
@@ -1992,141 +1977,12 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0 0.0 0" />
+      <origin xyz="-0.02 -0.023 0.01" rpy="0 0 0"/>
       <geometry>
-        <sphere radius="0.1" />
+        <box size="0.04 0.19 0.03" />
       </geometry>
     </collision>
   </link>
-  <joint name="head_mount_kinect_ir_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.032267 0.0125 0.136453" />
-    <parent link="head_mount_link" />
-    <child link="head_mount_kinect_ir_link" />
-  </joint>
-  <link name="head_mount_kinect_ir_link" />
-  <joint name="head_mount_kinect_ir_optical_frame_joint" type="fixed">
-    <origin rpy="-1.57079632679 0.0 -1.57079632679" xyz="0.0            0.01         0.0" />
-    <parent link="head_mount_kinect_ir_link" />
-    <child link="head_mount_kinect_ir_optical_frame" />
-  </joint>
-  <link name="head_mount_kinect_ir_optical_frame" />
-  <!-- gazebo extensions -->
-  <gazebo reference="head_mount_kinect_ir_link">
-    <sensor name="head_mount_ir_sensor" type="depth">
-      <always_on>true</always_on>
-      <update_rate>1.0</update_rate>
-      <camera>
-        <horizontal_fov>0.994837673637</horizontal_fov>
-        <image>
-          <format>L8</format>
-          <width>640</width>
-          <height>480</height>
-        </image>
-        <clip>
-          <near>0.01</near>
-          <far>5</far>
-        </clip>
-      </camera>
-      <plugin filename="libgazebo_ros_openni_kinect.so" name="head_mount_kinect_ir_link_controller">
-        <baseline>0.2</baseline>
-        <alwaysOn>true</alwaysOn>
-        <updateRate>1.0</updateRate>
-        <cameraName>head_mount_kinect_ir</cameraName>
-        <imageTopicName>/head_mount_kinect/ir/image_raw</imageTopicName>
-        <cameraInfoTopicName>/head_mount_kinect/ir/camera_info</cameraInfoTopicName>
-        <depthImageTopicName>/head_mount_kinect/depth/image_raw</depthImageTopicName>
-        <depthImageCameraInfoTopicName>/head_mount_kinect/depth/camera_info</depthImageCameraInfoTopicName>
-        <pointCloudTopicName>/head_mount_kinect/depth/points</pointCloudTopicName>
-        <frameName>head_mount_kinect_ir_optical_frame</frameName>
-        <pointCloudCutoff>0.5</pointCloudCutoff>
-        <distortionK1>0.00000001</distortionK1>
-        <distortionK2>0.00000001</distortionK2>
-        <distortionK3>0.00000001</distortionK3>
-        <distortionT1>0.00000001</distortionT1>
-        <distortionT2>0.00000001</distortionT2>
-        <CxPrime>0</CxPrime>
-        <Cx>0</Cx>
-        <Cy>0</Cy>
-        <focalLength>0</focalLength>
-        <hackBaseline>0</hackBaseline>
-      </plugin>
-    </sensor>
-    <material value="Gazebo/Red" />
-  </gazebo>
-  <!-- kinect rgb sensor physical attachment -->
-  <joint name="head_mount_kinect_rgb_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0 -0.03 0" />
-    <parent link="head_mount_kinect_ir_link" />
-    <child link="head_mount_kinect_rgb_link" />
-  </joint>
-  <link name="head_mount_kinect_rgb_link">
-    <inertial>
-      <mass value="0.1" />
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0.0 0.0 0" />
-      <geometry>
-        <sphere radius="0.0005" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.0 0.0 0" />
-      <geometry>
-        <sphere radius="0.0005" />
-      </geometry>
-    </collision>
-  </link>
-  <!-- kinect rgb sensor frame -->
-  <joint name="head_mount_kinect_rgb_optical_frame_joint" type="fixed">
-    <origin rpy="-1.57079632679 0.0 -1.57079632679" xyz="0.0            0.0         0.0" />
-    <parent link="head_mount_kinect_rgb_link" />
-    <child link="head_mount_kinect_rgb_optical_frame" />
-  </joint>
-  <link name="head_mount_kinect_rgb_optical_frame" />
-  <!-- gazebo extensions -->
-  <gazebo reference="head_mount_kinect_rgb_link">
-    <sensor name="head_mount_rgb_sensor" type="depth">
-      <always_on>true</always_on>
-      <update_rate>1.0</update_rate>
-      <camera>
-        <horizontal_fov>0.994837673637</horizontal_fov>
-        <image>
-          <format>B8G8R8</format>
-          <width>640</width>
-          <height>480</height>
-        </image>
-        <clip>
-          <near>0.01</near>
-          <far>5</far>
-        </clip>
-      </camera>
-      <plugin filename="libgazebo_ros_openni_kinect.so" name="head_mount_kinect_rgb_link_controller">
-        <alwaysOn>true</alwaysOn>
-        <updateRate>1.0</updateRate>
-        <cameraName>head_mount_kinect_rgb</cameraName>
-        <imageTopicName>/head_mount_kinect/rgb/image_raw</imageTopicName>
-        <cameraInfoTopicName>/head_mount_kinect/rgb/camera_info</cameraInfoTopicName>
-        <depthImageTopicName>/head_mount_kinect/depth/image_raw</depthImageTopicName>
-        <depthImageCameraInfoTopicName>/head_mount_kinect/depth/camera_info</depthImageCameraInfoTopicName>
-        <pointCloudTopicName>/head_mount_kinect/depth_registered/points</pointCloudTopicName>
-        <frameName>head_mount_kinect_rgb_optical_frame</frameName>
-        <pointCloudCutoff>0.5</pointCloudCutoff>
-        <distortionK1>0.00000001</distortionK1>
-        <distortionK2>0.00000001</distortionK2>
-        <distortionK3>0.00000001</distortionK3>
-        <distortionT1>0.00000001</distortionT1>
-        <distortionT2>0.00000001</distortionT2>
-        <CxPrime>0</CxPrime>
-        <Cx>0</Cx>
-        <Cy>0</Cy>
-        <focalLength>0</focalLength>
-        <hackBaseline>0</hackBaseline>
-      </plugin>
-    </sensor>
-    <material value="Gazebo/Red" />
-  </gazebo>
   <!-- Projector -->
   <joint name="projector_wg6802418_frame_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0.110 0.0546" />
@@ -4885,6 +4741,13 @@
       </geometry>
       <material name="Grey" />
     </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 -0.0120" />
+      <geometry>
+        <cylinder length="0.0356" radius="0.0225" />
+      </geometry>
+      <material name="Grey" />
+    </collision>
   </link>
   <!-- extensions-->
   <gazebo reference="l_forearm_link">
@@ -5554,9 +5417,9 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0" />
+      <origin xyz="-0.042 0 0.1" rpy="0 0 0"/>
       <geometry>
-        <sphere radius="0.0005" />
+        <box size="0.12 0.3 0.2"/>
       </geometry>
     </collision>
   </link>

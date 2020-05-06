@@ -1,9 +1,8 @@
 <launch>
-  <!-- Set the param that trajectory_execution_manager needs to find the controller plugin -->
-<!--
-  <arg name="moveit_controller_manager" default="pr2_moveit_controller_manager/Pr2MoveItControllerManager" />
+  <!-- loads moveit_controller_manager on the parameter server which is taken as argument 
+    if no argument is passed, moveit_simple_controller_manager will be set -->
+  <arg name="moveit_controller_manager" default="moveit_simple_controller_manager/MoveItSimpleControllerManager" />
   <param name="moveit_controller_manager" value="$(arg moveit_controller_manager)"/>
--->
-  <param name="moveit_controller_manager" value="moveit_simple_controller_manager/MoveItSimpleControllerManager" />
+
   <rosparam file="$(find tams_pr2_moveit_config)/config/tams_pr2_execution_controllers.yaml" />
 </launch>

@@ -2,9 +2,10 @@ moveit_setup_assistant_config:
   URDF:
     package: tams_pr2_description
     relative_path: robots/trixi.urdf.xacro
+    xacro_args: ""
   SRDF:
     relative_path: config/tams_pr2.srdf
   CONFIG:
     author_name: Michael Goerner
     author_email: goerner@informatik.uni-hamburg.de
-    generated_timestamp: 1473260747
+    generated_timestamp: 1583438039

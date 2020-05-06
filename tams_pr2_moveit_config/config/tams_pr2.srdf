@@ -10,15 +10,9 @@
     <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
     <group name="right_arm_and_fingers">
-        <group name="right_hand"/>
-        <group name="right_arm"/>
+        <group name="right_hand" />
+        <group name="right_arm" />
     </group>
-
-    <!--
-    <group name="base">
-        <joint name="world_joint" />
-    </group>
-    -->
     <group name="left_arm">
         <chain base_link="torso_lift_link" tip_link="l_gripper_tool_frame" />
     </group>
@@ -129,218 +123,219 @@
         <joint name="rh_FFJ1" />
         <joint name="rh_FF_distal_joint" />
     </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
     <group_state name="right_arm_to_side" group="right_arm">
-        <joint name="r_shoulder_pan_joint" value="-1.53023121373216" />
-        <joint name="r_shoulder_lift_joint" value="0.5787984638806788" />
-        <joint name="r_upper_arm_roll_joint" value="0.08518796513181504" />
-        <joint name="r_elbow_flex_joint" value="-1.8672258422629988" />
-        <joint name="r_forearm_roll_joint" value="-0.03794768903956753" />
+        <joint name="r_elbow_flex_joint" value="-1.86723" />
+        <joint name="r_forearm_roll_joint" value="-0.0379477" />
+        <joint name="r_shoulder_lift_joint" value="0.578798" />
+        <joint name="r_shoulder_pan_joint" value="-1.53023" />
+        <joint name="r_upper_arm_roll_joint" value="0.085188" />
     </group_state>
     <group_state name="right_arm_pointing_forward" group="right_arm">
-        <joint name="r_upper_arm_roll_joint" value="-0.124876857413"/>
-        <joint name="r_shoulder_pan_joint" value="-0.0423890586437"/>
-        <joint name="r_shoulder_lift_joint" value="0.0538023710944"/>
-        <joint name="r_forearm_roll_joint" value="-1.35229135164"/>
-        <joint name="r_elbow_flex_joint" value="-0.153864473039"/>
+        <joint name="r_elbow_flex_joint" value="-0.153864" />
+        <joint name="r_forearm_roll_joint" value="-1.35229" />
+        <joint name="r_shoulder_lift_joint" value="0.0538024" />
+        <joint name="r_shoulder_pan_joint" value="-0.0423891" />
+        <joint name="r_upper_arm_roll_joint" value="-0.124877" />
     </group_state>
     <group_state name="left_arm_to_side" group="left_arm">
-        <joint name="l_shoulder_pan_joint" value="1.53023121373216" />
-        <joint name="l_shoulder_lift_joint" value="0.5787984638806788" />
-        <joint name="l_upper_arm_roll_joint" value="-0.08518796513181504" />
-        <joint name="l_elbow_flex_joint" value="-1.8672258422629988" />
-        <joint name="l_forearm_roll_joint" value="0.03794768903956753" />
-        <joint name="l_wrist_flex_joint" value="0.0" />
-        <joint name="l_wrist_roll_joint" value="1.0" />
+        <joint name="l_elbow_flex_joint" value="-1.86723" />
+        <joint name="l_forearm_roll_joint" value="0.0379477" />
+        <joint name="l_shoulder_lift_joint" value="0.578798" />
+        <joint name="l_shoulder_pan_joint" value="1.53023" />
+        <joint name="l_upper_arm_roll_joint" value="-0.085188" />
+        <joint name="l_wrist_flex_joint" value="0" />
+        <joint name="l_wrist_roll_joint" value="1" />
     </group_state>
     <group_state name="open" group="left_gripper">
         <joint name="l_gripper_joint" value="0.088" />
-        <joint name="l_gripper_motor_screw_joint" value="1.0" />
         <joint name="l_gripper_l_finger_joint" value="0.477" />
+        <joint name="l_gripper_l_finger_tip_joint" value="0.477" />
+        <joint name="l_gripper_motor_screw_joint" value="1" />
+        <joint name="l_gripper_motor_slider_joint" value="0" />
         <joint name="l_gripper_r_finger_joint" value="0.477" />
         <joint name="l_gripper_r_finger_tip_joint" value="0.477" />
-        <joint name="l_gripper_l_finger_tip_joint" value="0.477" />
     </group_state>
     <group_state name="closed" group="left_gripper">
-        <joint name="l_gripper_joint" value="0.0" />
-        <joint name="l_gripper_motor_screw_joint" value="0.0" />
+        <joint name="l_gripper_joint" value="0" />
         <joint name="l_gripper_l_finger_joint" value="0.002" />
+        <joint name="l_gripper_l_finger_tip_joint" value="0.002" />
+        <joint name="l_gripper_motor_screw_joint" value="0" />
+        <joint name="l_gripper_motor_slider_joint" value="0" />
         <joint name="l_gripper_r_finger_joint" value="0.002" />
         <joint name="l_gripper_r_finger_tip_joint" value="0.002" />
-        <joint name="l_gripper_l_finger_tip_joint" value="0.002" />
     </group_state>
-    <group_state group="right_hand" name="open">
-      <joint name="rh_THJ1" value="0"/>
-      <joint name="rh_THJ2" value="0"/>
-      <joint name="rh_THJ3" value="0"/>
-      <joint name="rh_THJ4" value="0"/>
-      <joint name="rh_THJ5" value="0"/>
-      <joint name="rh_FFJ1" value="0"/>
-      <joint name="rh_FFJ2" value="0"/>
-      <joint name="rh_FFJ3" value="0"/>
-      <joint name="rh_FFJ4" value="0"/>
-      <joint name="rh_MFJ1" value="0"/>
-      <joint name="rh_MFJ2" value="0"/>
-      <joint name="rh_MFJ3" value="0"/>
-      <joint name="rh_MFJ4" value="0"/>
-      <joint name="rh_RFJ1" value="0"/>
-      <joint name="rh_RFJ2" value="0"/>
-      <joint name="rh_RFJ3" value="0"/>
-      <joint name="rh_RFJ4" value="0"/>
-      <joint name="rh_LFJ1" value="0"/>
-      <joint name="rh_LFJ2" value="0"/>
-      <joint name="rh_LFJ3" value="0"/>
-      <joint name="rh_LFJ4" value="0"/>
-      <!-- Little finger special case -->
-      <joint name="rh_LFJ5" value="0"/>
+    <group_state name="open" group="right_fingers">
+        <joint name="rh_FFJ1" value="0" />
+        <joint name="rh_FFJ2" value="0" />
+        <joint name="rh_FFJ3" value="0" />
+        <joint name="rh_FFJ4" value="0" />
+        <joint name="rh_LFJ1" value="0" />
+        <joint name="rh_LFJ2" value="0" />
+        <joint name="rh_LFJ3" value="0" />
+        <joint name="rh_LFJ4" value="0" />
+        <joint name="rh_LFJ5" value="0" />
+        <joint name="rh_MFJ1" value="0" />
+        <joint name="rh_MFJ2" value="0" />
+        <joint name="rh_MFJ3" value="0" />
+        <joint name="rh_MFJ4" value="0" />
+        <joint name="rh_RFJ1" value="0" />
+        <joint name="rh_RFJ2" value="0" />
+        <joint name="rh_RFJ3" value="0" />
+        <joint name="rh_RFJ4" value="0" />
+        <joint name="rh_THJ1" value="0" />
+        <joint name="rh_THJ2" value="0" />
+        <joint name="rh_THJ3" value="0" />
+        <joint name="rh_THJ4" value="0" />
+        <joint name="rh_THJ5" value="0" />
     </group_state>
-    <group_state group="right_hand" name="pack">
-      <joint name="rh_THJ1" value="0.35"/>
-      <joint name="rh_THJ2" value="0.58"/>
-      <joint name="rh_THJ3" value="0.00"/>
-      <joint name="rh_THJ4" value="0.39"/>
-      <joint name="rh_THJ5" value="0.19"/>
-      <joint name="rh_FFJ1" value="0.35"/>
-      <joint name="rh_FFJ2" value="1.5707"/>
-      <joint name="rh_FFJ3" value="1.5707"/>
-      <joint name="rh_FFJ4" value="0"/>
-      <joint name="rh_MFJ1" value="0.35"/>
-      <joint name="rh_MFJ2" value="1.5707"/>
-      <joint name="rh_MFJ3" value="1.5707"/>
-      <joint name="rh_MFJ4" value="0"/>
-      <joint name="rh_RFJ1" value="0.35"/>
-      <joint name="rh_RFJ2" value="1.5707"/>
-      <joint name="rh_RFJ3" value="1.5707"/>
-      <joint name="rh_RFJ4" value="0"/>
-      <joint name="rh_LFJ1" value="0.35"/>
-      <joint name="rh_LFJ2" value="1.5707"/>
-      <joint name="rh_LFJ3" value="1.5707"/>
-      <joint name="rh_LFJ4" value="0"/>
-      <joint name="rh_LFJ5" value="0"/>
+    <group_state name="pack" group="right_fingers">
+        <joint name="rh_FFJ1" value="0.35" />
+        <joint name="rh_FFJ2" value="1.5707" />
+        <joint name="rh_FFJ3" value="1.5707" />
+        <joint name="rh_FFJ4" value="0" />
+        <joint name="rh_LFJ1" value="0.35" />
+        <joint name="rh_LFJ2" value="1.5707" />
+        <joint name="rh_LFJ3" value="1.5707" />
+        <joint name="rh_LFJ4" value="0" />
+        <joint name="rh_LFJ5" value="0" />
+        <joint name="rh_MFJ1" value="0.35" />
+        <joint name="rh_MFJ2" value="1.5707" />
+        <joint name="rh_MFJ3" value="1.5707" />
+        <joint name="rh_MFJ4" value="0" />
+        <joint name="rh_RFJ1" value="0.35" />
+        <joint name="rh_RFJ2" value="1.5707" />
+        <joint name="rh_RFJ3" value="1.5707" />
+        <joint name="rh_RFJ4" value="0" />
+        <joint name="rh_THJ1" value="0.35" />
+        <joint name="rh_THJ2" value="0.58" />
+        <joint name="rh_THJ3" value="0" />
+        <joint name="rh_THJ4" value="0.39" />
+        <joint name="rh_THJ5" value="0.19" />
     </group_state>
-    <group_state group="right_hand" name="pointing">
-      <joint name="rh_THJ1" value="0.35"/>
-      <joint name="rh_THJ2" value="-0.12"/>
-      <joint name="rh_THJ3" value="0.00"/>
-      <joint name="rh_THJ4" value="0.05"/>
-      <joint name="rh_THJ5" value="-0.45"/>
-      <joint name="rh_FFJ1" value="0.35"/>
-      <joint name="rh_FFJ2" value="0"/>
-      <joint name="rh_FFJ3" value="0"/>
-      <joint name="rh_FFJ4" value="0"/>
-      <joint name="rh_MFJ1" value="0.35"/>
-      <joint name="rh_MFJ2" value="1.5707"/>
-      <joint name="rh_MFJ3" value="1.5707"/>
-      <joint name="rh_MFJ4" value="0"/>
-      <joint name="rh_RFJ1" value="0.35"/>
-      <joint name="rh_RFJ2" value="1.5707"/>
-      <joint name="rh_RFJ3" value="1.5707"/>
-      <joint name="rh_RFJ4" value="0"/>
-      <joint name="rh_LFJ1" value="0.35"/>
-      <joint name="rh_LFJ2" value="1.5707"/>
-      <joint name="rh_LFJ3" value="1.5707"/>
-      <joint name="rh_LFJ4" value="0"/>
-      <joint name="rh_LFJ5" value="0"/>
+    <group_state name="pointing" group="right_fingers">
+        <joint name="rh_FFJ1" value="0.35" />
+        <joint name="rh_FFJ2" value="0" />
+        <joint name="rh_FFJ3" value="0" />
+        <joint name="rh_FFJ4" value="0" />
+        <joint name="rh_LFJ1" value="0.35" />
+        <joint name="rh_LFJ2" value="1.5707" />
+        <joint name="rh_LFJ3" value="1.5707" />
+        <joint name="rh_LFJ4" value="0" />
+        <joint name="rh_LFJ5" value="0" />
+        <joint name="rh_MFJ1" value="0.35" />
+        <joint name="rh_MFJ2" value="1.5707" />
+        <joint name="rh_MFJ3" value="1.5707" />
+        <joint name="rh_MFJ4" value="0" />
+        <joint name="rh_RFJ1" value="0.35" />
+        <joint name="rh_RFJ2" value="1.5707" />
+        <joint name="rh_RFJ3" value="1.5707" />
+        <joint name="rh_RFJ4" value="0" />
+        <joint name="rh_THJ1" value="0.35" />
+        <joint name="rh_THJ2" value="-0.12" />
+        <joint name="rh_THJ3" value="0" />
+        <joint name="rh_THJ4" value="0.05" />
+        <joint name="rh_THJ5" value="-0.45" />
     </group_state>
-    <group_state group="right_hand" name="close_grasp">
-      <joint name="rh_THJ1" value="0.349"/>
-      <joint name="rh_THJ2" value="0.69"/>
-      <joint name="rh_THJ3" value="0"/>
-      <joint name="rh_THJ4" value="1.2"/>
-      <joint name="rh_THJ5" value="0"/>
-      <joint name="rh_FFJ1" value="0.349"/>
-      <joint name="rh_FFJ2" value="1"/>
-      <joint name="rh_FFJ3" value="1"/>
-      <joint name="rh_FFJ4" value="0"/>
-      <joint name="rh_MFJ1" value="0.349"/>
-      <joint name="rh_MFJ2" value="1"/>
-      <joint name="rh_MFJ3" value="1"/>
-      <joint name="rh_MFJ4" value="0"/>
-      <joint name="rh_RFJ1" value="0.349"/>
-      <joint name="rh_RFJ2" value="1"/>
-      <joint name="rh_RFJ3" value="1"/>
-      <joint name="rh_RFJ4" value="0"/>
-      <joint name="rh_LFJ1" value="0.349"/>
-      <joint name="rh_LFJ2" value="1"/>
-      <joint name="rh_LFJ3" value="1"/>
-      <joint name="rh_LFJ4" value="0"/>
-      <joint name="rh_LFJ5" value="0"/>
+    <group_state name="close_grasp" group="right_fingers">
+        <joint name="rh_FFJ1" value="0.349" />
+        <joint name="rh_FFJ2" value="1" />
+        <joint name="rh_FFJ3" value="1" />
+        <joint name="rh_FFJ4" value="0" />
+        <joint name="rh_LFJ1" value="0.349" />
+        <joint name="rh_LFJ2" value="1" />
+        <joint name="rh_LFJ3" value="1" />
+        <joint name="rh_LFJ4" value="0" />
+        <joint name="rh_LFJ5" value="0" />
+        <joint name="rh_MFJ1" value="0.349" />
+        <joint name="rh_MFJ2" value="1" />
+        <joint name="rh_MFJ3" value="1" />
+        <joint name="rh_MFJ4" value="0" />
+        <joint name="rh_RFJ1" value="0.349" />
+        <joint name="rh_RFJ2" value="1" />
+        <joint name="rh_RFJ3" value="1" />
+        <joint name="rh_RFJ4" value="0" />
+        <joint name="rh_THJ1" value="0.349" />
+        <joint name="rh_THJ2" value="0.69" />
+        <joint name="rh_THJ3" value="0" />
+        <joint name="rh_THJ4" value="1.2" />
+        <joint name="rh_THJ5" value="0" />
     </group_state>
-    <group_state group="right_hand" name="open_grasp">
-      <joint name="rh_THJ1" value="0.349"/>
-      <joint name="rh_THJ2" value="0"/>
-      <joint name="rh_THJ3" value="0"/>
-      <joint name="rh_THJ4" value="1.2"/>
-      <joint name="rh_THJ5" value="-0.56"/>
-      <joint name="rh_FFJ1" value="0.349"/>
-      <joint name="rh_FFJ2" value="0"/>
-      <joint name="rh_FFJ3" value="0"/>
-      <joint name="rh_FFJ4" value="0"/>
-      <joint name="rh_MFJ1" value="0.349"/>
-      <joint name="rh_MFJ2" value="0"/>
-      <joint name="rh_MFJ3" value="0"/>
-      <joint name="rh_MFJ4" value="0"/>
-      <joint name="rh_RFJ1" value="0.349"/>
-      <joint name="rh_RFJ2" value="0"/>
-      <joint name="rh_RFJ3" value="0"/>
-      <joint name="rh_RFJ4" value="0"/>
-      <joint name="rh_LFJ1" value="0.349"/>
-      <joint name="rh_LFJ2" value="0"/>
-      <joint name="rh_LFJ3" value="0"/>
-      <joint name="rh_LFJ4" value="0"/>
-      <joint name="rh_LFJ5" value="0"/>
+    <group_state name="open_grasp" group="right_fingers">
+        <joint name="rh_FFJ1" value="0.349" />
+        <joint name="rh_FFJ2" value="0" />
+        <joint name="rh_FFJ3" value="0" />
+        <joint name="rh_FFJ4" value="0" />
+        <joint name="rh_LFJ1" value="0.349" />
+        <joint name="rh_LFJ2" value="0" />
+        <joint name="rh_LFJ3" value="0" />
+        <joint name="rh_LFJ4" value="0" />
+        <joint name="rh_LFJ5" value="0" />
+        <joint name="rh_MFJ1" value="0.349" />
+        <joint name="rh_MFJ2" value="0" />
+        <joint name="rh_MFJ3" value="0" />
+        <joint name="rh_MFJ4" value="0" />
+        <joint name="rh_RFJ1" value="0.349" />
+        <joint name="rh_RFJ2" value="0" />
+        <joint name="rh_RFJ3" value="0" />
+        <joint name="rh_RFJ4" value="0" />
+        <joint name="rh_THJ1" value="0.349" />
+        <joint name="rh_THJ2" value="0" />
+        <joint name="rh_THJ3" value="0" />
+        <joint name="rh_THJ4" value="1.2" />
+        <joint name="rh_THJ5" value="-0.56" />
     </group_state>
-    <group_state group="right_hand" name="open_tripod">
-      <joint name="rh_FFJ1" value="0.349065850398866"/>
-      <joint name="rh_FFJ2" value="0.00233423656826747"/>
-      <joint name="rh_FFJ3" value="0.751208021369652"/>
-      <joint name="rh_FFJ4" value="-0.296542765941605"/>
-      <joint name="rh_LFJ1" value="0.349065850398866"/>
-      <joint name="rh_LFJ2" value="0.00512939694324926"/>
-      <joint name="rh_LFJ3" value="0.400658648331157"/>
-      <joint name="rh_LFJ4" value="-0.355267328836023"/>
-      <joint name="rh_LFJ5" value="0.0420642576487023"/>
-      <joint name="rh_MFJ1" value="0.349065850398866"/>
-      <joint name="rh_MFJ2" value="0.36670758406425"/>
-      <joint name="rh_MFJ3" value="0.655430902183515"/>
-      <joint name="rh_MFJ4" value="0.475488181002691"/>
-      <joint name="rh_RFJ1" value="0.349065850398866"/>
-      <joint name="rh_RFJ2" value="0.231464069066112"/>
-      <joint name="rh_RFJ3" value="0.525232370493002"/>
-      <joint name="rh_RFJ4" value="-0.266104592078405"/>
-      <joint name="rh_THJ1" value="0.349065850398866"/>
-      <joint name="rh_THJ2" value="0.623211336453958"/>
-      <joint name="rh_THJ3" value="0.135011808651831"/>
-      <joint name="rh_THJ4" value="1.04904658858148"/>
-      <joint name="rh_THJ5" value="-1.09287335496744"/>
+    <group_state name="open_tripod" group="right_fingers">
+        <joint name="rh_FFJ1" value="0.349066" />
+        <joint name="rh_FFJ2" value="0.00233424" />
+        <joint name="rh_FFJ3" value="0.751208" />
+        <joint name="rh_FFJ4" value="-0.296543" />
+        <joint name="rh_LFJ1" value="0.349066" />
+        <joint name="rh_LFJ2" value="0.0051294" />
+        <joint name="rh_LFJ3" value="0.400659" />
+        <joint name="rh_LFJ4" value="-0.355267" />
+        <joint name="rh_LFJ5" value="0.0420643" />
+        <joint name="rh_MFJ1" value="0.349066" />
+        <joint name="rh_MFJ2" value="0.366708" />
+        <joint name="rh_MFJ3" value="0.655431" />
+        <joint name="rh_MFJ4" value="0.475488" />
+        <joint name="rh_RFJ1" value="0.349066" />
+        <joint name="rh_RFJ2" value="0.231464" />
+        <joint name="rh_RFJ3" value="0.525232" />
+        <joint name="rh_RFJ4" value="-0.266105" />
+        <joint name="rh_THJ1" value="0.349066" />
+        <joint name="rh_THJ2" value="0.623211" />
+        <joint name="rh_THJ3" value="0.135012" />
+        <joint name="rh_THJ4" value="1.04905" />
+        <joint name="rh_THJ5" value="-1.09287" />
     </group_state>
-    <group_state group="right_hand" name="close_tripod">
-      <joint name="rh_FFJ1" value="0.349065850398866"/>
-      <joint name="rh_FFJ2" value="0.672611170979583"/>
-      <joint name="rh_FFJ3" value="0.992528011583134"/>
-      <joint name="rh_FFJ4" value="-0.281803246579935"/>
-      <joint name="rh_LFJ1" value="0.349065850398866"/>
-      <joint name="rh_LFJ2" value="0.0154225011771942"/>
-      <joint name="rh_LFJ3" value="0.399794209578095"/>
-      <joint name="rh_LFJ4" value="-0.358903744260485"/>
-      <joint name="rh_LFJ5" value="0.316271240830279"/>
-      <joint name="rh_MFJ1" value="0.349065850398866"/>
-      <joint name="rh_MFJ2" value="0.737371343309838"/>
-      <joint name="rh_MFJ3" value="1.048677262991753"/>
-      <joint name="rh_MFJ4" value="0.505555252911946"/>
-      <joint name="rh_RFJ1" value="0.349065850398866"/>
-      <joint name="rh_RFJ2" value="0.218199652500719"/>
-      <joint name="rh_RFJ3" value="0.515865496218105"/>
-      <joint name="rh_RFJ4" value="-0.287650097276203"/>
-      <joint name="rh_THJ1" value="0.349065850398866"/>
-      <joint name="rh_THJ2" value="0.701711164847682"/>
-      <joint name="rh_THJ3" value="0.195525701768318"/>
-      <joint name="rh_THJ4" value="1.06240816782446"/>
-      <joint name="rh_THJ5" value="-0.105815934826781"/>
+    <group_state name="close_tripod" group="right_fingers">
+        <joint name="rh_FFJ1" value="0.349066" />
+        <joint name="rh_FFJ2" value="0.672611" />
+        <joint name="rh_FFJ3" value="0.992528" />
+        <joint name="rh_FFJ4" value="-0.281803" />
+        <joint name="rh_LFJ1" value="0.349066" />
+        <joint name="rh_LFJ2" value="0.0154225" />
+        <joint name="rh_LFJ3" value="0.399794" />
+        <joint name="rh_LFJ4" value="-0.358904" />
+        <joint name="rh_LFJ5" value="0.316271" />
+        <joint name="rh_MFJ1" value="0.349066" />
+        <joint name="rh_MFJ2" value="0.737371" />
+        <joint name="rh_MFJ3" value="1.04868" />
+        <joint name="rh_MFJ4" value="0.505555" />
+        <joint name="rh_RFJ1" value="0.349066" />
+        <joint name="rh_RFJ2" value="0.2182" />
+        <joint name="rh_RFJ3" value="0.515865" />
+        <joint name="rh_RFJ4" value="-0.28765" />
+        <joint name="rh_THJ1" value="0.349066" />
+        <joint name="rh_THJ2" value="0.701711" />
+        <joint name="rh_THJ3" value="0.195526" />
+        <joint name="rh_THJ4" value="1.06241" />
+        <joint name="rh_THJ5" value="-0.105816" />
     </group_state>
-
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-    <end_effector name="left_gripper" parent_group="left_arm" parent_link="l_gripper_tool_frame" group="left_gripper" />
-    <end_effector name="right_hand" parent_group="right_arm_and_hand" parent_link="rh_palm" group="right_hand" />
+    <end_effector name="left_gripper" parent_link="l_gripper_tool_frame" group="left_gripper" parent_group="left_arm" />
+    <end_effector name="right_hand" parent_link="rh_palm" group="right_hand" parent_group="right_arm_and_hand" />
     <end_effector name="rh_thumb_ee" parent_link="rh_thtip" group="right_thumb" />
     <end_effector name="rh_first_finger_ee" parent_link="rh_fftip" group="right_first_finger" />
     <end_effector name="rh_middle_finger_ee" parent_link="rh_mftip" group="right_middle_finger" />
@@ -364,8 +359,7 @@
     <disable_collisions link1="base_bellow_link" link2="fr_caster_l_wheel_link" reason="Never" />
     <disable_collisions link1="base_bellow_link" link2="fr_caster_r_wheel_link" reason="Never" />
     <disable_collisions link1="base_bellow_link" link2="fr_caster_rotation_link" reason="Never" />
-    <disable_collisions link1="base_bellow_link" link2="head_mount_kinect_rgb_link" reason="Never" />
-    <disable_collisions link1="base_bellow_link" link2="head_mount_link" reason="Never" />
+    <disable_collisions link1="base_bellow_link" link2="head_mount_xtion_link" reason="Never" />
     <disable_collisions link1="base_bellow_link" link2="head_pan_link" reason="Never" />
     <disable_collisions link1="base_bellow_link" link2="head_plate_frame" reason="Never" />
     <disable_collisions link1="base_bellow_link" link2="head_tilt_link" reason="Never" />
@@ -436,8 +430,7 @@
     <disable_collisions link1="base_footprint" link2="fr_caster_l_wheel_link" reason="Never" />
     <disable_collisions link1="base_footprint" link2="fr_caster_r_wheel_link" reason="Never" />
     <disable_collisions link1="base_footprint" link2="fr_caster_rotation_link" reason="Never" />
-    <disable_collisions link1="base_footprint" link2="head_mount_kinect_rgb_link" reason="Never" />
-    <disable_collisions link1="base_footprint" link2="head_mount_link" reason="Never" />
+    <disable_collisions link1="base_footprint" link2="head_mount_xtion_link" reason="Never" />
     <disable_collisions link1="base_footprint" link2="head_pan_link" reason="Never" />
     <disable_collisions link1="base_footprint" link2="head_plate_frame" reason="Never" />
     <disable_collisions link1="base_footprint" link2="head_tilt_link" reason="Never" />
@@ -507,8 +500,7 @@
     <disable_collisions link1="base_link" link2="fr_caster_l_wheel_link" reason="Default" />
     <disable_collisions link1="base_link" link2="fr_caster_r_wheel_link" reason="Default" />
     <disable_collisions link1="base_link" link2="fr_caster_rotation_link" reason="Adjacent" />
-    <disable_collisions link1="base_link" link2="head_mount_kinect_rgb_link" reason="Never" />
-    <disable_collisions link1="base_link" link2="head_mount_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="head_mount_xtion_link" reason="Never" />
     <disable_collisions link1="base_link" link2="head_pan_link" reason="Never" />
     <disable_collisions link1="base_link" link2="head_plate_frame" reason="Never" />
     <disable_collisions link1="base_link" link2="head_tilt_link" reason="Never" />
@@ -549,8 +541,7 @@
     <disable_collisions link1="bl_caster_l_wheel_link" link2="fr_caster_l_wheel_link" reason="Never" />
     <disable_collisions link1="bl_caster_l_wheel_link" link2="fr_caster_r_wheel_link" reason="Never" />
     <disable_collisions link1="bl_caster_l_wheel_link" link2="fr_caster_rotation_link" reason="Never" />
-    <disable_collisions link1="bl_caster_l_wheel_link" link2="head_mount_kinect_rgb_link" reason="Never" />
-    <disable_collisions link1="bl_caster_l_wheel_link" link2="head_mount_link" reason="Never" />
+    <disable_collisions link1="bl_caster_l_wheel_link" link2="head_mount_xtion_link" reason="Never" />
     <disable_collisions link1="bl_caster_l_wheel_link" link2="head_pan_link" reason="Never" />
     <disable_collisions link1="bl_caster_l_wheel_link" link2="head_plate_frame" reason="Never" />
     <disable_collisions link1="bl_caster_l_wheel_link" link2="head_tilt_link" reason="Never" />
@@ -618,8 +609,7 @@
     <disable_collisions link1="bl_caster_r_wheel_link" link2="fr_caster_l_wheel_link" reason="Never" />
     <disable_collisions link1="bl_caster_r_wheel_link" link2="fr_caster_r_wheel_link" reason="Never" />
     <disable_collisions link1="bl_caster_r_wheel_link" link2="fr_caster_rotation_link" reason="Never" />
-    <disable_collisions link1="bl_caster_r_wheel_link" link2="head_mount_kinect_rgb_link" reason="Never" />
-    <disable_collisions link1="bl_caster_r_wheel_link" link2="head_mount_link" reason="Never" />
+    <disable_collisions link1="bl_caster_r_wheel_link" link2="head_mount_xtion_link" reason="Never" />
     <disable_collisions link1="bl_caster_r_wheel_link" link2="head_pan_link" reason="Never" />
     <disable_collisions link1="bl_caster_r_wheel_link" link2="head_plate_frame" reason="Never" />
     <disable_collisions link1="bl_caster_r_wheel_link" link2="head_tilt_link" reason="Never" />
@@ -686,8 +676,7 @@
     <disable_collisions link1="bl_caster_rotation_link" link2="fr_caster_l_wheel_link" reason="Never" />
     <disable_collisions link1="bl_caster_rotation_link" link2="fr_caster_r_wheel_link" reason="Never" />
     <disable_collisions link1="bl_caster_rotation_link" link2="fr_caster_rotation_link" reason="Never" />
-    <disable_collisions link1="bl_caster_rotation_link" link2="head_mount_kinect_rgb_link" reason="Never" />
-    <disable_collisions link1="bl_caster_rotation_link" link2="head_mount_link" reason="Never" />
+    <disable_collisions link1="bl_caster_rotation_link" link2="head_mount_xtion_link" reason="Never" />
     <disable_collisions link1="bl_caster_rotation_link" link2="head_pan_link" reason="Never" />
     <disable_collisions link1="bl_caster_rotation_link" link2="head_plate_frame" reason="Never" />
     <disable_collisions link1="bl_caster_rotation_link" link2="head_tilt_link" reason="Never" />
@@ -753,8 +742,7 @@
     <disable_collisions link1="br_caster_l_wheel_link" link2="fr_caster_l_wheel_link" reason="Never" />
     <disable_collisions link1="br_caster_l_wheel_link" link2="fr_caster_r_wheel_link" reason="Never" />
     <disable_collisions link1="br_caster_l_wheel_link" link2="fr_caster_rotation_link" reason="Never" />
-    <disable_collisions link1="br_caster_l_wheel_link" link2="head_mount_kinect_rgb_link" reason="Never" />
-    <disable_collisions link1="br_caster_l_wheel_link" link2="head_mount_link" reason="Never" />
+    <disable_collisions link1="br_caster_l_wheel_link" link2="head_mount_xtion_link" reason="Never" />
     <disable_collisions link1="br_caster_l_wheel_link" link2="head_pan_link" reason="Never" />
     <disable_collisions link1="br_caster_l_wheel_link" link2="head_plate_frame" reason="Never" />
     <disable_collisions link1="br_caster_l_wheel_link" link2="head_tilt_link" reason="Never" />
@@ -819,8 +807,7 @@
     <disable_collisions link1="br_caster_r_wheel_link" link2="fr_caster_l_wheel_link" reason="Never" />
     <disable_collisions link1="br_caster_r_wheel_link" link2="fr_caster_r_wheel_link" reason="Never" />
     <disable_collisions link1="br_caster_r_wheel_link" link2="fr_caster_rotation_link" reason="Never" />
-    <disable_collisions link1="br_caster_r_wheel_link" link2="head_mount_kinect_rgb_link" reason="Never" />
-    <disable_collisions link1="br_caster_r_wheel_link" link2="head_mount_link" reason="Never" />
+    <disable_collisions link1="br_caster_r_wheel_link" link2="head_mount_xtion_link" reason="Never" />
     <disable_collisions link1="br_caster_r_wheel_link" link2="head_pan_link" reason="Never" />
     <disable_collisions link1="br_caster_r_wheel_link" link2="head_plate_frame" reason="Never" />
     <disable_collisions link1="br_caster_r_wheel_link" link2="head_tilt_link" reason="Never" />
@@ -884,8 +871,7 @@
     <disable_collisions link1="br_caster_rotation_link" link2="fr_caster_l_wheel_link" reason="Never" />
     <disable_collisions link1="br_caster_rotation_link" link2="fr_caster_r_wheel_link" reason="Never" />
     <disable_collisions link1="br_caster_rotation_link" link2="fr_caster_rotation_link" reason="Never" />
-    <disable_collisions link1="br_caster_rotation_link" link2="head_mount_kinect_rgb_link" reason="Never" />
-    <disable_collisions link1="br_caster_rotation_link" link2="head_mount_link" reason="Never" />
+    <disable_collisions link1="br_caster_rotation_link" link2="head_mount_xtion_link" reason="Never" />
     <disable_collisions link1="br_caster_rotation_link" link2="head_pan_link" reason="Never" />
     <disable_collisions link1="br_caster_rotation_link" link2="head_plate_frame" reason="Never" />
     <disable_collisions link1="br_caster_rotation_link" link2="head_tilt_link" reason="Never" />
@@ -948,8 +934,7 @@
     <disable_collisions link1="double_stereo_link" link2="fr_caster_l_wheel_link" reason="Never" />
     <disable_collisions link1="double_stereo_link" link2="fr_caster_r_wheel_link" reason="Never" />
     <disable_collisions link1="double_stereo_link" link2="fr_caster_rotation_link" reason="Never" />
-    <disable_collisions link1="double_stereo_link" link2="head_mount_kinect_rgb_link" reason="Never" />
-    <disable_collisions link1="double_stereo_link" link2="head_mount_link" reason="Default" />
+    <disable_collisions link1="double_stereo_link" link2="head_mount_xtion_link" reason="Default" />
     <disable_collisions link1="double_stereo_link" link2="head_pan_link" reason="Default" />
     <disable_collisions link1="double_stereo_link" link2="head_plate_frame" reason="Default" />
     <disable_collisions link1="double_stereo_link" link2="head_tilt_link" reason="Default" />
@@ -1011,8 +996,7 @@
     <disable_collisions link1="fl_caster_l_wheel_link" link2="fr_caster_l_wheel_link" reason="Never" />
     <disable_collisions link1="fl_caster_l_wheel_link" link2="fr_caster_r_wheel_link" reason="Never" />
     <disable_collisions link1="fl_caster_l_wheel_link" link2="fr_caster_rotation_link" reason="Never" />
-    <disable_collisions link1="fl_caster_l_wheel_link" link2="head_mount_kinect_rgb_link" reason="Never" />
-    <disable_collisions link1="fl_caster_l_wheel_link" link2="head_mount_link" reason="Never" />
+    <disable_collisions link1="fl_caster_l_wheel_link" link2="head_mount_xtion_link" reason="Never" />
     <disable_collisions link1="fl_caster_l_wheel_link" link2="head_pan_link" reason="Never" />
     <disable_collisions link1="fl_caster_l_wheel_link" link2="head_plate_frame" reason="Never" />
     <disable_collisions link1="fl_caster_l_wheel_link" link2="head_tilt_link" reason="Never" />
@@ -1073,8 +1057,7 @@
     <disable_collisions link1="fl_caster_r_wheel_link" link2="fr_caster_l_wheel_link" reason="Never" />
     <disable_collisions link1="fl_caster_r_wheel_link" link2="fr_caster_r_wheel_link" reason="Never" />
     <disable_collisions link1="fl_caster_r_wheel_link" link2="fr_caster_rotation_link" reason="Never" />
-    <disable_collisions link1="fl_caster_r_wheel_link" link2="head_mount_kinect_rgb_link" reason="Never" />
-    <disable_collisions link1="fl_caster_r_wheel_link" link2="head_mount_link" reason="Never" />
+    <disable_collisions link1="fl_caster_r_wheel_link" link2="head_mount_xtion_link" reason="Never" />
     <disable_collisions link1="fl_caster_r_wheel_link" link2="head_pan_link" reason="Never" />
     <disable_collisions link1="fl_caster_r_wheel_link" link2="head_plate_frame" reason="Never" />
     <disable_collisions link1="fl_caster_r_wheel_link" link2="head_tilt_link" reason="Never" />
@@ -1134,8 +1117,7 @@
     <disable_collisions link1="fl_caster_rotation_link" link2="fr_caster_l_wheel_link" reason="Never" />
     <disable_collisions link1="fl_caster_rotation_link" link2="fr_caster_r_wheel_link" reason="Never" />
     <disable_collisions link1="fl_caster_rotation_link" link2="fr_caster_rotation_link" reason="Never" />
-    <disable_collisions link1="fl_caster_rotation_link" link2="head_mount_kinect_rgb_link" reason="Never" />
-    <disable_collisions link1="fl_caster_rotation_link" link2="head_mount_link" reason="Never" />
+    <disable_collisions link1="fl_caster_rotation_link" link2="head_mount_xtion_link" reason="Never" />
     <disable_collisions link1="fl_caster_rotation_link" link2="head_pan_link" reason="Never" />
     <disable_collisions link1="fl_caster_rotation_link" link2="head_plate_frame" reason="Never" />
     <disable_collisions link1="fl_caster_rotation_link" link2="head_tilt_link" reason="Never" />
@@ -1194,8 +1176,7 @@
     <disable_collisions link1="fl_caster_rotation_link" link2="tray_link" reason="Never" />
     <disable_collisions link1="fr_caster_l_wheel_link" link2="fr_caster_r_wheel_link" reason="Never" />
     <disable_collisions link1="fr_caster_l_wheel_link" link2="fr_caster_rotation_link" reason="Adjacent" />
-    <disable_collisions link1="fr_caster_l_wheel_link" link2="head_mount_kinect_rgb_link" reason="Never" />
-    <disable_collisions link1="fr_caster_l_wheel_link" link2="head_mount_link" reason="Never" />
+    <disable_collisions link1="fr_caster_l_wheel_link" link2="head_mount_xtion_link" reason="Never" />
     <disable_collisions link1="fr_caster_l_wheel_link" link2="head_pan_link" reason="Never" />
     <disable_collisions link1="fr_caster_l_wheel_link" link2="head_plate_frame" reason="Never" />
     <disable_collisions link1="fr_caster_l_wheel_link" link2="head_tilt_link" reason="Never" />
@@ -1253,8 +1234,7 @@
     <disable_collisions link1="fr_caster_l_wheel_link" link2="tray_laser_link" reason="Never" />
     <disable_collisions link1="fr_caster_l_wheel_link" link2="tray_link" reason="Never" />
     <disable_collisions link1="fr_caster_r_wheel_link" link2="fr_caster_rotation_link" reason="Adjacent" />
-    <disable_collisions link1="fr_caster_r_wheel_link" link2="head_mount_kinect_rgb_link" reason="Never" />
-    <disable_collisions link1="fr_caster_r_wheel_link" link2="head_mount_link" reason="Never" />
+    <disable_collisions link1="fr_caster_r_wheel_link" link2="head_mount_xtion_link" reason="Never" />
     <disable_collisions link1="fr_caster_r_wheel_link" link2="head_pan_link" reason="Never" />
     <disable_collisions link1="fr_caster_r_wheel_link" link2="head_plate_frame" reason="Never" />
     <disable_collisions link1="fr_caster_r_wheel_link" link2="head_tilt_link" reason="Never" />
@@ -1311,8 +1291,7 @@
     <disable_collisions link1="fr_caster_r_wheel_link" link2="torso_lift_link" reason="Never" />
     <disable_collisions link1="fr_caster_r_wheel_link" link2="tray_laser_link" reason="Never" />
     <disable_collisions link1="fr_caster_r_wheel_link" link2="tray_link" reason="Never" />
-    <disable_collisions link1="fr_caster_rotation_link" link2="head_mount_kinect_rgb_link" reason="Never" />
-    <disable_collisions link1="fr_caster_rotation_link" link2="head_mount_link" reason="Never" />
+    <disable_collisions link1="fr_caster_rotation_link" link2="head_mount_xtion_link" reason="Never" />
     <disable_collisions link1="fr_caster_rotation_link" link2="head_pan_link" reason="Never" />
     <disable_collisions link1="fr_caster_rotation_link" link2="head_plate_frame" reason="Never" />
     <disable_collisions link1="fr_caster_rotation_link" link2="head_tilt_link" reason="Never" />
@@ -1369,91 +1348,34 @@
     <disable_collisions link1="fr_caster_rotation_link" link2="torso_lift_link" reason="Never" />
     <disable_collisions link1="fr_caster_rotation_link" link2="tray_laser_link" reason="Never" />
     <disable_collisions link1="fr_caster_rotation_link" link2="tray_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="head_mount_link" reason="Adjacent" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="head_pan_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="head_plate_frame" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="head_tilt_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="l_elbow_flex_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="l_force_torque_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="l_forearm_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="l_forearm_roll_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="l_gripper_l_finger_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="l_gripper_l_finger_tip_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="l_gripper_motor_accelerometer_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="l_gripper_palm_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="l_gripper_r_finger_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="l_gripper_r_finger_tip_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="l_shoulder_lift_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="l_shoulder_pan_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="l_upper_arm_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="l_upper_arm_roll_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="l_wrist_flex_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="l_wrist_roll_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="laser_tilt_mount_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="r_elbow_flex_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="r_forearm_roll_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_adapter_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_ffdistal" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_ffknuckle" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_ffmiddle" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_ffproximal" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_forearm" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_lfdistal" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_lfknuckle" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_lfmetacarpal" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_lfmiddle" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_lfproximal" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_mfdistal" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_mfknuckle" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_mfmiddle" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_mfproximal" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_palm" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_rfdistal" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_rfknuckle" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_rfmiddle" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_rfproximal" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_thbase" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_thdistal" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_thhub" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_thmiddle" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_thproximal" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="rh_wrist" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="r_shoulder_lift_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="r_shoulder_pan_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="r_upper_arm_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="r_upper_arm_roll_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="sensor_mount_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="torso_lift_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="tray_laser_link" reason="Never" />
-    <disable_collisions link1="head_mount_kinect_rgb_link" link2="tray_link" reason="Never" />
-    <disable_collisions link1="head_mount_link" link2="head_pan_link" reason="Default" />
-    <disable_collisions link1="head_mount_link" link2="head_plate_frame" reason="Adjacent" />
-    <disable_collisions link1="head_mount_link" link2="head_tilt_link" reason="Default" />
-    <disable_collisions link1="head_mount_link" link2="l_elbow_flex_link" reason="Never" />
-    <disable_collisions link1="head_mount_link" link2="l_forearm_roll_link" reason="Never" />
-    <disable_collisions link1="head_mount_link" link2="l_shoulder_lift_link" reason="Never" />
-    <disable_collisions link1="head_mount_link" link2="l_shoulder_pan_link" reason="Never" />
-    <disable_collisions link1="head_mount_link" link2="l_upper_arm_link" reason="Never" />
-    <disable_collisions link1="head_mount_link" link2="l_upper_arm_roll_link" reason="Never" />
-    <disable_collisions link1="head_mount_link" link2="l_wrist_roll_link" reason="User" />
-    <disable_collisions link1="head_mount_link" link2="laser_tilt_mount_link" reason="Never" />
-    <disable_collisions link1="head_mount_link" link2="r_elbow_flex_link" reason="Never" />
-    <disable_collisions link1="head_mount_link" link2="r_forearm_roll_link" reason="Never" />
-    <disable_collisions link1="head_mount_link" link2="rh_adapter_link" reason="Never" />
-    <disable_collisions link1="head_mount_link" link2="rh_ffknuckle" reason="User" />
-    <disable_collisions link1="head_mount_link" link2="rh_lfknuckle" reason="User" />
-    <disable_collisions link1="head_mount_link" link2="rh_mfknuckle" reason="User" />
-    <disable_collisions link1="head_mount_link" link2="rh_rfknuckle" reason="User" />
-    <disable_collisions link1="head_mount_link" link2="rh_thbase" reason="User" />
-    <disable_collisions link1="head_mount_link" link2="rh_thhub" reason="User" />
-    <disable_collisions link1="head_mount_link" link2="r_shoulder_lift_link" reason="Never" />
-    <disable_collisions link1="head_mount_link" link2="r_shoulder_pan_link" reason="Never" />
-    <disable_collisions link1="head_mount_link" link2="r_upper_arm_link" reason="Never" />
-    <disable_collisions link1="head_mount_link" link2="r_upper_arm_roll_link" reason="Never" />
-    <disable_collisions link1="head_mount_link" link2="sensor_mount_link" reason="Default" />
-    <disable_collisions link1="head_mount_link" link2="torso_lift_link" reason="User" />
-    <disable_collisions link1="head_mount_link" link2="tray_laser_link" reason="Never" />
-    <disable_collisions link1="head_mount_link" link2="tray_link" reason="Never" />
+    <disable_collisions link1="head_mount_xtion_link" link2="head_pan_link" reason="Default" />
+    <disable_collisions link1="head_mount_xtion_link" link2="head_plate_frame" reason="Adjacent" />
+    <disable_collisions link1="head_mount_xtion_link" link2="head_tilt_link" reason="Default" />
+    <disable_collisions link1="head_mount_xtion_link" link2="l_elbow_flex_link" reason="Never" />
+    <disable_collisions link1="head_mount_xtion_link" link2="l_forearm_roll_link" reason="Never" />
+    <disable_collisions link1="head_mount_xtion_link" link2="l_shoulder_lift_link" reason="Never" />
+    <disable_collisions link1="head_mount_xtion_link" link2="l_shoulder_pan_link" reason="Never" />
+    <disable_collisions link1="head_mount_xtion_link" link2="l_upper_arm_link" reason="Never" />
+    <disable_collisions link1="head_mount_xtion_link" link2="l_upper_arm_roll_link" reason="Never" />
+    <disable_collisions link1="head_mount_xtion_link" link2="l_wrist_roll_link" reason="User" />
+    <disable_collisions link1="head_mount_xtion_link" link2="laser_tilt_mount_link" reason="Never" />
+    <disable_collisions link1="head_mount_xtion_link" link2="r_elbow_flex_link" reason="Never" />
+    <disable_collisions link1="head_mount_xtion_link" link2="r_forearm_roll_link" reason="Never" />
+    <disable_collisions link1="head_mount_xtion_link" link2="rh_adapter_link" reason="Never" />
+    <disable_collisions link1="head_mount_xtion_link" link2="rh_ffknuckle" reason="User" />
+    <disable_collisions link1="head_mount_xtion_link" link2="rh_lfknuckle" reason="User" />
+    <disable_collisions link1="head_mount_xtion_link" link2="rh_mfknuckle" reason="User" />
+    <disable_collisions link1="head_mount_xtion_link" link2="rh_rfknuckle" reason="User" />
+    <disable_collisions link1="head_mount_xtion_link" link2="rh_thbase" reason="User" />
+    <disable_collisions link1="head_mount_xtion_link" link2="rh_thhub" reason="User" />
+    <disable_collisions link1="head_mount_xtion_link" link2="r_shoulder_lift_link" reason="Never" />
+    <disable_collisions link1="head_mount_xtion_link" link2="r_shoulder_pan_link" reason="Never" />
+    <disable_collisions link1="head_mount_xtion_link" link2="r_upper_arm_link" reason="Never" />
+    <disable_collisions link1="head_mount_xtion_link" link2="r_upper_arm_roll_link" reason="Never" />
+    <disable_collisions link1="head_mount_xtion_link" link2="sensor_mount_link" reason="Default" />
+    <disable_collisions link1="head_mount_xtion_link" link2="torso_lift_link" reason="User" />
+    <disable_collisions link1="head_mount_xtion_link" link2="tray_laser_link" reason="Never" />
+    <disable_collisions link1="head_mount_xtion_link" link2="tray_link" reason="Never" />
     <disable_collisions link1="head_pan_link" link2="head_plate_frame" reason="Default" />
     <disable_collisions link1="head_pan_link" link2="head_tilt_link" reason="Adjacent" />
     <disable_collisions link1="head_pan_link" link2="l_forearm_roll_link" reason="Never" />

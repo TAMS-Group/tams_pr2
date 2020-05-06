@@ -65,7 +65,7 @@
     <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
   </xacro:pr2_head_sensor_package_v0>
 
-  <xacro:xtion_camera name="head_mount" parent="head_plate_frame">
+  <xacro:xtion_camera name="head_mount_xtion" parent="head_plate_frame">
     <origin xyz="0.03 0.02 0.091746" rpy="0 0 0" />
   </xacro:xtion_camera>
 

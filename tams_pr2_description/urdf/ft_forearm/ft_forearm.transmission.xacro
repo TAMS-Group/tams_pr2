@@ -8,7 +8,7 @@
     <transmission name="${side}_wrist_trans">
       <type>pr2_mechanism_model/WristTransmission</type>
       <joint name="${side}_wrist_flex_joint">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       </joint>
       <actuator name="${side}_wrist_r_motor">
         <mechanicalReduction>1.0</mechanicalReduction>

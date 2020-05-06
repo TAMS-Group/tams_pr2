@@ -1,6 +1,10 @@
 # joint_limits.yaml allows the dynamics properties specified in the URDF to be overwritten or augmented as needed
 # Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
 # Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
+
+default_velocity_scaling_factor: 1.0
+default_acceleration_scaling_factor: 1.0
+
 joint_limits:
   head_pan_joint:
     has_velocity_limits: true
@@ -90,6 +94,21 @@ joint_limits:
   r_forearm_roll_joint:
     has_velocity_limits: true
     max_velocity: 3.6
+    has_acceleration_limits: false
+    max_acceleration: 0
+  r_shoulder_lift_joint:
+    has_velocity_limits: true
+    max_velocity: 2.082
+    has_acceleration_limits: false
+    max_acceleration: 0
+  r_shoulder_pan_joint:
+    has_velocity_limits: true
+    max_velocity: 2.088
+    has_acceleration_limits: false
+    max_acceleration: 0
+  r_upper_arm_roll_joint:
+    has_velocity_limits: true
+    max_velocity: 3.27
     has_acceleration_limits: false
     max_acceleration: 0
   rh_FFJ1:
@@ -210,21 +229,6 @@ joint_limits:
   rh_WRJ2:
     has_velocity_limits: true
     max_velocity: 2
-    has_acceleration_limits: false
-    max_acceleration: 0
-  r_shoulder_lift_joint:
-    has_velocity_limits: true
-    max_velocity: 2.082
-    has_acceleration_limits: false
-    max_acceleration: 0
-  r_shoulder_pan_joint:
-    has_velocity_limits: true
-    max_velocity: 2.088
-    has_acceleration_limits: false
-    max_acceleration: 0
-  r_upper_arm_roll_joint:
-    has_velocity_limits: true
-    max_velocity: 3.27
     has_acceleration_limits: false
     max_acceleration: 0
   torso_lift_joint:
