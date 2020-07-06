@@ -10,7 +10,6 @@
               default_planner_request_adapters/FixStartStateBounds
               default_planner_request_adapters/FixStartStateCollision
               default_planner_request_adapters/FixStartStatePathConstraints
-              default_planner_request_adapters/ResolveConstraintFrames
               default_planner_request_adapters/AddTimeParameterization"
               />
 
