@@ -38,6 +38,7 @@
     <param name="check_core_temps" type="bool" value="False" />
     <param name="num_cores" value="12.0" />
     <param name="check_ipmi_tool" type="bool" value="False" /> <!-- TAMS modification -->
+    <param name="enforce_clock_speed" type="bool" value="False" /> <!-- TAMS modification -->
   </node>
 
   <!-- Disk usage monitoring script monitors HD temperature, usage on diagnostics -->
