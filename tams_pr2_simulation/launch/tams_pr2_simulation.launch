@@ -32,7 +32,7 @@
   <include file="$(find tams_pr2_simulation)/launch/pr2_default_controllers.launch" />
 
   <!-- Hand trajectory controller -->
-  <node name="$(arg hand_id)_trajectory_controller" pkg="sr_utilities" type="trajectory_controller_spawner.py" output="screen">
+  <node name="$(arg hand_id)_trajectory_controller" pkg="sr_utilities" type="controller_spawner.py" output="screen">
     <param name="hand_trajectory" value ="$(arg hand_trajectory)"/>
     <param name="service_timeout" value ="260"/>
   </node>
