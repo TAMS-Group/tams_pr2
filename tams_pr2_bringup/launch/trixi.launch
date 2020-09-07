@@ -23,7 +23,7 @@
     <!--
     <include file="$(find tams_motorhand)/launch/hand_on_trixi.launch" if="$(arg with_hand)"/>
     -->
-    <include file="$(find tams_motorhand)/launch/hand_stub_on_trixi.launch" unless="$(arg no_stub)"/>
+    <include file="$(find tams_motorhand)/launch/right_biotac_hand_stub_on_trixi.launch" unless="$(arg no_stub)"/>
 
     <include file="$(find tams_pr2_bringup)/launch/include/teleop.launch" />
 
@@ -44,6 +44,6 @@
     <include file="$(find tams_pr2_bringup)/launch/remote.launch" if="$(arg with_hand)">
         <arg name="machine" value="c2" />
         <arg name="pkg" value="tams_motorhand" />
-        <arg name="launch" value="hand_on_trixi.launch" />
+        <arg name="launch" value="right_biotac_hand_in_ns.launch" />
     </include>
 </launch> 
