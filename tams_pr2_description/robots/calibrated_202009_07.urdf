@@ -6,7 +6,41 @@
 <robot name="tams_pr2" xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body" xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller" xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom" xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface" xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#slider" xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor">
   <!--TODO Define and give source-->
   <!-- ============================   Shoulder   ============================ -->
+  <!-- Upperarm roll: internal fixed attchment point for upper arm -->
+  <!-- Things that are needed only for Gazebo (not the physical robot).  These include
+       sensor and controller plugin specifications -->
+  <!-- Elbow flex -->
+  <!-- Forearm roll -->
   <!-- ============================   Upper Arm   ============================ -->
+  <!-- Forearm roll -->
+  <!-- Gear Ratio Corrections: Divide transmission reductions by these factors (Nominally 1)-->
+  <!-- ********** Right Arm ********** -->
+  <!-- Flag offsets: Add to the optical flag locations (Nominally 0) -->
+  <!-- ********** Head ********** -->
+  <!-- Head Location: Add to the transform from torso to head_pan_link (Nominally 0) -->
+  <!-- Flag Offsets -->
+  <!-- Casters -->
+  <!-- Stereo Camera Location (Nominally 0) -->
+  <!-- Kinect Camera Location (Nominally 0) -->
+  <!-- HighDef Camera Location (Nominally 0) -->
+  <!-- Throwing in left arm constants to appease the xacro parser -->
+  <!-- Inertial properties differ slightly for left vs right arm -->
+  <!-- ============================   Upper Arm   ============================ -->
+  <!-- Includes elbow flex, FA roll joints in macros below -->
+  <!-- FA roll joint only -->
+  <!-- Things that are needed only for Gazebo (not the physical robot).  These include
+       sensor and controller plugin specifications -->
+  <!-- Gear Ratio Corrections: Divide transmission reductions by these factors (Nominally 1)-->
+  <!-- ********** Right Arm ********** -->
+  <!-- Flag offsets: Add to the optical flag locations (Nominally 0) -->
+  <!-- ********** Head ********** -->
+  <!-- Head Location: Add to the transform from torso to head_pan_link (Nominally 0) -->
+  <!-- Flag Offsets -->
+  <!-- Casters -->
+  <!-- Stereo Camera Location (Nominally 0) -->
+  <!-- Kinect Camera Location (Nominally 0) -->
+  <!-- HighDef Camera Location (Nominally 0) -->
+  <!-- Throwing in left arm constants to appease the xacro parser -->
   <!-- ============================   Forearm   ============================ -->
   <!-- DATA SOURCES -->
   <!-- all link offsets, CG, limits are obtained from Function Engineering spreadsheet 090224_link_data.xls unless stated otherwise -->
@@ -31,6 +65,7 @@
       <chargeVoltage>16.41</chargeVoltage>
     </plugin>
   </gazebo>
+  <!-- materials for visualization -->
   <material name="Blue">
     <color rgba="0.0 0.0 0.8 1.0"/>
   </material>
@@ -67,13 +102,160 @@
   <material name="RollLinks">
     <texture filename="package://pr2_description/materials/textures/pr2_wheel_left.png"/>
   </material>
+  <!-- TAMS' additions -->
+  <!-- Things that are needed only for Gazebo (not the physical robot).  These include
+       sensor and controller plugin specifications -->
+  <!-- Gear Ratio Corrections: Divide transmission reductions by these factors (Nominally 1)-->
+  <!-- ********** Right Arm ********** -->
+  <!-- Flag offsets: Add to the optical flag locations (Nominally 0) -->
+  <!-- ********** Head ********** -->
+  <!-- Head Location: Add to the transform from torso to head_pan_link (Nominally 0) -->
+  <!-- Flag Offsets -->
+  <!-- Casters -->
+  <!-- Stereo Camera Location (Nominally 0) -->
+  <!-- Kinect Camera Location (Nominally 0) -->
+  <!-- HighDef Camera Location (Nominally 0) -->
+  <!-- Throwing in left arm constants to appease the xacro parser -->
   <!-- ============================   Forearm   ============================ -->
   <!-- FIXME: what is this offset? -->
+  <!-- muscle is true for muscle hand or false for motor hand -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
+  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- parent is the parent joint -->
+  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
+  <!-- parent is the parent link for the joint -->
+  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- link_prefix prepends fingername to the link names -->
+  <!-- joint_prefix prepends fingername to the joint names -->
+  <!-- muscle is true for muscle hand or false for motor hand -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- link_prefix prepends fingername to the link names -->
+  <!-- joint_prefix prepends fingername to the joint names -->
+  <!-- parent is the parent link for the joint -->
+  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- link_prefix prepends fingername to the link names -->
+  <!-- joint_prefix prepends fingername to the joint names -->
+  <!-- muscle is true for muscle hand or false for motor hand -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- link_prefix prepends fingername to the link names -->
+  <!-- joint_prefix prepends fingername to the joint names -->
+  <!-- parent is the parent link for the joint -->
+  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- link_prefix prepends fingername to the link names -->
+  <!-- joint_prefix prepends fingername to the joint names -->
+  <!-- muscle is true for muscle hand or false for motor hand -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- link_prefix prepends fingername to the link names -->
+  <!-- joint_prefix prepends fingername to the joint names -->
+  <!-- parent is the parent link for the joint -->
+  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- link_prefix prepends fingername to the link names -->
+  <!-- joint_prefix prepends fingername to the joint names -->
+  <!-- muscle is true for muscle hand or false for motor hand -->
+  <!-- bio is true for biotac finger or false for standard finger -->
+  <!-- bt_sp is true for BT_SP finger or false for standard finger -->
+  <!-- ubi is true for ubi finger or false for standard finger -->
+  <!-- eli is true for ellipsoid fingertip or false for standard finger -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- link_prefix prepends fingername to the link names -->
+  <!-- joint_prefix prepends fingername to the joint names -->
+  <!-- parent is the parent link for the joint -->
+  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- muscle is true for muscle hand or false for motor hand -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
+  <!-- parent is the parent link for the joint -->
+  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- link_prefix prepends fingername to the link names -->
+  <!-- joint_prefix prepends fingername to the joint names -->
+  <!-- muscle is true for muscle hand or false for motor hand -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- link_prefix prepends fingername to the link names -->
+  <!-- joint_prefix prepends fingername to the joint names -->
+  <!-- parent is the parent link for the joint -->
+  <!-- muscletrans is true for muscle transmission to be used, false to use motor transmission -->
+  <!-- lf is true for little finger or false for standard finger -->
+  <!-- bio is true for biotac finger or false for standard finger -->
+  <!-- bt_sp is true for BT_SP finger or false for standard finger -->
+  <!-- ubi is true for ubi finger or false for standard finger -->
+  <!-- eli is true for ellipsoid fingertip or false for standard finger -->
+  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- link_prefix prepends fingername to the link names -->
+  <!-- joint_prefix prepends fingername to the joint names -->
+  <!-- parent is the parent link for the first joint -->
+  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- muscle is true for muscle hand or false for motor hand -->
+  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- parent is the parent link for the first joint -->
+  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- muscle is true for muscle hand or false for motor hand -->
+  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- parent is the parent link for the first joint -->
+  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- muscle is true for muscle hand or false for motor hand -->
+  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- parent is the parent link for the first joint -->
+  <!-- is_lite is this the lite hand, if so lock J3 -->
+  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- muscle is true for muscle hand or false for motor hand -->
+  <!-- bio is true for biotac finger or false for standard finger -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- parent is the parent link for the first joint -->
+  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- muscle is true for muscle hand or false for motor hand -->
+  <!-- bio is true for biotac finger or false for standard finger -->
+  <!-- bt_sp is true for BT_SP finger or false for standard finger -->
+  <!-- ubi is true for ubi finger or false for standard finger -->
+  <!-- eli is true for ellipsoid fingertip or false for standard finger -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- parent is the parent link for the first joint -->
+  <!-- muscletrans is true for muscle transmission to be used, false to use motor transmission -->
+  <!-- bio is true for biotac finger or false for standard finger -->
+  <!-- bt_sp is true for BT_SP finger or false for standard finger -->
+  <!-- ubi is true for ubi finger or false for standard finger -->
+  <!-- eli is true for ellipsoid fingertip or false for standard finger -->
+  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- parent is the parent link for the first joint -->
+  <!-- is_lite is this the lite hand, if so lock J3 -->
+  <!-- muscletrans is true for muscle transmission to be used, false to use motor transmission -->
+  <!-- muscle is true for muscle hand or false for motor hand -->
+  <!-- bio is true for biotac finger or false for standard finger -->
+  <!-- bt_sp is true for BT_SP finger or false for standard finger -->
+  <!-- ubi is true for ubi finger or false for standard finger -->
+  <!-- eli is true for ellipsoid fingertip or false for standard finger -->
+  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- lf is true if we want a little finger, false otherwise -->
   <gazebo>
     <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
       <robotSimType>sr_gazebo_sim/SrGazeboHWSim</robotSimType>
     </plugin>
-  </gazebo>
+  </gazebo>  
+  <!-- FIXME: what is this offset? -->
   <gazebo>
     <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
       <robotSimType>sr_gazebo_sim/SrGazeboHWSim</robotSimType>
@@ -103,6 +285,11 @@
   <!-- base_footprint is a fictitious link(frame) that is on the ground right below base_link origin,
          navigation stack dedpends on this frame -->
   <link name="base_footprint">
+    <inertial>
+      <mass value="1.0" />
+      <origin xyz="0 0 0" />
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01" />
+    </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -150,6 +337,7 @@
     <parent link="base_link"/>
     <child link="base_bellow_link"/>
   </joint>
+  <!-- base laser -->
   <joint name="base_laser_joint" type="fixed">
     <axis xyz="0 1 0"/>
     <origin rpy="0 0 0" xyz="0.275 0.0 0.252"/>
@@ -163,6 +351,7 @@
       <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
     </inertial>
   </link>
+  <!-- gazebo extensions -->
   <gazebo reference="base_laser_link">
     <sensor name="base_laser" type="ray">
       <always_on>true</always_on>
@@ -194,6 +383,7 @@
       </plugin>
     </sensor>
   </gazebo>
+  <!-- all four caster macros -->
   <joint name="fl_caster_rotation_joint" type="continuous">
     <axis xyz="0 0 1"/>
     <limit effort="6.5" velocity="10"/>
@@ -225,6 +415,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions -->
   <transmission name="fl_caster_rotation_trans">
     <type>pr2_mechanism_model/SimpleTransmission</type>
     <actuator name="fl_caster_rotation_motor">
@@ -234,6 +425,7 @@
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
   </transmission>
+  <!-- wheel macros -->
   <joint name="fl_caster_l_wheel_joint" type="continuous">
     <axis xyz="0 1 0"/>
     <limit effort="7" velocity="15"/>
@@ -265,6 +457,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions -->
   <gazebo reference="fl_caster_l_wheel_link">
     <mu1 value="100.0"/>
     <mu2 value="100.0"/>
@@ -313,6 +506,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions -->
   <gazebo reference="fl_caster_r_wheel_link">
     <mu1 value="100.0"/>
     <mu2 value="100.0"/>
@@ -330,6 +524,7 @@
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
   </transmission>
+  <!-- extensions -->
   <gazebo reference="fl_caster_rotation_link">
     <material value="PR2/caster_texture"/>
   </gazebo>
@@ -364,6 +559,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions -->
   <transmission name="fr_caster_rotation_trans">
     <type>pr2_mechanism_model/SimpleTransmission</type>
     <actuator name="fr_caster_rotation_motor">
@@ -373,6 +569,7 @@
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
   </transmission>
+  <!-- wheel macros -->
   <joint name="fr_caster_l_wheel_joint" type="continuous">
     <axis xyz="0 1 0"/>
     <limit effort="7" velocity="15"/>
@@ -404,6 +601,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions -->
   <gazebo reference="fr_caster_l_wheel_link">
     <mu1 value="100.0"/>
     <mu2 value="100.0"/>
@@ -452,6 +650,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions -->
   <gazebo reference="fr_caster_r_wheel_link">
     <mu1 value="100.0"/>
     <mu2 value="100.0"/>
@@ -469,6 +668,7 @@
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
   </transmission>
+  <!-- extensions -->
   <gazebo reference="fr_caster_rotation_link">
     <material value="PR2/caster_texture"/>
   </gazebo>
@@ -503,6 +703,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions -->
   <transmission name="bl_caster_rotation_trans">
     <type>pr2_mechanism_model/SimpleTransmission</type>
     <actuator name="bl_caster_rotation_motor">
@@ -512,6 +713,7 @@
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
   </transmission>
+  <!-- wheel macros -->
   <joint name="bl_caster_l_wheel_joint" type="continuous">
     <axis xyz="0 1 0"/>
     <limit effort="7" velocity="15"/>
@@ -543,6 +745,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions -->
   <gazebo reference="bl_caster_l_wheel_link">
     <mu1 value="100.0"/>
     <mu2 value="100.0"/>
@@ -591,6 +794,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions -->
   <gazebo reference="bl_caster_r_wheel_link">
     <mu1 value="100.0"/>
     <mu2 value="100.0"/>
@@ -608,6 +812,7 @@
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
   </transmission>
+  <!-- extensions -->
   <gazebo reference="bl_caster_rotation_link">
     <material value="PR2/caster_texture"/>
   </gazebo>
@@ -642,6 +847,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions -->
   <transmission name="br_caster_rotation_trans">
     <type>pr2_mechanism_model/SimpleTransmission</type>
     <actuator name="br_caster_rotation_motor">
@@ -651,6 +857,7 @@
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
   </transmission>
+  <!-- wheel macros -->
   <joint name="br_caster_l_wheel_joint" type="continuous">
     <axis xyz="0 1 0"/>
     <limit effort="7" velocity="15"/>
@@ -682,6 +889,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions -->
   <gazebo reference="br_caster_l_wheel_link">
     <mu1 value="100.0"/>
     <mu2 value="100.0"/>
@@ -730,6 +938,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions -->
   <gazebo reference="br_caster_r_wheel_link">
     <mu1 value="100.0"/>
     <mu2 value="100.0"/>
@@ -747,9 +956,11 @@
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
   </transmission>
+  <!-- extensions -->
   <gazebo reference="br_caster_rotation_link">
     <material value="PR2/caster_texture"/>
   </gazebo>
+  <!-- gazebo extensions -->
   <gazebo reference="base_link">
     <selfCollide>false</selfCollide>
     <sensor name="base_contact_sensor" type="contact">
@@ -833,6 +1044,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- gazebo extensions -->
   <gazebo reference="tray_laser_link">
     <sensor name="tray_laser" type="ray">
       <always_on>true</always_on>
@@ -952,6 +1164,7 @@
     <child link="torso_lift_motor_screw_link"/>
     <dynamics damping="0.0001"/>
   </joint>
+  <!-- extensions -->
   <gazebo reference="torso_lift_link">
     <sensor name="torso_lift_contact_sensor" type="contact">
       <contact>
@@ -986,6 +1199,7 @@
     </joint>
     <simulated_actuated_joint name="torso_lift_motor_screw_joint" simulated_reduction="3141.6"/>
   </transmission>
+  <!-- imu -->
   <joint name="imu_joint" type="fixed">
     <axis xyz="0 1 0"/>
     <origin rpy="0 3.14159265359 0" xyz="-0.02977 -0.1497 0.164"/>
@@ -999,6 +1213,7 @@
       <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
     </inertial>
   </link>
+  <!-- gazebo extensions -->
   <gazebo>
     <plugin filename="libgazebo_ros_imu.so" name="imu_controller">
       <alwaysOn>true</alwaysOn>
@@ -1016,7 +1231,7 @@
     <limit effort="2.645" lower="-3.007" upper="3.007" velocity="6"/>
     <!-- alpha tested velocity and effort limits -->
     <safety_controller k_position="100" k_velocity="1.5" soft_lower_limit="-2.857" soft_upper_limit="2.857"/>
-    <calibration rising="0.00551064"/>
+    <calibration rising="0.00551064" />
     <dynamics damping="0.5"/>
     <origin rpy="0.0 0.0 0.0" xyz="-0.01707 0.0 0.38145"/>
     <parent link="torso_lift_link"/>
@@ -1042,6 +1257,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions -->
   <transmission name="head_pan_trans">
     <type>pr2_mechanism_model/SimpleTransmission</type>
     <actuator name="head_pan_motor">
@@ -1056,7 +1272,7 @@
     <limit effort="18" lower="-0.471238" upper="1.39626" velocity="5"/>
     <!-- alpha tested velocity and effort limits -->
     <safety_controller k_position="100" k_velocity="3.0" soft_lower_limit="-0.3712" soft_upper_limit="1.29626"/>
-    <calibration falling="-0.00398253"/>
+    <calibration falling="-0.00398253" />
     <dynamics damping="10.0"/>
     <origin rpy="0 0 0" xyz="0.068 0 0"/>
     <parent link="head_pan_link"/>
@@ -1083,6 +1299,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions -->
   <transmission name="head_tilt_trans">
     <type>pr2_mechanism_model/SimpleTransmission</type>
     <actuator name="head_tilt_motor">
@@ -1118,9 +1335,11 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions -->
   <gazebo reference="head_plate_frame">
     <material value="Gazebo/Grey"/>
   </gazebo>
+  <!-- Camera package: double stereo, prosilica -->
   <joint name="sensor_mount_frame_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
     <parent link="head_plate_frame"/>
@@ -1133,7 +1352,9 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.01"/>
     </inertial>
+    <!-- Should probably get real visuals here at some point -->
   </link>
+  <!-- Prosilica Camera -->
   <joint name="high_def_frame_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.046457 -0.110 0.054600"/>
     <parent link="sensor_mount_link"/>
@@ -1158,6 +1379,7 @@
       <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
   </link>
+  <!-- extensions -->
   <gazebo reference="high_def_frame">
     <sensor name="high_def_sensor" type="camera">
       <always_on>true</always_on>
@@ -1194,6 +1416,7 @@
     </sensor>
     <material value="Gazebo/Black"/>
   </gazebo>
+  <!-- construct wide and narrow double stereo camera -->
   <!-- Define link to stereo cameras, set origin relative to that -->
   <joint name="double_stereo_frame_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
@@ -1208,6 +1431,8 @@
       <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.01"/>
     </inertial>
   </link>
+  <!-- Wide camera is on robot right (hca1), narrow on left (hca2)? -->
+  <!-- 15mm offset from center needs check with CAD -->
   <joint name="wide_stereo_frame_joint" type="fixed">
     <origin rpy="0.0   0.0   0.0" xyz="0.045 0.03 0.0501"/>
     <parent link="double_stereo_link"/>
@@ -1231,6 +1456,7 @@
   </joint>
   <!-- optical frame for the stereo camera, with z-forward notation, this is the frame stereo camera images users should refer to -->
   <link name="wide_stereo_optical_frame" type="camera"/>
+  <!-- stereo left camera -->
   <joint name="wide_stereo_l_stereo_camera_frame_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="wide_stereo_link"/>
@@ -1249,6 +1475,7 @@
     <child link="wide_stereo_l_stereo_camera_optical_frame"/>
   </joint>
   <link name="wide_stereo_l_stereo_camera_optical_frame"/>
+  <!-- extensions -->
   <gazebo reference="wide_stereo_l_stereo_camera_frame">
     <sensor name="wide_stereo_l_stereo_camera_sensor" type="camera">
       <always_on>true</always_on>
@@ -1289,6 +1516,7 @@
     <turnGravityOff>true</turnGravityOff>
     <material>PR2/Blue</material>
   </gazebo>
+  <!-- stereo right camera -->
   <joint name="wide_stereo_r_stereo_camera_frame_joint" type="fixed">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 -0.09 0.0"/>
     <parent link="wide_stereo_l_stereo_camera_frame"/>
@@ -1307,6 +1535,7 @@
     <child link="wide_stereo_r_stereo_camera_optical_frame"/>
   </joint>
   <link name="wide_stereo_r_stereo_camera_optical_frame"/>
+  <!-- extensions -->
   <gazebo reference="wide_stereo_r_stereo_camera_frame">
     <sensor name="wide_stereo_r_stereo_camera_sensor" type="camera">
       <always_on>true</always_on>
@@ -1347,6 +1576,7 @@
     <turnGravityOff>true</turnGravityOff>
     <material>PR2/Blue</material>
   </gazebo>
+  <!-- extensions -->
   <gazebo reference="wide_stereo_link">
     <material value="PR2/Blue"/>
     <turnGravityOff value="true"/>
@@ -1378,6 +1608,7 @@
   </joint>
   <!-- optical frame for the stereo camera, with z-forward notation, this is the frame stereo camera images users should refer to -->
   <link name="narrow_stereo_optical_frame" type="camera"/>
+  <!-- stereo left camera -->
   <joint name="narrow_stereo_l_stereo_camera_frame_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="narrow_stereo_link"/>
@@ -1396,6 +1627,7 @@
     <child link="narrow_stereo_l_stereo_camera_optical_frame"/>
   </joint>
   <link name="narrow_stereo_l_stereo_camera_optical_frame"/>
+  <!-- extensions -->
   <gazebo reference="narrow_stereo_l_stereo_camera_frame">
     <sensor name="narrow_stereo_l_stereo_camera_sensor" type="camera">
       <always_on>true</always_on>
@@ -1436,6 +1668,7 @@
     <turnGravityOff>true</turnGravityOff>
     <material>PR2/Blue</material>
   </gazebo>
+  <!-- stereo right camera -->
   <joint name="narrow_stereo_r_stereo_camera_frame_joint" type="fixed">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 -0.09 0.0"/>
     <parent link="narrow_stereo_l_stereo_camera_frame"/>
@@ -1454,6 +1687,7 @@
     <child link="narrow_stereo_r_stereo_camera_optical_frame"/>
   </joint>
   <link name="narrow_stereo_r_stereo_camera_optical_frame"/>
+  <!-- extensions -->
   <gazebo reference="narrow_stereo_r_stereo_camera_frame">
     <sensor name="narrow_stereo_r_stereo_camera_sensor" type="camera">
       <always_on>true</always_on>
@@ -1494,6 +1728,7 @@
     <turnGravityOff>true</turnGravityOff>
     <material>PR2/Blue</material>
   </gazebo>
+  <!-- extensions -->
   <gazebo reference="narrow_stereo_link">
     <material value="PR2/Blue"/>
     <turnGravityOff value="true"/>
@@ -1502,10 +1737,12 @@
     <material value="Gazebo/White"/>
     <turnGravityOff value="true"/>
   </gazebo>
+  <!-- extensions -->
   <!-- Define link to stereo cameras, set origin relative to that -->
   <gazebo reference="double_stereo_double_stereo_link">
     <material value="PR2/Blue"/>
   </gazebo>
+  <!-- extensions -->
   <gazebo reference="sensor_mount_sensor_link">
     <material value="PR2/Blue"/>
   </gazebo>
@@ -1536,6 +1773,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- Projector -->
   <joint name="projector_wg6802418_frame_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0.110 0.0546"/>
     <parent link="head_plate_frame"/>
@@ -1560,6 +1798,7 @@
       <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
   </link>
+  <!-- extensions -->
   <gazebo reference="projector_wg6802418_child_frame">
     <projector name="projector_wg6802418_projector_wg6802418">
       <pose>0 0 0 0 -1.5707 0</pose>
@@ -1624,6 +1863,7 @@
       <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
     </inertial>
   </link>
+  <!-- gazebo extensions -->
   <gazebo reference="laser_tilt_link">
     <sensor name="laser_tilt" type="ray">
       <always_on>true</always_on>
@@ -1655,8 +1895,8 @@
       </plugin>
     </sensor>
   </gazebo>
-  <gazebo reference="laser_tilt_mount_link">
-    </gazebo>
+  <!-- extensions -->
+  <gazebo reference="laser_tilt_mount_link" />
   <transmission name="laser_tilt_mount_trans">
     <type>pr2_mechanism_model/SimpleTransmission</type>
     <actuator name="laser_tilt_mount_motor">
@@ -1666,6 +1906,7 @@
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
   </transmission>
+  <!-- This is a common convention, to use a reflect parameter that equals +-1 to distinguish left from right -->
   <!-- Shoulder pan -->
   <joint name="r_shoulder_pan_joint" type="revolute">
     <axis xyz="0 0 1"/>
@@ -1677,6 +1918,7 @@
     <!-- alpha tested velocity and effort limits -->
     <dynamics damping="10.0"/>
     <safety_controller k_position="100" k_velocity="10" soft_lower_limit="-2.1353981634" soft_upper_limit="0.564601836603"/>
+    <!-- joint angle when the rising or the falling flag is activated on PR2 -->
     <calibration rising="-0.785398163397"/>
   </joint>
   <link name="r_shoulder_pan_link">
@@ -1732,6 +1974,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- Upper arm roll is separate macro -->
   <joint name="r_upper_arm_roll_joint" type="revolute">
     <axis xyz="1 0 0"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -1765,6 +2008,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions -->
   <gazebo reference="r_upper_arm_roll_link">
     <material value="PR2/RollLinks"/>
     <turnGravityOff>true</turnGravityOff>
@@ -1784,6 +2028,7 @@
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
   </transmission>
+  <!-- extensions -->
   <!-- Shoulder pan -->
   <gazebo reference="r_shoulder_pan_link">
     <turnGravityOff>true</turnGravityOff>
@@ -1848,11 +2093,13 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions-->
   <gazebo reference="r_upper_arm_link">
     <turnGravityOff>true</turnGravityOff>
   </gazebo>
   <!-- Has upperarm link -->
   <!-- No transmission, since this a fixed joint w/o actuator -->
+  <!-- Elbow flex, FA roll macros -->
   <!-- forearm_roll_link is a fictitious link internal to elbow_flex_link, provides an attachment point for the actual forearm -->
   <joint name="r_forearm_roll_joint" type="continuous">
     <axis xyz="1 0 0"/>
@@ -1984,6 +2231,9 @@
     <child link="rh_adapter_link"/>
     <parent link="r_forearm_roll_link"/>
   </joint>
+  <!-- The Shadow Dexterous Motorhand with BioTacs-->
+  <!-- shadow motorhand BioTac -->
+  <!-- Forearm -->
   <link name="rh_forearm">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0.09"/>
@@ -2017,6 +2267,7 @@
   <gazebo reference="rh_forearm">
     <selfCollide>false</selfCollide>
   </gazebo>
+  <!-- Wrist -->
   <link name="rh_wrist">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0.029"/>
@@ -2087,6 +2338,7 @@
       <hardwareInterface>PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
+  <!-- Palm -->
   <link name="rh_palm">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0.035"/>
@@ -2210,6 +2462,10 @@
       </plugin>
     </sensor>
   </gazebo>
+  <!-- First Finger -->
+  <!-- Little finger special case -->
+  <!-- Standard finger -->
+  <!-- Knuckle -->
   <link name="rh_ffknuckle">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -2271,6 +2527,7 @@
     </sensor>
     <material>Gazebo/Grey</material>
   </gazebo>
+  <!-- Proximal -->
   <link name="rh_ffproximal">
     <inertial>
       <mass value="0.030"/>
@@ -2331,6 +2588,7 @@
     </sensor>
     <selfCollide>true</selfCollide>
   </gazebo>
+  <!-- Biotac Middle -->
   <link name="rh_ffmiddle">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0.0125"/>
@@ -2478,6 +2736,13 @@
     <origin rpy="0 0 0" xyz="0.0 0.004 0.029"/>
     <!-- approximated only FIXME -->
   </joint>
+  <!-- Standard Middle -->
+  <!-- Distal  -->
+  <!-- only if finger is not biotac  -->
+  <!-- Middle Finger -->
+  <!-- Little finger special case -->
+  <!-- Standard finger -->
+  <!-- Knuckle -->
   <link name="rh_mfknuckle">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -2539,6 +2804,7 @@
     </sensor>
     <material>Gazebo/Grey</material>
   </gazebo>
+  <!-- Proximal -->
   <link name="rh_mfproximal">
     <inertial>
       <mass value="0.030"/>
@@ -2599,6 +2865,7 @@
     </sensor>
     <selfCollide>true</selfCollide>
   </gazebo>
+  <!-- Biotac Middle -->
   <link name="rh_mfmiddle">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0.0125"/>
@@ -2746,6 +3013,13 @@
     <origin rpy="0 0 0" xyz="0.0 0.004 0.029"/>
     <!-- approximated only FIXME -->
   </joint>
+  <!-- Standard Middle -->
+  <!-- Distal  -->
+  <!-- only if finger is not biotac  -->
+  <!-- Ring Finger -->
+  <!-- Little finger special case -->
+  <!-- Standard finger -->
+  <!-- Knuckle -->
   <link name="rh_rfknuckle">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -2807,6 +3081,7 @@
     </sensor>
     <material>Gazebo/Grey</material>
   </gazebo>
+  <!-- Proximal -->
   <link name="rh_rfproximal">
     <inertial>
       <mass value="0.030"/>
@@ -2867,6 +3142,7 @@
     </sensor>
     <selfCollide>true</selfCollide>
   </gazebo>
+  <!-- Biotac Middle -->
   <link name="rh_rfmiddle">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0.0125"/>
@@ -3014,6 +3290,11 @@
     <origin rpy="0 0 0" xyz="0.0 0.004 0.029"/>
     <!-- approximated only FIXME -->
   </joint>
+  <!-- Standard Middle -->
+  <!-- Distal  -->
+  <!-- only if finger is not biotac  -->
+  <!-- Little Finger  -->
+  <!-- Little finger special case -->
   <link name="rh_lfmetacarpal">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0.04"/>
@@ -3074,6 +3355,7 @@
     </sensor>
     <selfCollide>true</selfCollide>
   </gazebo>
+  <!-- Knuckle -->
   <link name="rh_lfknuckle">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -3135,6 +3417,8 @@
     </sensor>
     <material>Gazebo/Grey</material>
   </gazebo>
+  <!-- Standard finger -->
+  <!-- Proximal -->
   <link name="rh_lfproximal">
     <inertial>
       <mass value="0.030"/>
@@ -3195,6 +3479,7 @@
     </sensor>
     <selfCollide>true</selfCollide>
   </gazebo>
+  <!-- Biotac Middle -->
   <link name="rh_lfmiddle">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0.0125"/>
@@ -3342,6 +3627,11 @@
     <origin rpy="0 0 0" xyz="0.0 0.004 0.029"/>
     <!-- approximated only FIXME -->
   </joint>
+  <!-- Standard Middle -->
+  <!-- Distal  -->
+  <!-- only if finger is not biotac  -->
+  <!-- Thumb  -->
+  <!-- Base -->
   <link name="rh_thbase">
     <inertial>
       <mass value="0.010"/>
@@ -3404,6 +3694,7 @@
     </sensor>
     <selfCollide>false</selfCollide>
   </gazebo>
+  <!-- Proximal -->
   <link name="rh_thproximal">
     <inertial>
       <mass value="0.040"/>
@@ -3466,6 +3757,7 @@
     </sensor>
     <selfCollide>false</selfCollide>
   </gazebo>
+  <!-- Hub -->
   <link name="rh_thhub">
     <inertial>
       <mass value="0.005"/>
@@ -3528,6 +3820,7 @@
     </sensor>
     <selfCollide>true</selfCollide>
   </gazebo>
+  <!-- Middle -->
   <link name="rh_thmiddle">
     <inertial>
       <mass value="0.020"/>
@@ -3588,6 +3881,7 @@
     </sensor>
     <selfCollide>true</selfCollide>
   </gazebo>
+  <!-- Distal -->
   <!--    BIOTAC -->
   <link name="rh_thdistal_J1_dummy">
     <inertial>
@@ -3733,6 +4027,7 @@
     <child link="rh_forearm"/>
     <origin rpy="0 -1.57079632679 3.14159265359" xyz="0 0 0"/>
   </joint>
+  <!-- This is necessary to simulate the 'floating' of the right arm-->
   <gazebo reference="rh_wrist">
     <turnGravityOff>True</turnGravityOff>
   </gazebo>
@@ -3819,7 +4114,8 @@
     <!-- alpha tested velocity and effort limits -->
     <dynamics damping="10.0"/>
     <safety_controller k_position="100" k_velocity="10" soft_lower_limit="-0.564601836603" soft_upper_limit="2.1353981634"/>
-    <calibration rising="0.800167"/>
+    <!-- joint angle when the rising or the falling flag is activated on PR2 -->
+    <calibration rising="0.800167" />
   </joint>
   <link name="l_shoulder_pan_link">
     <inertial>
@@ -3848,7 +4144,7 @@
     <limit effort="30" lower="-0.5236" upper="1.3963" velocity="2.082"/>
     <!-- alpha tested velocity and effort limits -->
     <safety_controller k_position="100" k_velocity="10" soft_lower_limit="-0.3536" soft_upper_limit="1.2963"/>
-    <calibration falling="-0.00507044"/>
+    <calibration falling="-0.00507044" />
     <dynamics damping="10.0"/>
     <origin rpy="0 0 0" xyz="0.1 0 0"/>
     <parent link="l_shoulder_pan_link"/>
@@ -3874,6 +4170,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- Upper arm roll is separate macro -->
   <joint name="l_upper_arm_roll_joint" type="revolute">
     <axis xyz="1 0 0"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -3882,7 +4179,7 @@
     <limit effort="30" lower="-0.8" upper="3.9" velocity="3.27"/>
     <!-- alpha tested velocity and effort limits -->
     <safety_controller k_position="100" k_velocity="2" soft_lower_limit="-0.65" soft_upper_limit="3.75"/>
-    <calibration rising="1.60139"/>
+    <calibration rising="1.60139" />
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_upper_arm_roll_link">
@@ -3907,6 +4204,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions -->
   <gazebo reference="l_upper_arm_roll_link">
     <material value="PR2/RollLinks"/>
     <turnGravityOff>true</turnGravityOff>
@@ -3926,6 +4224,7 @@
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
   </transmission>
+  <!-- extensions -->
   <!-- Shoulder pan -->
   <gazebo reference="l_shoulder_pan_link">
     <turnGravityOff>true</turnGravityOff>
@@ -3990,18 +4289,20 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions-->
   <gazebo reference="l_upper_arm_link">
     <turnGravityOff>true</turnGravityOff>
   </gazebo>
   <!-- Has upperarm link -->
   <!-- No transmission, since this a fixed joint w/o actuator -->
+  <!-- Elbow flex, FA roll macros -->
   <!-- forearm_roll_link is a fictitious link internal to elbow_flex_link, provides an attachment point for the actual forearm -->
   <joint name="l_forearm_roll_joint" type="continuous">
     <axis xyz="1 0 0"/>
     <limit effort="30" velocity="3.6"/>
     <!-- alpha tested velocity and effort limits -->
     <safety_controller k_velocity="1"/>
-    <calibration rising="0.0155516"/>
+    <calibration rising="0.0155516" />
     <dynamics damping="0.1"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="l_elbow_flex_link"/>
@@ -4053,7 +4354,7 @@
     <limit effort="30" lower="-2.3213" upper="0.00" velocity="3.3"/>
     <!-- alpha tested velocity and effort limits -->
     <safety_controller k_position="100" k_velocity="3" soft_lower_limit="-2.1213" soft_upper_limit="-0.15"/>
-    <calibration falling="-1.30681"/>
+    <calibration falling="-1.30681" />
     <dynamics damping="1.0"/>
     <origin rpy="0 0 0" xyz="0.4 0 0"/>
     <parent link="l_upper_arm_link"/>
@@ -4134,7 +4435,7 @@
     <!-- alpha tested velocity and effort limits -->
     <safety_controller k_position="20" k_velocity="4" soft_lower_limit="-2.0" soft_upper_limit="-0.1"/>
     <dynamics damping="0.1"/>
-    <calibration falling="-0.522887"/>
+    <calibration falling="-0.522887" />
     <origin rpy="0 0 0" xyz="0.321 0 0"/>
     <parent link="l_forearm_link"/>
     <child link="l_wrist_flex_link"/>
@@ -4166,7 +4467,7 @@
     <!-- alpha tested velocity and effort limits -->
     <safety_controller k_velocity="2"/>
     <dynamics damping="0.1"/>
-    <calibration rising="-1.44361"/>
+    <calibration rising="-1.44361" />
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="l_wrist_flex_link"/>
     <child link="l_wrist_roll_link"/>
@@ -4219,6 +4520,7 @@
       <material name="Grey"/>
     </collision>
   </link>
+  <!-- extensions-->
   <gazebo reference="l_forearm_link">
     <turnGravityOff>true</turnGravityOff>
   </gazebo>
@@ -4371,6 +4673,7 @@
     <child link="l_gripper_motor_screw_link"/>
     <dynamics damping="0.0001"/>
   </joint>
+  <!-- pr2 fingers macro -->
   <!-- Finger proximal digit -->
   <joint name="l_gripper_l_finger_joint" type="revolute">
     <axis xyz="0 0 1"/>
@@ -4510,6 +4813,7 @@
       </geometry>
     </collision>
   </link>
+  <!-- extensions -->
   <!-- Finger proximal digit -->
   <gazebo reference="l_gripper_l_finger_link">
     <turnGravityOff>true</turnGravityOff>
@@ -4745,6 +5049,7 @@
 	 but because the urdf does not support graph structures,
 	 this link exists twice -->
   <link name="l_gripper_l_finger_tip_frame"/>
+  <!-- extensions -->
   <gazebo reference="l_gripper_palm_link">
     <turnGravityOff>true</turnGravityOff>
   </gazebo>
@@ -4801,6 +5106,8 @@
     <!-- screw joint to capture gripper "dynamics" -->
     <simulated_actuated_joint name="l_gripper_motor_screw_joint" passive_actuated_joint="l_gripper_motor_slider_joint" simulated_reduction="3141.6"/>
   </transmission>
+  <!-- Forearm cam Position is a guess, based on full robot calibration -->
+  <!-- Forearm cam Orientation is from Function -->
   <joint name="l_forearm_cam_frame_joint" type="fixed">
     <origin rpy="-1.57079632679 -0.562868683768 0" xyz=".135 0 .044"/>
     <parent link="l_forearm_roll_link"/>
@@ -4819,6 +5126,7 @@
     <child link="l_forearm_cam_optical_frame"/>
   </joint>
   <link name="l_forearm_cam_optical_frame"/>
+  <!-- extensions -->
   <gazebo reference="l_forearm_cam_frame">
     <sensor name="l_forearm_cam_sensor" type="camera">
       <always_on>true</always_on>
@@ -4898,6 +5206,18 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
     </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0" />
+      <geometry>
+        <sphere radius="0.0005" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0" />
+      <geometry>
+        <sphere radius="0.0005" />
+      </geometry>
+    </collision>
   </link>
   <!-- kinect2 ir sensor frame -->
   <joint name="head_mount_kinect2_ir_optical_frame_joint" type="fixed">
@@ -4906,6 +5226,7 @@
     <child link="head_mount_kinect2_ir_optical_frame"/>
   </joint>
   <link name="head_mount_kinect2_ir_optical_frame"/>
+  <!-- gazebo extensions -->
   <gazebo reference="head_mount_kinect2_ir_link">
     <sensor name="head_mount_ir_sensor" type="depth">
       <always_on>true</always_on>
@@ -4960,6 +5281,18 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
     </inertial>
+    <visual>
+      <origin rpy="-1.57079632679 0.0         -1.57079632679" xyz="0.0            0.0                 0.0" />
+      <geometry>
+        <sphere radius="0.0005" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0" />
+      <geometry>
+        <sphere radius="0.0005" />
+      </geometry>
+    </collision>
   </link>
   <!-- kinect2 rgb sensor frame -->
   <joint name="head_mount_kinect2_rgb_optical_frame_joint" type="fixed">
@@ -4968,6 +5301,7 @@
     <child link="head_mount_kinect2_rgb_optical_frame"/>
   </joint>
   <link name="head_mount_kinect2_rgb_optical_frame"/>
+  <!-- gazebo extensions -->
   <gazebo reference="head_mount_kinect2_rgb_link">
     <sensor name="head_mount_rgb_sensor" type="depth">
       <always_on>true</always_on>
