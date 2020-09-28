@@ -102,7 +102,7 @@ public:
     {
         ee_point_goal_ = arm_.getCurrentPose().pose;
         double angle_resolution = 0.1;
-        double radius = 0.15;
+        double radius = 0.1;
         double y_center = ee_point_goal_.position.y;
         double z_center = ee_point_goal_.position.z;
 
@@ -116,12 +116,14 @@ public:
 
         moveit_msgs::RobotTrajectory trajectory;
         double fraction = 0;
-        for(int i=0; i<planning_attempts_, fraction < 1; i++)
+        for(int i=0; i<planning_attempts_ && fraction < 1; i++)
         {
             fraction = arm_.computeCartesianPath(waypoints, eef_resolution_, jump_threshold_, trajectory);
             ROS_INFO("Visualizing CIRCLE path (%.2f%% acheived)", fraction * 100.0);
             if (i>0)
-                ROS_INFO("The ith planning attempts");
+                ROS_INFO("The %d-th planning attempts", i);
+            if (i == planning_attempts_-1)
+                ROS_INFO("Failed to compute catesian path after 20 attempts");
         }
         moveit::planning_interface::MoveGroupInterface::Plan my_plan;
         my_plan.trajectory_ = trajectory;
@@ -159,12 +161,14 @@ public:
 
         moveit_msgs::RobotTrajectory trajectory;
         double fraction = 0;
-        for(int i=0; i<planning_attempts_, fraction < 1; i++)
+        for(int i=0; i<planning_attempts_ && fraction < 1; i++)
         {
             fraction = arm_.computeCartesianPath(waypoints, eef_resolution_, jump_threshold_, trajectory);
             ROS_INFO("X path (%.2f%% acheived)", fraction * 100.0);
             if (i>0)
                 ROS_INFO("The %d-th planning attempts", i);
+            if (i == planning_attempts_-1)
+                ROS_INFO("Failed to compute catesian path after 20 attempts");
         }
 
         moveit::planning_interface::MoveGroupInterface::Plan my_plan;
@@ -178,7 +182,7 @@ public:
         double y_center = ee_point_goal_.position.y;
 
         waypoints.clear();
-        for (float i = 0; i <= 0.3; i=i+line_resolution_) {
+        for (float i = 0; i <= 0.2; i=i+line_resolution_) {
             if (left_arm_)
                 ee_point_goal_.position.y = y_center + i;
             else
@@ -188,12 +192,14 @@ public:
         WaypointsVisualTools(waypoints);
 
         fraction = 0;
-        for(int i=0; i<planning_attempts_, fraction < 1; i++)
+        for(int i=0; i<planning_attempts_ && fraction < 1; i++)
         {
             fraction = arm_.computeCartesianPath(waypoints, eef_resolution_, jump_threshold_, trajectory);
             ROS_INFO("Y path (%.2f%% acheived)", fraction * 100.0);
             if (i>0)
-                ROS_INFO("The ith planning attempts");
+                ROS_INFO("The %d-th planning attempts", i);
+            if (i == planning_attempts_-1)
+                ROS_INFO("Failed to compute catesian path after 20 attempts");
         }
         my_plan.trajectory_ = trajectory;
         if (!(static_cast<bool>(arm_.execute(my_plan))))
@@ -204,19 +210,21 @@ public:
         ee_point_goal_ = arm_.getCurrentPose().pose;
         double z_center = ee_point_goal_.position.z;
         waypoints.clear();
-        for (float i = 0; i <= 0.3; i=i+line_resolution_) {
+        for (float i = 0; i <= 0.2; i=i+line_resolution_) {
             ee_point_goal_.position.z = z_center + i;
             waypoints.push_back(ee_point_goal_);
         }
         WaypointsVisualTools(waypoints);
 
         fraction = 0;
-        for(int i=0; i<planning_attempts_, fraction < 1; i++)
+        for(int i=0; i<planning_attempts_ && fraction < 1; i++)
         {
             fraction = arm_.computeCartesianPath(waypoints, eef_resolution_, jump_threshold_, trajectory);
             ROS_INFO("Z path (%.2f%% acheived)", fraction * 100.0);
             if (i>0)
-                ROS_INFO("The ith planning attempts");
+                ROS_INFO("The %d-th planning attempts", i);
+            if (i == planning_attempts_-1)
+                ROS_INFO("Failed to compute catesian path after 20 attempts");
         }
         my_plan.trajectory_ = trajectory;
         if (!(static_cast<bool>(arm_.execute(my_plan))))
@@ -233,7 +241,7 @@ public:
         double z_center = ee_point_goal_.position.z;
 
         std::vector <geometry_msgs::Pose> waypoints;
-        for (float i = 0; i <= 0.25; i=i+line_resolution_) {
+        for (float i = 0; i <= 0.2; i=i+line_resolution_) {
             ee_point_goal_.position.x = x_center + i;
             if (left_arm_)
                 ee_point_goal_.position.y = y_center - i;
@@ -246,12 +254,14 @@ public:
 
         moveit_msgs::RobotTrajectory trajectory;
         double fraction = 0;
-        for(int i=0; i<planning_attempts_, fraction < 1; i++)
+        for(int i=0; i<planning_attempts_ && fraction < 1; i++)
         {
             fraction = arm_.computeCartesianPath(waypoints, eef_resolution_, jump_threshold_, trajectory);
             ROS_INFO("DIALOG path (%.2f%% acheived)", fraction * 100.0);
             if (i>0)
-                ROS_INFO("The ith planning attempts");
+                ROS_INFO("The %d-th planning attempts", i);
+            if (i == planning_attempts_-1)
+                ROS_INFO("Failed to compute catesian path after 20 attempts");
         }
         moveit::planning_interface::MoveGroupInterface::Plan my_plan;
         my_plan.trajectory_ = trajectory;
@@ -278,8 +288,9 @@ public:
             ROS_INFO("Right arm is at CALIB pose");
         sleep(1.0);
 
-        std::vector<double> left_arm_cali_position {0.171593096589, 0.100936643076, 0.726582097341, -1.25439410345,
-                                                    1.29872764058, -0.623793745227, 2.44522417582};
+        std::vector<double> left_arm_cali_position {0.220998978933, 0.116169954285, 0.729988928604, -1.31324596612 =,
+                                                    1.29713331043, -0.628545325758, 2.41660705732};
+
         left_arm.setJointValueTarget(left_arm_cali_position);
         if (!(static_cast<bool>(left_arm.move()))) {
             ROS_ERROR("Left arm is failed to go to CALIB pose");
@@ -359,8 +370,19 @@ int main(int argc, char **argv) {
     nh.param<bool>("left_right_accuracy_test", left_right_accuracy_test, false);
 
     PR2TestDemo ptd;
+    ROS_WARN ("Please add MarkerArray display and set Marker Topic as /rviz_visual_tools");
+    ROS_WARN ("Please add tf display but hide all frames");
+
+    robot_model_loader::RobotModelLoader rml;
+    robot_model::RobotModelPtr robot_model = rml.getModel();
+    robot_state::RobotState robot_state_left(robot_model);
+    robot_state::RobotState robot_state_right(robot_model);
     moveit::planning_interface::MoveGroupInterface left_arm("left_arm");
     moveit::planning_interface::MoveGroupInterface right_arm("right_arm_and_hand");
+
+    // get the current state of the robots
+    robot_state_left = *left_arm.getCurrentState();
+    robot_state_right = *right_arm.getCurrentState();
 
     if (left_arm_test)
     {
@@ -387,7 +409,7 @@ int main(int argc, char **argv) {
         ptd.diagonal_motion(false, right_arm);
         ptd.right_arm_point_forward();
     }
-    
+
     if (left_right_accuracy_test)
         ptd.left_right_accuracy_test(left_arm, right_arm);
 
