@@ -288,7 +288,7 @@ public:
             ROS_INFO("Right arm is at CALIB pose");
         sleep(1.0);
 
-        std::vector<double> left_arm_cali_position {0.220998978933, 0.116169954285, 0.729988928604, -1.31324596612 =,
+        std::vector<double> left_arm_cali_position {0.220998978933, 0.116169954285, 0.729988928604, -1.31324596612,
                                                     1.29713331043, -0.628545325758, 2.41660705732};
 
         left_arm.setJointValueTarget(left_arm_cali_position);
