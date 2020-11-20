@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
 <launch>
-<!--
-  <param name="robot_description" command="$(find xacro)/xacro '$(find tams_pr2_description)/robots/trixi.urdf.xacro' -BREAK-inorder" />
--->
-  <param name="robot_description" command="$(find xacro)/xacro '$(find tams_pr2_description)/robots/calibrated.urdf' --inorder" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(find tams_pr2_description)/robots/trixi.urdf.xacro'" />
 </launch>
