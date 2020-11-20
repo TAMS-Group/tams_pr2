@@ -31,7 +31,9 @@
 
     <include file="$(find pr2_bringup)/config/kinect2_bridge.launch"/>
 
-    <include file="$(find tams_pr2_moveit_config)/launch/move_group.launch"/>
+    <include file="$(find tams_pr2_moveit_config)/launch/move_group.launch">
+        <arg name="load_robot_description" value="false"/>
+    </include>
 
     <rosparam file="$(find pr2_gripper_sensor_controller)/launch/pr2_gripper_sensor_controller_left.yaml" command="load" />
     <node pkg="pr2_controller_manager" type="spawner" args="l_gripper_sensor_controller" name="l_gripper_sensor_controller_spawner" />
