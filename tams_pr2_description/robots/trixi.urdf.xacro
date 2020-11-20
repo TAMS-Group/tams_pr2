@@ -148,6 +148,12 @@
   </xacro:wge100_camera_v0>
 
   <xacro:kinect2_v0 name="head_mount" parent="head_plate_frame" >
-    <origin xyz="-0.137376 0 0.091746" rpy="0 0 0" />
+    <xacro:unless value="${'head_mount_kinect2_joint_x' in calib.keys()}">
+      <origin xyz="-0.137376 0 0.091746" rpy="0 0 0" />
+    </xacro:unless>
+    <xacro:if value="${'head_mount_kinect2_joint_x' in calib.keys()}">
+      <origin xyz="${calib['head_mount_kinect2_joint_x']} ${calib['head_mount_kinect2_joint_y']} ${calib['head_mount_kinect2_joint_z']}"
+              rpy="${calib['head_mount_kinect2_joint_a']} ${calib['head_mount_kinect2_joint_b']} ${calib['head_mount_kinect2_joint_c']}" />
+    </xacro:if>
   </xacro:kinect2_v0>
 </robot>
