@@ -105,6 +105,9 @@ class Calibrate:
         for j in joints:
             rospy.logdebug("Loading controller: %s" %get_controller_name(j))
             resp = load_controller(get_controller_name(j))
+            # if the controller is already loaded, ignore the failure
+            if not resp.ok and get_controller_name(j) in list_controllers().controllers:
+                resp.ok = True
             if resp.ok:
                 # get service call to calibration controller to check calibration state
                 rospy.logdebug("Waiting for service: %s" %get_service_name(j))
@@ -194,7 +197,10 @@ def main():
             calibrate_joint = Calibrate(joint)
             if not calibrate_joint.is_calibrated():
                 if calibrate:
-                    raw_input("Press 'Enter' to calibrate joint %s"%joint)
+                    print ("Press 'Enter' to calibrate joint %s"%joint)
+                    # make sure we see the message above even via ssh
+                    sys.stdout.flush()
+                    raw_input()
                     calibrate_joint.calibrate()
                 else:
                     joints_status = False
