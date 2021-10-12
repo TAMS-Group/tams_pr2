@@ -171,6 +171,8 @@
         <joint name="r_shoulder_lift_joint" value="0" />
         <joint name="r_shoulder_pan_joint" value="-1.5707963267948966" />
         <joint name="r_upper_arm_roll_joint" value="-1.5707963267948966" />
+        <joint name="rh_WRJ1" value="0.0" />
+        <joint name="rh_WRJ2" value="0.0" />
         <joint name="rh_FFJ1" value="0.35" />
         <joint name="rh_FFJ2" value="0" />
         <joint name="rh_FFJ3" value="0" />
