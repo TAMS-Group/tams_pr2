@@ -1,5 +1,6 @@
 controller_list:
   - name: fake_right_arm_and_fingers_controller
+    type: $(arg fake_execution_type)
     joints:
       - r_shoulder_pan_joint
       - r_shoulder_lift_joint
@@ -31,6 +32,7 @@ controller_list:
       - rh_THJ2
       - rh_THJ1
   - name: fake_left_arm_controller
+    type: $(arg fake_execution_type)
     joints:
       - l_shoulder_pan_joint
       - l_shoulder_lift_joint
@@ -40,6 +42,7 @@ controller_list:
       - l_wrist_flex_joint
       - l_wrist_roll_joint
   - name: fake_left_arm_and_torso_controller
+    type: $(arg fake_execution_type)
     joints:
       - torso_lift_joint
       - l_shoulder_pan_joint
@@ -50,6 +53,7 @@ controller_list:
       - l_wrist_flex_joint
       - l_wrist_roll_joint
   - name: fake_right_arm_controller
+    type: $(arg fake_execution_type)
     joints:
       - r_shoulder_pan_joint
       - r_shoulder_lift_joint
@@ -57,6 +61,7 @@ controller_list:
       - r_elbow_flex_joint
       - r_forearm_roll_joint
   - name: fake_right_arm_and_hand_controller
+    type: $(arg fake_execution_type)
     joints:
       - r_shoulder_pan_joint
       - r_shoulder_lift_joint
@@ -66,6 +71,7 @@ controller_list:
       - rh_WRJ2
       - rh_WRJ1
   - name: fake_right_arm_and_torso_controller
+    type: $(arg fake_execution_type)
     joints:
       - torso_lift_joint
       - r_shoulder_pan_joint
@@ -74,6 +80,7 @@ controller_list:
       - r_elbow_flex_joint
       - r_forearm_roll_joint
   - name: fake_arms_pr2_controller
+    type: $(arg fake_execution_type)
     joints:
       - l_shoulder_pan_joint
       - l_shoulder_lift_joint
@@ -88,6 +95,7 @@ controller_list:
       - r_elbow_flex_joint
       - r_forearm_roll_joint
   - name: fake_arms_controller
+    type: $(arg fake_execution_type)
     joints:
       - l_shoulder_pan_joint
       - l_shoulder_lift_joint
@@ -126,13 +134,16 @@ controller_list:
       - rh_THJ2
       - rh_THJ1
   - name: fake_head_controller
+    type: $(arg fake_execution_type)
     joints:
       - head_pan_joint
       - head_tilt_joint
   - name: fake_torso_controller
+    type: $(arg fake_execution_type)
     joints:
       - torso_lift_joint
   - name: fake_arms_and_torso_controller
+    type: $(arg fake_execution_type)
     joints:
       - torso_lift_joint
       - l_shoulder_pan_joint
@@ -172,34 +183,40 @@ controller_list:
       - rh_THJ2
       - rh_THJ1
   - name: fake_left_gripper_controller
+    type: $(arg fake_execution_type)
     joints:
       - l_gripper_l_finger_joint
       - l_gripper_motor_slider_joint
       - l_gripper_motor_screw_joint
       - l_gripper_joint
   - name: fake_right_wrist_controller
+    type: $(arg fake_execution_type)
     joints:
       - rh_WRJ2
       - rh_WRJ1
   - name: fake_right_first_finger_controller
+    type: $(arg fake_execution_type)
     joints:
       - rh_FFJ4
       - rh_FFJ3
       - rh_FFJ2
       - rh_FFJ1
   - name: fake_right_middle_finger_controller
+    type: $(arg fake_execution_type)
     joints:
       - rh_MFJ4
       - rh_MFJ3
       - rh_MFJ2
       - rh_MFJ1
   - name: fake_right_ring_finger_controller
+    type: $(arg fake_execution_type)
     joints:
       - rh_RFJ4
       - rh_RFJ3
       - rh_RFJ2
       - rh_RFJ1
   - name: fake_right_little_finger_controller
+    type: $(arg fake_execution_type)
     joints:
       - rh_LFJ5
       - rh_LFJ4
@@ -207,6 +224,7 @@ controller_list:
       - rh_LFJ2
       - rh_LFJ1
   - name: fake_right_thumb_controller
+    type: $(arg fake_execution_type)
     joints:
       - rh_THJ5
       - rh_THJ4
@@ -214,6 +232,7 @@ controller_list:
       - rh_THJ2
       - rh_THJ1
   - name: fake_right_fingers_controller
+    type: $(arg fake_execution_type)
     joints:
       - rh_FFJ4
       - rh_FFJ3
@@ -238,6 +257,7 @@ controller_list:
       - rh_THJ2
       - rh_THJ1
   - name: fake_right_hand_controller
+    type: $(arg fake_execution_type)
     joints:
       - rh_WRJ2
       - rh_WRJ1
@@ -263,12 +283,12 @@ controller_list:
       - rh_THJ3
       - rh_THJ2
       - rh_THJ1
-initial:  # Define initial robot poses.
+initial:  # Define initial robot poses per group
   - group: left_arm
     pose: left_arm_to_side
   - group: right_arm
     pose: right_arm_to_side
   - group: left_gripper
     pose: open
-  - group: right_hand
+  - group: right_fingers
     pose: open

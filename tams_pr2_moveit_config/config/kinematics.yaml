@@ -38,38 +38,10 @@ head:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
   kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.005
-#torso:
-#  kinematics_solver: bio_ik/BioIKKinematicsPlugin
-#  kinematics_solver_search_resolution: 0.005
-#  kinematics_solver_timeout: 0.005
 arms_and_torso:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
   kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.005
-#right_wrist:
-#  kinematics_solver: bio_ik/BioIKKinematicsPlugin
-#  kinematics_solver_search_resolution: 0.005
-#  kinematics_solver_timeout: 0.005
-#right_first_finger:
-#  kinematics_solver: bio_ik/BioIKKinematicsPlugin
-#  kinematics_solver_search_resolution: 0.005
-#  kinematics_solver_timeout: 0.005
-#right_middle_finger:
-#  kinematics_solver: bio_ik/BioIKKinematicsPlugin
-#  kinematics_solver_search_resolution: 0.005
-#  kinematics_solver_timeout: 0.005
-#right_ring_finger:
-#  kinematics_solver: bio_ik/BioIKKinematicsPlugin
-#  kinematics_solver_search_resolution: 0.005
-#  kinematics_solver_timeout: 0.005
-#right_little_finger:
-#  kinematics_solver: bio_ik/BioIKKinematicsPlugin
-#  kinematics_solver_search_resolution: 0.005
-#  kinematics_solver_timeout: 0.005
-#right_thumb:
-#  kinematics_solver: bio_ik/BioIKKinematicsPlugin
-#  kinematics_solver_search_resolution: 0.005
-#  kinematics_solver_timeout: 0.005
 right_fingers:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
   kinematics_solver_search_resolution: 0.005

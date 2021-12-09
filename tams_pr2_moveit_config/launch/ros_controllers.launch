@@ -6,13 +6,6 @@
 
   <!-- Load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" args="
-      joint_state_controller
-      l_arm_controller
-      torso_controller
-      head_traj_controller
-      r_arm_controller
-      l_gripper_controller
-      rh_trajectory_controller"/>
+    output="screen" args="l_arm_controller head_traj_controller torso_controller l_gripper_controller rh_trajectory_controller r_arm_controller "/>
 
 </launch>

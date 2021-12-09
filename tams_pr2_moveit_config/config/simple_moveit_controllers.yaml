@@ -1,0 +1,66 @@
+controller_list:
+  - name: l_arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - l_shoulder_pan_joint
+      - l_shoulder_lift_joint
+      - l_upper_arm_roll_joint
+      - l_elbow_flex_joint
+      - l_forearm_roll_joint
+      - l_wrist_flex_joint
+      - l_wrist_roll_joint
+  - name: head_traj_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - head_pan_joint
+      - head_tilt_joint
+  - name: torso_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - torso_lift_joint
+      - torso_lift_motor_screw_joint
+  - name: rh_trajectory_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - rh_WRJ2
+      - rh_WRJ1
+      - rh_FFJ4
+      - rh_FFJ3
+      - rh_FFJ2
+      - rh_FFJ1
+      - rh_LFJ5
+      - rh_LFJ4
+      - rh_LFJ3
+      - rh_LFJ2
+      - rh_LFJ1
+      - rh_MFJ4
+      - rh_MFJ3
+      - rh_MFJ2
+      - rh_MFJ1
+      - rh_RFJ4
+      - rh_RFJ3
+      - rh_RFJ2
+      - rh_RFJ1
+      - rh_THJ5
+      - rh_THJ4
+      - rh_THJ3
+      - rh_THJ2
+      - rh_THJ1
+  - name: r_arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - r_shoulder_pan_joint
+      - r_shoulder_lift_joint
+      - r_upper_arm_roll_joint
+      - r_elbow_flex_joint
+      - r_forearm_roll_joint

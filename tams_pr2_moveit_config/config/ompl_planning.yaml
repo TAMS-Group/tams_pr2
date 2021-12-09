@@ -617,7 +617,6 @@ right_little_finger:
   projection_evaluator: joints(rh_LFJ5,rh_LFJ4)
   longest_valid_segment_fraction: 0.005
 right_thumb:
-  default_planner_config: RRTConnect
   planner_configs:
     - AnytimePathShortening
     - SBL
