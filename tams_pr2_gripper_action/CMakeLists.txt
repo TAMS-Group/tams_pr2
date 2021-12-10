@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(tams_pr2_gripper_action)
 
 # Load catkin and all dependencies required for this package
-find_package(catkin REQUIRED COMPONENTS roscpp actionlib_msgs actionlib pr2_mechanism_controllers robot_mechanism_controllers pr2_controllers_msgs pr2_mechanism_model)
+find_package(catkin REQUIRED COMPONENTS roscpp actionlib_msgs actionlib pr2_controllers_msgs)
 
 find_package(Boost REQUIRED COMPONENTS thread)
 include_directories(${Boost_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS})
