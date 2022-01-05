@@ -5,6 +5,7 @@
   <arg name="hand_serial" default="554"/>
 
   <arg name="gui" default="true"/>
+  <arg name="rviz" default="true"/>
   <arg name="paused" value="false"/>
 
   <param name="/use_sim_time" value="true"/>
@@ -50,8 +51,8 @@
   <include file="$(find tams_pr2_moveit_config)/launch/move_group.launch" />
 
   <!-- Run Rviz and load the default config to see the state of the move_group node -->
-  <include file="$(find tams_pr2_moveit_config)/launch/moveit_rviz.launch">
-    <arg name="rviz_config" value="true"/>
+  <include if="$(arg rviz)" file="$(find tams_pr2_moveit_config)/launch/moveit_rviz.launch">
+    <arg name="rviz_config" value="$(find tams_pr2_moveit_config)/launch/moveit.rviz"/>
   </include>
 
   <node name="start_gravity" pkg="tams_pr2_simulation" type="start_gravity.py"/>
