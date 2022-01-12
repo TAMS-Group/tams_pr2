@@ -38,7 +38,7 @@
   <xacro:include filename="$(find tams_pr2_description)/urdf/turn_gravity_off.urdf.xacro" />
   <xacro:include filename="$(find tams_motorhand_description)/urdf/tams_motorhand.urdf.xacro" />
   <xacro:arg name="calib_config" default="$(find tams_pr2_description)/config/calibration_config.yaml" />
-  <xacro:property name="calib" value="${load_yaml('$(arg calib_config)')}"/>
+  <xacro:property name="calib" value="${xacro.load_yaml('$(arg calib_config)')}"/>
 
   <!-- TAMS' Shadow additions -->
   <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
