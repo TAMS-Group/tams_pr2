@@ -48,4 +48,4 @@
         <arg name="pkg" value="tams_motorhand" />
         <arg name="launch" value="right_biotac_hand_in_ns.launch" />
     </include>
-</launch> 
+</launch>
