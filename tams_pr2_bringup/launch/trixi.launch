@@ -48,4 +48,12 @@
         <arg name="pkg" value="tams_motorhand" />
         <arg name="launch" value="right_biotac_hand_in_ns.launch" />
     </include>
+
+    <!-- Neopixel infrastructure on pr2-head -->
+    <!-- Start `roslaunch` on pr2-head to interpret launch parameters there -->
+    <include file="$(find tams_pr2_bringup)/launch/remote.launch" >
+        <arg name="machine" value="pr2-head" />
+        <arg name="pkg" value="tams_pr2_neopixel" />
+        <arg name="launch" value="pr2_neopixel_eyes_driver.launch" />
+    </include>
 </launch>
