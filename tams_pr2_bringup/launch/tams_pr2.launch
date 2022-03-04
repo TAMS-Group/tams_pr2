@@ -34,6 +34,8 @@
     <include file="$(find tams_pr2_moveit_config)/launch/move_group.launch">
         <arg name="load_robot_description" value="false"/>
     </include>
+    <!-- MoveIt shortcut to move from scripts without waiting -->
+    <include file="$(find moveit_by_name)/launch/moveit_by_name.launch"/>
 
     <rosparam file="$(find pr2_gripper_sensor_controller)/launch/pr2_gripper_sensor_controller_left.yaml" command="load" />
     <node pkg="pr2_controller_manager" type="spawner" args="l_gripper_sensor_controller" name="l_gripper_sensor_controller_spawner" />
