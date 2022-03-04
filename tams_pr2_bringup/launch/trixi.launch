@@ -13,19 +13,19 @@
     <rosparam command="load" file="$(find tams_pr2_bringup)/config/analyzers.yaml" ns="diag_agg" />
 
     <!-- Robot bringup -->
-    <include file="$(find tams_pr2_bringup)/launch/include/pr2.launch">
+    <include file="$(find tams_pr2_bringup)/launch/include/pr2.launch.xml">
         <arg name="c2" value="$(arg c2)"/>
         <arg name="no-prosilica" value="true"/>
     </include>
 
-    <include file="$(find tams_pr2_bringup)/launch/include/left_gripper.launch" />
+    <include file="$(find tams_pr2_bringup)/launch/include/left_gripper.launch.xml" />
 
     <!--
     <include file="$(find tams_motorhand)/launch/hand_on_trixi.launch" if="$(arg with_hand)"/>
     -->
     <include file="$(find tams_motorhand)/launch/right_biotac_hand_stub_on_trixi.launch" unless="$(arg no_stub)"/>
 
-    <include file="$(find tams_pr2_bringup)/launch/include/teleop.launch" />
+    <include file="$(find tams_pr2_bringup)/launch/include/teleop.launch.xml" />
 
     <rosparam file="$(find tams_pr2_bringup)/config/robot.yaml" />
 
@@ -43,7 +43,7 @@
 
     <!-- Shadow-Hand infrastructure on C2 -->
     <!-- Start `roslaunch` on C2 to interpret launch parameters there -->
-    <include file="$(find tams_pr2_bringup)/launch/remote.launch" if="$(arg with_hand)">
+    <include file="$(find tams_pr2_bringup)/launch/remote.launch.xml" if="$(arg with_hand)">
         <arg name="machine" value="c2" />
         <arg name="pkg" value="tams_motorhand" />
         <arg name="launch" value="right_biotac_hand_in_ns.launch" />
@@ -51,7 +51,7 @@
 
     <!-- Neopixel infrastructure on pr2-head -->
     <!-- Start `roslaunch` on pr2-head to interpret launch parameters there -->
-    <include file="$(find tams_pr2_bringup)/launch/remote.launch" >
+    <include file="$(find tams_pr2_bringup)/launch/remote.launch.xml" >
         <arg name="machine" value="pr2-head" />
         <arg name="pkg" value="tams_pr2_neopixel" />
         <arg name="launch" value="pr2_neopixel_eyes_driver.launch" />

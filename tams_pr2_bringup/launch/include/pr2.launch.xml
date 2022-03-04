@@ -10,7 +10,7 @@
 <!-- TAMS modification
     <include file="$(find pr2_bringup)/pr2-c2.launch" />
 -->
-    <include file="$(find tams_pr2_bringup)/launch/include/pr2-c2.launch" />
+    <include file="$(find tams_pr2_bringup)/launch/include/pr2-c2.launch.xml" />
   </group>
 
   <!-- Remap diagnostics if we are pushed into a namespace. -->
