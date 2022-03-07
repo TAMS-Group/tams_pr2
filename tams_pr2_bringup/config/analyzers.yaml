@@ -186,3 +186,17 @@ analyzers:
       'Controller',
       'Calibration']
     discard_stale: true
+
+  moveit:
+    type: diagnostic_aggregator/AnalyzerGroup
+    path: MoveIt
+    analyzers:
+      limits:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: 'Joint Limits'
+        find_and_remove_prefix: 'move_group.JointLimits'
+      scene_collision:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: 'PlanningScene'
+        startswith: 'move_group.SceneCollision'
+        remove_prefix: 'move_group.'
