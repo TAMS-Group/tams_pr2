@@ -51,3 +51,5 @@ joints:
     warn_limit_margin: -1.0
   head_tilt_joint:
     warn_limit_margin: -1.0
+  head_tilt_joint:
+    limit_tolerance: 1.0
