@@ -37,8 +37,10 @@
   <node pkg="pr2_computer_monitor" name="realtime_cpu_monitor_c2" type="cpu_monitor.py" args="--diag-hostname=c2" machine="c2" >
     <param name="check_core_temps" type="bool" value="False" />
     <param name="num_cores" value="12.0" />
-    <param name="check_ipmi_tool" type="bool" value="False" /> <!-- TAMS modification -->
-    <param name="enforce_clock_speed" type="bool" value="False" /> <!-- TAMS modification -->
+    <param name="load1_threshold" value="10.0" />
+    <param name="load5_threshold" value="10.0" />
+    <param name="check_ipmi_tool" type="bool" value="False" />
+    <param name="enforce_clock_speed" type="bool" value="False" />
   </node>
 
   <!-- Disk usage monitoring script monitors HD temperature, usage on diagnostics -->
