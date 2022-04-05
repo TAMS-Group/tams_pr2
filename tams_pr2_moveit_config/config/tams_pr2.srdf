@@ -87,6 +87,13 @@
         <group name="right_little_finger" />
         <group name="right_thumb" />
     </group>
+
+    <group name="ee_right_first_finger"><link name="rh_fftip"/></group>
+    <group name="ee_right_middle_finger"><link name="rh_mftip"/></group>
+    <group name="ee_right_ring_finger"><link name="rh_rftip"/></group>
+    <group name="ee_right_little_finger"><link name="rh_lftip"/></group>
+    <group name="ee_right_thumb"><link name="rh_thtip"/></group>
+
     <group name="right_hand">
         <joint name="rh_WRJ2" />
         <joint name="rh_WRJ1" />
@@ -396,13 +403,14 @@
         <joint name="rh_THJ5" value="-0.105816" />
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-    <end_effector name="left_gripper" parent_link="l_gripper_tool_frame" group="left_gripper" parent_group="left_arm" />
+    <end_effector name="left_gripper" parent_link="l_gripper_tool_frame" group="left_gripper" />
     <end_effector name="right_hand" parent_link="rh_palm" group="right_hand" parent_group="right_arm_and_hand" />
-    <end_effector name="rh_thumb_ee" parent_link="rh_thtip" group="right_thumb" />
-    <end_effector name="rh_first_finger_ee" parent_link="rh_fftip" group="right_first_finger" />
-    <end_effector name="rh_middle_finger_ee" parent_link="rh_mftip" group="right_middle_finger" />
-    <end_effector name="rh_ring_finger_ee" parent_link="rh_rftip" group="right_ring_finger" />
-    <end_effector name="rh_little_finger_ee" parent_link="rh_lftip" group="right_little_finger" />
+    <end_effector name="rh_thumb_ee" parent_link="rh_thtip" group="ee_right_thumb" />
+    <end_effector name="rh_first_finger_ee" parent_link="rh_fftip" group="ee_right_first_finger" />
+    <end_effector name="rh_middle_finger_ee" parent_link="rh_mftip" group="ee_right_middle_finger" />
+    <end_effector name="rh_ring_finger_ee" parent_link="rh_rftip" group="ee_right_ring_finger" />
+    <end_effector name="rh_little_finger_ee" parent_link="rh_lftip" group="ee_right_little_finger" />
+
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="base_bellow_link" link2="base_footprint" reason="Never" />
     <disable_collisions link1="base_bellow_link" link2="base_link" reason="Adjacent" />
