@@ -29,7 +29,14 @@
 
     <rosparam file="$(find tams_pr2_bringup)/config/robot.yaml" />
 
+<!--
     <include file="$(find pr2_bringup)/config/kinect2_bridge.launch"/>
+-->
+    <include file="$(find tams_pr2_bringup)/launch/remote.launch.xml" >
+        <arg name="machine" value="pr2-head" />
+        <arg name="pkg" value="tams_pr2_kinect2" />
+        <arg name="launch" value="kinect2_bridge.launch" />
+    </include>
 
     <include file="$(find tams_pr2_moveit_config)/launch/move_group.launch">
         <arg name="load_robot_description" value="false"/>
