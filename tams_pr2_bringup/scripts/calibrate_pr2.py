@@ -92,13 +92,14 @@ def motor_state_cb(msg):
 rospy.Subscriber('pr2_ethercat/motors_halted', Bool, motor_state_cb)
 
 pub_diag = rospy.Publisher('/diagnostics', DiagnosticArray, queue_size=10) 
-def diagnostics(level, msg_short, msg_long):
-    if level == 0:
-        rospy.loginfo(msg_long)        
-    elif level == 1:
-        rospy.logwarn(msg_long)
-    elif level == 2:
-        rospy.logerr(msg_long)
+def diagnostics(level, msg_short, msg_long, log= True):
+    if log:
+        if level == 0:
+            rospy.loginfo(msg_long)
+        elif level == 1:
+            rospy.logwarn(msg_long)
+        elif level == 2:
+            rospy.logerr(msg_long)
     d = DiagnosticArray() 
     d.header.stamp = rospy.Time.now() 
     ds = DiagnosticStatus() 
@@ -205,9 +206,11 @@ class CalibrateParallel:
         # wait for joints to calibrate
         self.status.publish(self.joints)
         start_time = rospy.Time.now()
+        logged_on_hold = False
         while not self.is_calibrated():
             if motors_halted and motors_halted == 1:
-                diagnostics(2, 'Calibration on hold', 'Calibration is on hold because motors are halted. Enable the run-stop')
+                diagnostics(2, 'Calibration on hold', 'Calibration is on hold because motors are halted. Enable the run-stop', log= not logged_on_hold)
+                logged_on_hold = True
                 start_time = rospy.Time.now()
                 rospy.sleep(1.0)
             elif rospy.Time.now() > start_time + rospy.Duration(30.0):  # time for spine to go up is 29 seconds
