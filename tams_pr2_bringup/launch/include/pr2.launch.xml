@@ -92,6 +92,16 @@
   -->
   <include file="$(find pr2_bringup)/config/l_forearm_cam.launch" />
 
+  <!-- Tray Laser -->
+  <node pkg="urg_node" type="urg_node" name="tray_hokuyo_node">
+    <remap from="scan" to="tray_scan" />
+    <param name="serial_port" type="string" value="/etc/ros/sensors/tray_laser" />
+    <param name="frame_id" type="string" value="tray_laser_link" />
+    <param name="angle_min" type="double" value="-2.2689" />
+    <param name="angle_max" type="double" value="2.2689" />
+    <param name="publish_intensity" value="true" />
+  </node>
+
   <!-- Sound -->
   <node pkg="sound_play" type="soundplay_node.py" machine="c1" name="sound_play" />
 
