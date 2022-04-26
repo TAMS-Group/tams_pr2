@@ -78,6 +78,7 @@ torso_controller:
       i_clamp: 1
 l_gripper_controller:
   type: position_controllers/GripperActionController
+  joint: l_gripper_joint
   joints:
     - l_gripper_l_finger_joint
     - l_gripper_motor_slider_joint
@@ -106,6 +107,7 @@ l_gripper_controller:
       i_clamp: 1
 rh_trajectory_controller:
   type: position_controllers/JointTrajectoryController
+  allow_partial_joints_goal: true
   joints:
     - rh_WRJ2
     - rh_WRJ1

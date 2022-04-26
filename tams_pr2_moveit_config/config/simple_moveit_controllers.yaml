@@ -25,7 +25,7 @@ controller_list:
     joints:
       - torso_lift_joint
       - torso_lift_motor_screw_joint
-  - name: rh_trajectory_controller
+  - name: hand/rh_trajectory_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
     default: True
