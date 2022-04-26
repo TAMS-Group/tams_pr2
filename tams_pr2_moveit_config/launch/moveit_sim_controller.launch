@@ -1,0 +1,15 @@
+<launch>
+  # configuration of sim controller
+  <rosparam file="$(find tams_pr2_moveit_config)/config/moveit_sim_controller.yaml" command="load"/>
+
+  # ros_control loop
+  <node name="sim_controller" pkg="moveit_sim_controller" type="moveit_sim_hw_main">
+    <!-- workarounds to have the same topic name as the real hardware -->
+    <remap from="l_gripper_controller/gripper_cmd" to="l_gripper_controller/gripper_action" />
+	 <remap from="rh_trajectory_controller/follow_joint_trajectory" to="hand/rh_trajectory_controller/follow_joint_trajectory" />
+  </node>
+
+  # make sure joint publisher is running, all other controller are loaded by moveit's controller configuration
+  <node name="joint_state_controller_spawner" pkg="controller_manager" type="spawner" output="screen" args="joint_state_controller"/>
+
+</launch>

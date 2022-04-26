@@ -1,51 +1,19 @@
 <launch>
+  <include file="$(find tams_pr2_moveit_config)/launch/moveit_sim_controller.launch" />
 
-  <!-- specify the planning pipeline -->
-  <arg name="pipeline" default="ompl" />
+  <include file="$(find tams_pr2_moveit_config)/launch/ros_controllers.launch" />
 
-  <!-- By default, we do not start a database (it can be large) -->
-  <arg name="db" default="false" />
-  <!-- Allow user to specify database location -->
-  <arg name="db_path" default="$(find tams_pr2_moveit_config)/default_warehouse_mongo_db" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
 
-  <!-- By default, we are not in debug mode -->
-  <arg name="debug" default="false" />
-
-  <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
-  <include file="$(find tams_pr2_moveit_config)/launch/planning_context.launch">
+  <include file="$(dirname)/move_group.launch">
+    <arg name="allow_trajectory_execution" value="true"/>
+    <arg name="moveit_controller_manager" value="simple" />
+    <arg name="info" value="true"/>
     <arg name="load_robot_description" value="true"/>
   </include>
 
-  <!-- loads ros_controllers to the param server -->
-  <include file="$(find tams_pr2_moveit_config)/launch/ros_controllers.launch" />
-  <node name="sim_controller" pkg="moveit_sim_controller" type="moveit_sim_hw_main">
-    <!-- workarounds to have the same topic name as the real hardware -->
-    <remap from="l_gripper_controller/gripper_cmd" to="l_gripper_controller/gripper_action" />
-	 <remap from="rh_trajectory_controller/follow_joint_trajectory" to="hand/rh_trajectory_controller/follow_joint_trajectory" />
-  </node>
-
-  <!-- Given the published joint states, publish tf for the robot links -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
-
-  <!-- Run the main MoveIt executable without trajectory execution (we do not have controllers configured by default) -->
-  <include file="$(find tams_pr2_moveit_config)/launch/move_group.launch">
-    <arg name="allow_trajectory_execution" value="true"/>
-    <arg name="info" value="true"/>
-    <arg name="debug" value="$(arg debug)"/>
-    <arg name="pipeline" value="$(arg pipeline)"/>
-  </include>
-
   <!-- Run Rviz and load the default config to see the state of the move_group node -->
-  <!--
-  <include file="$(find tams_pr2_moveit_config)/launch/moveit_rviz.launch">
-    <arg name="rviz_config" value="$(find tams_pr2_moveit_config)/launch/moveit.rviz"/>
-    <arg name="debug" value="$(arg debug)"/>
+  <include file="$(dirname)/moveit_rviz.launch">
+    <arg name="rviz_config" value="$(dirname)/moveit.rviz"/>
   </include>
-  -->
-
-  <!-- If database loading was enabled, start mongodb as well -->
-  <include file="$(find tams_pr2_moveit_config)/launch/default_warehouse_db.launch" if="$(arg db)">
-    <arg name="moveit_warehouse_database_path" value="$(arg db_path)"/>
-  </include>
-
 </launch>
