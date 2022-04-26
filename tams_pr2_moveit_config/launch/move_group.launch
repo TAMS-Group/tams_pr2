@@ -20,19 +20,13 @@
   <arg name="publish_monitored_planning_scene" default="true"/>
 
   <arg name="capabilities" value="
+                move_group/TfPublisher
                 moveit_monitoring/Monitoring
                 "/>
 
   <rosparam command="load" ns="move_group/monitoring" file="$(dirname)/../config/monitoring_capability.yaml" />
 
   <arg name="disable_capabilities" default=""/>
-  <!-- load these non-default MoveGroup capabilities (space seperated) -->
-  <!--
-  <arg name="capabilities" value="
-                a_package/AwsomeMotionPlanningCapability
-                another_package/GraspPlanningPipeline
-                " />
-  -->
 
   <!-- inhibit these default MoveGroup capabilities (space seperated) -->
   <!--
