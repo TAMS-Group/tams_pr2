@@ -41,8 +41,8 @@
   <xacro:property name="calib" value="${xacro.load_yaml('$(arg calib_config)')}"/>
 
   <!-- TAMS' Shadow additions -->
-  <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
-  <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro"/>
+  <xacro:include filename="$(find sr_description)/hand/xacro/hand.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/other/xacro/gazebo.urdf.xacro"/>
 
   <!-- Now we can start using the macros included above to define the actual PR2 -->
 
