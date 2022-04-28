@@ -99,7 +99,7 @@
     <origin xyz="0.118 0 0" rpy="0 0 0" />
   </xacro:tams_pr2_shadow_adapter>
   <!-- The Shadow Dexterous Motorhand with BioTacs-->
-  <xacro:tams_motorhand prefix="rh_" type="right_biotac"/>
+  <xacro:tams_motorhand type="right_biotac"/>
   <joint name="rh_adapter_hand_joint" type="fixed">
     <parent link="rh_adapter_link" />
 	 <child link="rh_forearm" />
