@@ -61,6 +61,18 @@
     <origin xyz="-0.01707 0.0 0.38145"
             rpy="0.0 0.0 0.0" />
   </xacro:pr2_head_v0>
+  <link name="l_eye" />
+  <link name="r_eye" />
+  <joint name="l_eye_joint" type="fixed">
+    <parent link="head_plate_frame" />
+	 <child link="l_eye" />
+	 <origin xyz="0.048 0.110 0.055" rpy="${M_PI/2} 0.0 ${M_PI/2}" />
+  </joint>
+  <joint name="r_eye_joint" type="fixed">
+    <parent link="head_plate_frame" />
+	 <child link="r_eye" />
+	 <origin xyz="0.048 -0.110 0.055" rpy="${M_PI/2} 0.0 ${M_PI/2}" />
+  </joint>
 
   <!-- Camera package: double stereo, prosilica -->
   <xacro:pr2_head_sensor_package_v0 name="sensor_mount" hd_frame_name="high_def"
