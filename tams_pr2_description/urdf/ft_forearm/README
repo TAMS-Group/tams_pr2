@@ -1,6 +1,0 @@
-This includes force-torque-patched versions of the PR2 upstream files
-- forearm_v0/forearm.transmission.xacro
-- forearm_v0/forearm.urdf.xacro
-
-The patch is taken from the pr2-ft package
-https://github.com/pr2-debs/pr2-ft

@@ -1,1 +1,0 @@
-rosservice call /set_mannequin_mode "data: false"

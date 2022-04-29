@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-  <include file="$(find tams_pr2_bringup)/launch/tams_pr2.launch">
-    <arg name="with_hand" value="false"/>
-  </include>
-</launch>

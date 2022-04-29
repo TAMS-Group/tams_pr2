@@ -1,8 +1,0 @@
-<launch>
-    <node pkg="tams_pr2_bringup" type="pr2_demo_test" name="pr2_demo_test" output="screen">
-      <param name="left_arm_test" value="false" />
-      <param name="right_arm_test" value="true" />
-      <param name="left_right_accuracy_test" value="true" />
-    </node>
-</launch>
-
