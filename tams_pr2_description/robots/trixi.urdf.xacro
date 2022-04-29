@@ -33,7 +33,6 @@
   <xacro:include filename="$(find tams_pr2_description)/urdf/tams_pr2_tray.urdf.xacro" />
   <xacro:include filename="$(find tams_pr2_description)/urdf/ft_forearm/pr2_ft_forearm.urdf.xacro" />
   <xacro:include filename="$(find tams_pr2_description)/urdf/tams_pr2_shadow_adapter.urdf.xacro" />
-  <xacro:include filename="$(find tams_pr2_description)/urdf/xtion_camera.urdf.xacro" />
   <xacro:include filename="$(find pr2_description)/urdf/sensors/kinect2.urdf.xacro" />
   <xacro:include filename="$(find tams_pr2_description)/urdf/turn_gravity_off.urdf.xacro" />
   <xacro:include filename="$(find tams_motorhand_description)/urdf/tams_motorhand.urdf.xacro" />
@@ -70,10 +69,6 @@
          parent="head_plate_frame">
     <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
   </xacro:pr2_head_sensor_package_v0>
-
-  <xacro:xtion_camera name="head_mount_xtion" parent="head_plate_frame">
-    <origin xyz="0.03 0.02 0.091746" rpy="0 0 0" />
-  </xacro:xtion_camera>
 
   <!-- Projector -->
   <xacro:projector_wg6802418_v0 name="projector_wg6802418" parent="head_plate_frame" >
