@@ -30,8 +30,6 @@ controller_list:
     type: FollowJointTrajectory
     default: True
     joints:
-      - rh_WRJ2
-      - rh_WRJ1
       - rh_FFJ4
       - rh_FFJ3
       - rh_FFJ2
@@ -54,6 +52,13 @@ controller_list:
       - rh_THJ3
       - rh_THJ2
       - rh_THJ1
+  - name: hand/rh_wr_trajectory_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - rh_WRJ2
+      - rh_WRJ1
   - name: r_arm_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
