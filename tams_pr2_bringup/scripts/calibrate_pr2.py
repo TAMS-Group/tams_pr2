@@ -302,7 +302,7 @@ def main():
                 force_calibration = True
 
         if arms not in ['both', 'none', 'left', 'right', 'auto']:
-            print 'Arms must be "both", "none", "left", "right", or "auto"'
+            print('Arms must be "both", "none", "left", "right", or "auto"')
             sys.exit(1)
 
         # load controller configuration
@@ -373,9 +373,9 @@ def main():
             controller_list = list_controllers()
             def is_running(c) : return c[1]=='running'
             running_controllers = [c[0] for c in filter(is_running, zip(controller_list.controllers, controller_list.state))]
-            print "Running controllers : ", running_controllers
+            print("Running controllers : " + str(running_controllers))
             if not switch_controller([], running_controllers, SwitchControllerRequest.STRICT):
-                print "Failed to stop controllers"
+                print("Failed to stop controllers")
                 sys.exit(1)
         
         # calibrate imu and torso
@@ -437,7 +437,7 @@ def main():
 
         if recalibrate:
             if not switch_controller(running_controllers, [], SwitchControllerRequest.STRICT):
-                print "Could not start previously running controllers"
+                print("Could not start previously running controllers")
             
         if not recalibrate:
             if joints_status:

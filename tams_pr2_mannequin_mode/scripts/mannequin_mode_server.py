@@ -24,12 +24,12 @@ def toggle_service(req):
             resp1 = switch_controllers(loose_controllers, pr2_controllers, SwitchControllerRequest.STRICT)
         else:
             resp1 = switch_controllers(pr2_controllers, loose_controllers, SwitchControllerRequest.STRICT)
-    except rospy.ServiceException, e:
-        print "Service call failed: %s"%e
+    except rospy.ServiceException as e:
+        print("Service call failed: %s"%e)
         return
 
     if not resp1:
-        print "switching controllers failed"
+        print("switching controllers failed")
         return
 
     # inform our custom mannequin mode to start/stop adjusting the target state on joint state errors
@@ -39,8 +39,8 @@ def toggle_service(req):
         try:
             toggle_lock = rospy.ServiceProxy(service_id, SetBool)
             resp2 = toggle_lock(run)
-        except rospy.ServiceException, e:
-            print "Service call failed: %s"%e
+        except rospy.ServiceException as e:
+            print("Service call failed: %s"%e)
 
     state_publisher.publish(run)
     if run:
@@ -55,7 +55,7 @@ if __name__ == "__main__":
     pr2_controllers = rospy.get_param('~pr2_controllers')   #['head_traj_controller', 'l_arm_controller', 'r_arm_controller']
     loose_controllers = rospy.get_param('~loose_controllers')   #['head_traj_controller_loose', 'l_arm_controller_loose', 'r_arm_controller_loose']
 
-    state_publisher = rospy.Publisher('mannequin_mode_active', Bool, latch= True)
+    state_publisher = rospy.Publisher('mannequin_mode_active', Bool, latch= True, queue_size= 1)
     state_publisher.publish(False)
 
     s = rospy.Service('set_mannequin_mode', SetBool, toggle_service)
