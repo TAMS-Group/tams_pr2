@@ -4,9 +4,9 @@
   <arg name="pipeline" default="ompl" />
 
   <!-- By default, we do not start a database (it can be large) -->
-  <arg name="db" default="false" />
+  <arg name="db" default="true" />
   <!-- Allow user to specify database location -->
-  <arg name="db_path" default="$(find tams_pr2_moveit_config)/default_warehouse_mongo_db" />
+  <arg name="db_path" default="$(env HOME)/.ros/moveit_warehouse.sqlite" />
 
   <!-- By default, we are not in debug mode -->
   <arg name="debug" default="false" />
