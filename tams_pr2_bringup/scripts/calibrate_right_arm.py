@@ -183,7 +183,7 @@ def main():
             rospy.loginfo("No yaml files specified for calibration controllers, using defaults")
         else:
             calibration_yaml = args[1]
-        rospy.set_param(calibration_params_namespace+"/calibrate", yaml.load(open(calibration_yaml)))
+        rospy.set_param(calibration_params_namespace+"/calibrate", yaml.safe_load(open(calibration_yaml)))
 
         joints_status = True
 
@@ -200,7 +200,7 @@ def main():
                     print ("Press 'Enter' to calibrate joint %s"%joint)
                     # make sure we see the message above even via ssh
                     sys.stdout.flush()
-                    raw_input()
+                    input()
                     calibrate_joint.calibrate()
                 else:
                     joints_status = False
