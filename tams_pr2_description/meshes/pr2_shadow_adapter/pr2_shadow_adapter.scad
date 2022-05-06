@@ -17,9 +17,9 @@ shadow_disk_height = 12.0;
 
 scale(1/1000) rotate([-90,0,0]) rotate([0,-90,0]) shadow_adapter();
 
-//trixi_profile();
+//tams_pr2_profile();
 
-//#translate([0, 0, 17.4]) rotate([0, 180, 0]) import(file = "trixi_original_adapter.stl");
+//#translate([0, 0, 17.4]) rotate([0, 180, 0]) import(file = "tams_pr2_original_adapter.stl");
 
 module shadow_adapter() {
 	union() {
@@ -33,9 +33,9 @@ module shadow_adapter() {
 				rotate([0, 0, i*360/8+45/2]) translate([50.0, 0, -7.0]) shadow_screw(head=25);
 			}
 
-			//trixi interface disk
+			//tams_pr2 interface disk
 			translate([0, 0, shadow_disk_height]) {
-				trixi_profile();
+				tams_pr2_profile();
 			}
 
 			//wire opening
@@ -58,7 +58,7 @@ module shadow_screw(head = 10){
 	}
 }
 
-module trixi_profile() {
+module tams_pr2_profile() {
 	union() {
 		linear_extrude(height = profile_height+0.1, center = false, convexity = 10) {
 			offset(r=0.5+profile_offset) {

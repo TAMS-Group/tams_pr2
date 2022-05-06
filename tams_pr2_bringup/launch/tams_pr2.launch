@@ -20,11 +20,6 @@
 
     <include file="$(find tams_pr2_bringup)/launch/include/left_gripper.launch.xml" />
 
-    <!--
-    <include file="$(find tams_motorhand)/launch/hand_on_trixi.launch" if="$(arg with_hand)"/>
-    -->
-    <include file="$(find tams_motorhand)/launch/right_biotac_hand_stub_on_trixi.launch" unless="$(arg no_stub)"/>
-
     <include file="$(find tams_pr2_bringup)/launch/include/teleop.launch.xml" />
 
     <rosparam file="$(find tams_pr2_bringup)/config/robot.yaml" />
@@ -57,6 +52,7 @@
         <arg name="pkg" value="tams_motorhand" />
         <arg name="launch" value="right_biotac_hand_in_ns.launch" />
     </include>
+    <include file="$(find tams_motorhand)/launch/right_biotac_hand_stub_on_pr2.launch" unless="$(arg no_stub)"/>
 
     <!-- Neopixel infrastructure on pr2-head -->
     <!-- Start `roslaunch` on pr2-head to interpret launch parameters there -->
