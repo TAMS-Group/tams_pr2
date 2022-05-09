@@ -315,8 +315,8 @@ def main():
         else:
             calibration_yaml = args[1]
             hold_yaml  = args[2]
-        rospy.set_param(calibration_params_namespace+"/calibrate", yaml.load(open(calibration_yaml)))
-        rospy.set_param(calibration_params_namespace+"/hold", yaml.load(open(hold_yaml)))
+        rospy.set_param(calibration_params_namespace+"/calibrate", yaml.safe_load(open(calibration_yaml)))
+        rospy.set_param(calibration_params_namespace+"/hold", yaml.safe_load(open(hold_yaml)))
 
         # status publishing
         imustatus = True
