@@ -19,6 +19,9 @@
   <arg name="max_safe_path_cost" default="1"/>
   <arg name="publish_monitored_planning_scene" default="true"/>
 
+  <arg name="db" default="true" />
+  <arg name="db_path" default="$(env HOME)/.ros/moveit_warehouse.sqlite" />
+
   <arg name="capabilities" value="
                 move_group/TfPublisher
                 moveit_monitoring/Monitoring
@@ -97,4 +100,9 @@
     <param name="planning_scene_monitor/publish_transforms_updates" value="$(arg publish_monitored_planning_scene)" />
   </node>
 
+
+  <include file="$(dirname)/default_warehouse_db.launch" if="$(arg db)">
+    <arg name="moveit_warehouse_database_path" value="$(arg db_path)"/>
+  </include>
+  <node name="moveit_ros_warehouse_services" pkg="moveit_ros_warehouse" type="moveit_warehouse_services" />
 </launch>
