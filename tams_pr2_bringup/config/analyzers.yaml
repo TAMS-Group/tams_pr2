@@ -211,6 +211,12 @@ analyzers:
         expected: [
           'rh EtherCAT Dual CAN Palm',
           'SRBridge : 00']
+      monitor:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: 'Monitor'
+        expected: [
+          'ShadowHand Monitor']
+
   moveit:
     type: diagnostic_aggregator/AnalyzerGroup
     path: MoveIt
