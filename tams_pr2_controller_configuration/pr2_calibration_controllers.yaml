@@ -60,9 +60,9 @@ cal_l_shoulder_lift:
     p: 9
     i: 1.0
     d: 0
-    i_clamp: 6
-    i_clamp_max: 6
-    i_clamp_min: -6
+    i_clamp: 10
+    i_clamp_max: 10
+    i_clamp_min: -10
 cal_r_upper_arm_roll:
   type: pr2_calibration_controllers/JointCalibrationController
   joint: r_upper_arm_roll_joint
@@ -156,9 +156,9 @@ cal_l_wrist:
     p: 3.0
     d: 0.0
     i: 0.2
-    i_clamp: 2.0
-    i_clamp_max: 2.0
-    i_clamp_min: -2.0
+    i_clamp: 2.5
+    i_clamp_max: 2.5
+    i_clamp_min: -2.5
 cal_l_gripper:
   type: pr2_calibration_controllers/GripperCalibrationController
   actuator: l_gripper_motor

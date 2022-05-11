@@ -401,14 +401,14 @@ def main():
         # calibrate arms
         torso_holder = None
         if not arm.is_calibrated():
-            torso_holder = HoldingController('torso_lift')
-            torso_holder.hold(0.25)
-            rospy.sleep(5.0)
-            rospy.loginfo('Moving up spine to allow arms to calibrate')
+            #torso_holder = HoldingController('torso_lift')
+            #torso_holder.hold(0.25)
+            #rospy.sleep(5.0)
+            #rospy.loginfo('Moving up spine to allow arms to calibrate')
             arm.calibrate()
-            rospy.loginfo('Moving down spine after arm calibration')
-            torso_holder.hold(0.01)
-            rospy.sleep(20.0)
+            #rospy.loginfo('Moving down spine after arm calibration')
+            #torso_holder.hold(0.01)
+            #rospy.sleep(20.0)
 
         # calibrate rest of robot
         gripper.calibrate()
