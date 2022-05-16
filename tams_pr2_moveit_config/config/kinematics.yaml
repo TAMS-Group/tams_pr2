@@ -1,7 +1,7 @@
-right_arm_and_fingers:
+all:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
   kinematics_solver_search_resolution: 0.005
-  kinematics_solver_timeout: 0.005
+  kinematics_solver_timeout: 0.05
 left_arm:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
   kinematics_solver_search_resolution: 0.005
@@ -12,6 +12,11 @@ left_arm_and_torso:
   kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.005
   mode: gd_c
+right_arm_pr2:
+  kinematics_solver: bio_ik/BioIKKinematicsPlugin
+  kinematics_solver_search_resolution: 0.005
+  kinematics_solver_timeout: 0.05
+  mode: gd_c
 right_arm:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
   kinematics_solver_search_resolution: 0.005
@@ -20,17 +25,12 @@ right_arm:
 right_arm_and_hand:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
   kinematics_solver_search_resolution: 0.005
-  kinematics_solver_timeout: 0.05
-  mode: gd_c
+  kinematics_solver_timeout: 0.005
 right_arm_and_torso:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
   kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.005
-arms_pr2:
-  kinematics_solver: bio_ik/BioIKKinematicsPlugin
-  kinematics_solver_search_resolution: 0.005
-  kinematics_solver_timeout: 0.005
-arms:
+headless:
   kinematics_solver: bio_ik/BioIKKinematicsPlugin
   kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.05
