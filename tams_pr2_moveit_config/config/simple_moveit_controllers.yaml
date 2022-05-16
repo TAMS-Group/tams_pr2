@@ -69,3 +69,15 @@ controller_list:
       - r_upper_arm_roll_joint
       - r_elbow_flex_joint
       - r_forearm_roll_joint
+  - name: l_gripper_controller
+    action_ns: gripper_action
+    type: GripperCommand
+    default: true
+    joints:
+      - l_gripper_joint
+      - l_gripper_l_finger_joint
+      - l_gripper_r_finger_joint
+      - l_gripper_l_finger_tip_joint
+      - l_gripper_r_finger_tip_joint
+      - l_gripper_motor_screw_joint
+      - l_gripper_motor_slider_joint
