@@ -109,8 +109,6 @@ rh_trajectory_controller:
   type: position_controllers/JointTrajectoryController
   allow_partial_joints_goal: true
   joints:
-    - rh_WRJ2
-    - rh_WRJ1
     - rh_FFJ4
     - rh_FFJ3
     - rh_FFJ2
@@ -134,16 +132,6 @@ rh_trajectory_controller:
     - rh_THJ2
     - rh_THJ1
   gains:
-    rh_WRJ2:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-    rh_WRJ1:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
     rh_FFJ4:
       p: 100
       d: 1
@@ -250,6 +238,23 @@ rh_trajectory_controller:
       i: 1
       i_clamp: 1
     rh_THJ1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+rh_wr_trajectory_controller:
+  type: position_controllers/JointTrajectoryController
+  allow_partial_joints_goal: true
+  joints:
+    - rh_WRJ2
+    - rh_WRJ1
+  gains:
+    rh_WRJ2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rh_WRJ1:
       p: 100
       d: 1
       i: 1

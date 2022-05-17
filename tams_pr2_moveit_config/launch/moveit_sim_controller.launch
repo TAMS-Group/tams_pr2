@@ -7,6 +7,7 @@
     <!-- workarounds to have the same topic name as the real hardware -->
     <remap from="l_gripper_controller/gripper_cmd" to="l_gripper_controller/gripper_action" />
 	 <remap from="rh_trajectory_controller/follow_joint_trajectory" to="hand/rh_trajectory_controller/follow_joint_trajectory" />
+	 <remap from="rh_wr_trajectory_controller/follow_joint_trajectory" to="hand/rh_wr_trajectory_controller/follow_joint_trajectory" />
   </node>
 
   # make sure joint publisher is running, all other controller are loaded by moveit's controller configuration
