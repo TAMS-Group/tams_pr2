@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- simplified URDF model of the Google "Pixel 6 Pro" smartphone.
+     Main body centered at origin, long axis along y, medium axis along z.
+     Cameras pointing towards +x. 
+     (c) 2022, fnh, hendrich@informatik.uni-hamburg.de 
+-->
+<robot name="pixel_6_pro_demo" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find tams_pr2_description)/urdf/pixel_6_pro.urdf.xacro" />
+
+  <link name="world" />
+  
+  <xacro:pixel_6_pro name="pixel_6_pro" />
+
+  <joint name="world_pixel_6_pro_joint" type="fixed" >
+    <parent link="world" />
+    <child link="pixel_6_pro" />
+    <origin xyz="0 0 0.1" rpy="0 0 0" />
+  </joint>
+
+</robot>

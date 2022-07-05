@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- Simple test for the modified Azure Kinect URDF file.
+     (c) 2022, fnh, hendrich@informatik.uni-hamburg.de 
+-->
+<robot name="tams_azure_kinect_demo" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find tams_pr2_description)/urdf/tams_azure_kinect.urdf.xacro" />
+
+  <link name="world" />
+  
+  <xacro:tams_azure_kinect name="azure_kinect" />
+
+  <joint name="world_tams_azure_kinect_joint" type="fixed" >
+    <parent link="world" />
+    <child link="azure_kinect_camera_base" />
+    <origin xyz="0 0 0.1" rpy="0 0 0" />
+  </joint>
+
+</robot>

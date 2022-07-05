@@ -1,0 +1,15 @@
+<!--
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the MIT License.
+-->
+
+<launch>
+
+  <param name="robot_description"
+      command="xacro $(find tams_pr2_description)/robots/pixel_6_pro_demo.urdf.xacro" />
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!-- <node name="rviz" pkg="rviz" type="rviz" /> -->
+
+</launch>
