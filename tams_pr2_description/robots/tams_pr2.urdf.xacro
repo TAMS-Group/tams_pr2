@@ -33,7 +33,6 @@
   <xacro:include filename="$(find tams_pr2_description)/urdf/tams_pr2_tray.urdf.xacro" />
   <xacro:include filename="$(find tams_pr2_description)/urdf/ft_forearm/pr2_ft_forearm.urdf.xacro" />
   <xacro:include filename="$(find tams_pr2_description)/urdf/tams_pr2_shadow_adapter.urdf.xacro" />
-  <xacro:include filename="$(find pr2_description)/urdf/sensors/kinect2.urdf.xacro" />
   <xacro:include filename="$(find tams_pr2_description)/urdf/turn_gravity_off.urdf.xacro" />
   <xacro:include filename="$(find tams_motorhand_description)/urdf/tams_motorhand.urdf.xacro" />
   <xacro:arg name="calib_config" default="$(find tams_pr2_description)/config/calibration_config.yaml" />
@@ -153,14 +152,4 @@
                           image_width="640" image_height="480">
     <origin xyz=".135 0 .044" rpy="${-M_PI/2} ${-32.25*M_PI/180} 0" />
   </xacro:wge100_camera_v0>
-
-  <xacro:kinect2_v0 name="head_mount" parent="head_plate_frame" >
-    <xacro:unless value="${'head_mount_kinect2_joint_x' in calib.keys()}">
-      <origin xyz="-0.137376 0 0.091746" rpy="0 0 0" />
-    </xacro:unless>
-    <xacro:if value="${'head_mount_kinect2_joint_x' in calib.keys()}">
-      <origin xyz="${calib['head_mount_kinect2_joint_x']} ${calib['head_mount_kinect2_joint_y']} ${calib['head_mount_kinect2_joint_z']}"
-              rpy="${calib['head_mount_kinect2_joint_a']} ${calib['head_mount_kinect2_joint_b']} ${calib['head_mount_kinect2_joint_c']}" />
-    </xacro:if>
-  </xacro:kinect2_v0>
 </robot>
