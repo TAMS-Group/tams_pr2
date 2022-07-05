@@ -122,6 +122,7 @@
     <origin xyz="${0.0448 - 0.1254} 0 ${0.039/2}" rpy="0 0 0" />
   </joint>
 
+<!-- This link is published as imu_link by the azure driver with calibrated values
   <link name="${name}_imu" />
 
   <joint name="${name}_camera_base_to_imu" type="fixed">
@@ -129,6 +130,7 @@
     <child link="${name}_imu" />
     <origin xyz="-0.05325 ${-0.103/2+0.0465} ${0.037/2-0.0166}" rpy="0 0 0" />
   </joint>
+-->
 
   <link name="${name}_rgb_sensor" >
     <visual>
