@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<robot name="tams_eye" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="tams_eye" params="name parent *origin" >
+  <link name="${name}" />
+  <joint name="${name}_joint" type="fixed">
+    <parent link="${parent}" />
+    <child link="${name}" />
+    <xacro:insert_block name="origin" />
+  </joint>
+</xacro:macro>
+
+</robot>

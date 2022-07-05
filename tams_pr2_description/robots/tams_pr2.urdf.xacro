@@ -34,7 +34,9 @@
   <xacro:include filename="$(find tams_pr2_description)/urdf/ft_forearm/pr2_ft_forearm.urdf.xacro" />
   <xacro:include filename="$(find tams_pr2_description)/urdf/tams_pr2_shadow_adapter.urdf.xacro" />
   <xacro:include filename="$(find tams_pr2_description)/urdf/turn_gravity_off.urdf.xacro" />
+  <xacro:include filename="$(find tams_pr2_description)/urdf/tams_eye.urdf.xacro" />
   <xacro:include filename="$(find tams_motorhand_description)/urdf/tams_motorhand.urdf.xacro" />
+
   <xacro:arg name="calib_config" default="$(find tams_pr2_description)/config/calibration_config.yaml" />
   <xacro:property name="calib" value="${xacro.load_yaml('$(arg calib_config)')}"/>
 
@@ -60,18 +62,13 @@
     <origin xyz="-0.01707 0.0 0.38145"
             rpy="0.0 0.0 0.0" />
   </xacro:pr2_head_v0>
-  <link name="l_eye" />
-  <link name="r_eye" />
-  <joint name="l_eye_joint" type="fixed">
-    <parent link="head_plate_frame" />
-	 <child link="l_eye" />
-	 <origin xyz="0.048 0.110 0.055" rpy="${M_PI/2} 0.0 ${M_PI/2}" />
-  </joint>
-  <joint name="r_eye_joint" type="fixed">
-    <parent link="head_plate_frame" />
-	 <child link="r_eye" />
-	 <origin xyz="0.048 -0.110 0.055" rpy="${M_PI/2} 0.0 ${M_PI/2}" />
-  </joint>
+
+  <xacro:tams_eye name="l_eye" parent="head_plate_frame">
+    <origin xyz="0.048 0.110 0.055" rpy="${M_PI/2} 0.0 ${M_PI/2}" />
+  </xacro:tams_eye>
+  <xacro:tams_eye name="r_eye" parent="head_plate_frame">
+    <origin xyz="0.048 -0.110 0.055" rpy="${M_PI/2} 0.0 ${M_PI/2}" />
+  </xacro:tams_eye>
 
   <!-- Camera package: double stereo, prosilica -->
   <xacro:pr2_head_sensor_package_v0 name="sensor_mount" hd_frame_name="high_def"
@@ -98,19 +95,23 @@
                          upper_arm_roll_calib_ref="${calib['r_upper_arm_roll_calib_ref']}">
     <origin xyz="0.0 -0.188 0.0" rpy="0 0 0" />
   </xacro:pr2_shoulder_v0>
+
   <xacro:pr2_upper_arm_v0 side="r" reflect="-1" parent="r_upper_arm_roll_link"
                           forearm_roll_calib_ref="${calib['r_forearm_roll_calib_ref']}"
                           elbow_flex_calib_ref="${calib['r_elbow_flex_calib_ref']}"  />
+
   <xacro:tams_pr2_shadow_adapter name="rh_adapter" parent="r_forearm_roll_link">
     <origin xyz="0.118 0 0" rpy="0 0 0" />
   </xacro:tams_pr2_shadow_adapter>
+
   <!-- The Shadow Dexterous Motorhand with BioTacs-->
   <xacro:tams_motorhand type="right_biotac"/>
   <joint name="rh_adapter_hand_joint" type="fixed">
     <parent link="rh_adapter_link" />
-	 <child link="rh_forearm" />
-	 <origin xyz="0 0 0" rpy="0 ${-M_PI/2} ${M_PI}" />
+    <child link="rh_forearm" />
+    <origin xyz="0 0 0" rpy="0 ${-M_PI/2} ${M_PI}" />
   </joint>
+
   <!-- This is necessary to simulate the 'floating' of the right arm-->
   <xacro:turn_rh_gravity_off enable="true"/>
 
