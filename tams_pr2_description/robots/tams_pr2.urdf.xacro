@@ -34,7 +34,7 @@
   <xacro:include filename="$(find tams_pr2_description)/urdf/ft_forearm/pr2_ft_forearm.urdf.xacro" />
   <xacro:include filename="$(find tams_pr2_description)/urdf/tams_pr2_shadow_adapter.urdf.xacro" />
   <xacro:include filename="$(find tams_pr2_description)/urdf/turn_gravity_off.urdf.xacro" />
-  <xacro:include filename="$(find tams_pr2_description)/urdf/tams_eye.urdf.xacro" />
+  <xacro:include filename="$(find tams_pr2_description)/urdf/tams_head_additions.urdf.xacro" />
   <xacro:include filename="$(find tams_motorhand_description)/urdf/tams_motorhand.urdf.xacro" />
 
   <xacro:arg name="calib_config" default="$(find tams_pr2_description)/config/calibration_config.yaml" />
@@ -63,13 +63,6 @@
             rpy="0.0 0.0 0.0" />
   </xacro:pr2_head_v0>
 
-  <xacro:tams_eye name="l_eye" parent="head_plate_frame">
-    <origin xyz="0.048 0.110 0.055" rpy="${M_PI/2} 0.0 ${M_PI/2}" />
-  </xacro:tams_eye>
-  <xacro:tams_eye name="r_eye" parent="head_plate_frame">
-    <origin xyz="0.048 -0.110 0.055" rpy="${M_PI/2} 0.0 ${M_PI/2}" />
-  </xacro:tams_eye>
-
   <!-- Camera package: double stereo, prosilica -->
   <xacro:pr2_head_sensor_package_v0 name="sensor_mount" hd_frame_name="high_def"
          hd_camera_name="prosilica"
@@ -77,6 +70,9 @@
          parent="head_plate_frame">
     <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
   </xacro:pr2_head_sensor_package_v0>
+
+  <!-- TAMS's additions to the head -->
+  <xacro:tams_head_additions parent="head_plate_frame" />
 
   <!-- Projector -->
   <xacro:projector_wg6802418_v0 name="projector_wg6802418" parent="head_plate_frame" >

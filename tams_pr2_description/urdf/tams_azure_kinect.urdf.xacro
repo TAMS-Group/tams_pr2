@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<robot name="tams_azure_kinect" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<!-- 
+ Copyright (c) Microsoft Corporation. All rights reserved.
+ Licensed under the MIT License.
+ -->
+<!-- 
+ Modified to remove the strange global tf_prefix arg; rewritten 
+ as a standard xacro macro instead. For example, call with
+ <xacro:tams_azure_kinect name="azure_kinect" />
+ and launch the driver with tf_prefix:="azure_kinect_"
+
+ Note that the "camera_base" frame is centered on the front
+ (=sensors) part of the device.
+
+ 2022.06.19 fnh, hendrich@informatik.uni-hamburg.de
+-->
+
+<xacro:macro name="tams_azure_kinect" params="name" >
+
+  <material name="tams_azure_kinect_black">
+    <color rgba="0. 0. 0. 1" />
+  </material>
+  <material name="tams_azure_kinect_dark_grey">
+    <color rgba="0.1 0.1 0.1 1" />
+  </material>
+  <material name="tams_azure_kinect_grey">
+    <color rgba="0.6 0.6 0.6 1" />
+  </material>
+  <material name="tams_azure_kinect_white">
+    <color rgba="0.9 0.9 0.9 1" />
+  </material>
+
+  <link name="${name}_camera_body">
+    <visual>
+      <origin xyz="0. 0. 0." />
+      <geometry>
+        <box size="0.0994 0.0996 0.023" />
+      </geometry>
+      <material name="tams_azure_kinect_white" />
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." />
+      <geometry>
+        <box size="0.0994 0.0996 0.023" />
+      </geometry>
+      <material name="tams_azure_kinect_white" />
+    </collision>
+  </link>
+
+  <link name="${name}_camera_base">
+    <visual>
+      <origin xyz="-0.013 0. 0." />
+      <geometry>
+        <box size="0.026 0.103 0.039" />
+      </geometry>
+      <material name="tams_azure_kinect_grey" />
+    </visual>
+    <collision>
+      <origin xyz="-0.013 0. 0." />
+      <geometry>
+        <box size="0.026 0.103 0.039" />
+      </geometry>
+      <material name="tams_azure_kinect_grey" />
+    </collision>
+  </link>
+
+  <link name="${name}_camera_visor">
+    <visual>
+      <origin xyz="-0.0128 0. 0." />
+      <geometry>
+        <box size="0.026 0.101 0.037" />
+      </geometry>
+      <material name="tams_azure_kinect_black" />
+    </visual>
+  </link>
+
+
+  <joint name="${name}_camera_base_to_body_joint" type="fixed">
+    <parent link="${name}_camera_base" />
+    <child link="${name}_camera_body" />
+    <origin xyz="-0.0757 0. 0.008" rpy="0. 0. 0." />
+  </joint>
+
+  <joint name="${name}_camera_base_to_visor_joint" type="fixed">
+    <parent link="${name}_camera_base" />
+    <child link="${name}_camera_visor" />
+    <origin xyz="0. 0. 0." rpy="0. 0. 0." />
+  </joint>
+
+  <!-- extra links, uncomment if not needed -->
+
+  <link name="${name}_mounting_screw" >
+    <visual>
+      <origin xyz="0 0 0.0025"/>
+      <geometry>
+        <cylinder radius="0.003" length="0.005" />
+      </geometry>
+      <material name="tams_azure_kinect_white" />
+    </visual>
+  </link>
+
+  <joint name="${name}_camera_base_to_mounting_screw_joint" type="fixed">
+    <parent link="${name}_camera_base" />
+    <child link="${name}_mounting_screw" />
+    <origin xyz="${0.0634 - 0.1254} 0 ${0.039/2-0.023}" rpy="0 0 0" />
+  </joint>
+
+  <link name="${name}_microphone_0" >
+    <visual>
+      <origin xyz="0 0 -0.002" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.001" length="0.004" />
+      </geometry>
+      <material name="tams_azure_kinect_white" />
+    </visual>
+  </link>
+
+  <joint name="${name}_camera_base_to_microphone_0_joint" type="fixed">
+    <parent link="${name}_camera_base" />
+    <child link="${name}_microphone_0" />
+    <origin xyz="${0.0448 - 0.1254} 0 ${0.039/2}" rpy="0 0 0" />
+  </joint>
+
+  <link name="${name}_imu" />
+
+  <joint name="${name}_camera_base_to_imu" type="fixed">
+    <parent link="${name}_camera_base" />
+    <child link="${name}_imu" />
+    <origin xyz="-0.05325 ${-0.103/2+0.0465} ${0.037/2-0.0166}" rpy="0 0 0" />
+  </joint>
+
+  <link name="${name}_rgb_sensor" >
+    <visual>
+      <origin xyz="${0.02/2} 0 0" rpy="0 1.571 0" />
+      <geometry>
+        <cylinder radius="${0.0295/2}" length="0.021" />
+      </geometry>
+      <material name="tams_azure_kinect_dark_grey" />
+    </visual>
+  </link>
+
+  <joint name="${name}_camera_base_to_rgb_sensor_joint" type="fixed">
+    <parent link="${name}_camera_base" />
+    <child link="${name}_rgb_sensor" />
+    <origin xyz="${-0.01792} ${-0.103/2+0.0195} 0" rpy="0 0 0" />
+  </joint>
+
+  <link name="${name}_depth_sensor" >
+    <visual>
+      <origin xyz="${0.013/2} 0 0" rpy="0 1.571 0" />
+      <geometry>
+        <cylinder radius="${0.0185/2}" length="0.014" />
+      </geometry>
+      <material name="tams_azure_kinect_dark_grey" />
+    </visual>
+  </link>
+
+  <joint name="${name}_camera_base_to_depth_sensor_joint" type="fixed">
+    <parent link="${name}_camera_base" />
+    <child link="${name}_depth_sensor" />
+    <origin xyz="${-0.01158} ${-0.103/2+0.0195+0.0320} ${0.0213-0.0195}"  rpy="0 0 0" />
+  </joint>
+
+</xacro:macro>
+
+</robot>

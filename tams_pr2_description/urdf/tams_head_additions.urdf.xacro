@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<robot name="tams_head_additions" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<!-- 
+  macro to collect all TAMS-specific additions to the PR2 head
+-->
+
+<xacro:include filename="$(find tams_pr2_description)/urdf/tams_eye.urdf.xacro" />
+<xacro:include filename="$(find tams_pr2_description)/urdf/tams_azure_kinect.urdf.xacro" />
+<xacro:include filename="$(find tams_pr2_description)/urdf/pixel_6_pro.urdf.xacro" />
+
+<xacro:macro name="tams_head_additions" params="parent" >
+  <!-- eye frames for neopixel rings -->
+  <xacro:tams_eye name="l_eye" parent="${parent}">
+    <origin xyz="0.048 0.110 0.055" rpy="${M_PI/2} 0.0 ${M_PI/2}" />
+  </xacro:tams_eye>
+  <xacro:tams_eye name="r_eye" parent="${parent}">
+    <origin xyz="0.048 -0.110 0.055" rpy="${M_PI/2} 0.0 ${M_PI/2}" />
+  </xacro:tams_eye>
+
+  <!-- generic collider for everything mounted on top of the head -->
+  <!-- there is no need to model collisions very detailed -->
+  <link name="head_mounting">
+    <collision>
+      <origin xyz="0 0 ${0.1/2}" rpy="0 0 0" />
+      <geometry>
+        <box size="0.26 0.3 0.1" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="head_additions_${parent}_joint" type="fixed">
+    <parent link="${parent}" />
+    <child link="head_mounting" />
+    <origin xyz="-0.07 0 0.095" rpy="0 0 0" />
+  </joint>
+
+  <!-- intel NUC -->
+  <link name="head_nuc_computer" >
+    <visual>
+     <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <box size="0.11 0.115 0.04" rpy="0 0 0" />
+      </geometry>
+      <material name="head_nuc_computer_material_silver">
+        <color rgba="0.9 0.9 0.8 1.0"/>
+      </material>
+    </visual>
+   <!--
+    <collision>
+     <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <box size="0.11 0.115 0.04" rpy="0 0 0" />
+      </geometry>
+    </collision>
+    -->
+  </link>
+  <joint name="head_nuc_computer_joint" type="fixed">
+    <parent link="${parent}" />
+    <child link="head_nuc_computer" />
+    <origin xyz="${-0.115/2-2*0.0254} 0.0 0.095" rpy="0. 0. 0." />
+  </joint>
+
+  <!-- Microsoft Azure Kinect -->
+  <xacro:property name="azure_kinect_name" value="azure_kinect" />
+  <xacro:tams_azure_kinect name="${azure_kinect_name}" />
+
+  <joint name="${azure_kinect_name}_camera_base_joint" type="fixed">
+    <parent link="${parent}" />
+    <child link="${azure_kinect_name}_camera_base" />
+    <origin xyz="${0.0+0.022+0.026} 0.0 ${0.095 + 0.068 + 0.008}" rpy="0 0 0" />
+  </joint>
+
+  <link name="${azure_kinect_name}_holder" >
+     <!-- mesh for visual, box as collision model -->
+    <visual>
+      <origin xyz="-0.015 0.0 0.0" rpy="0 0 1.571" />
+      <material name="${azure_kinect_name}_material_white">
+        <color rgba="1.0 1.0 1.0 1.0"/>
+      </material>
+      <geometry>
+        <mesh filename="package://tams_pr2_description/meshes/azure_holder.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <!--
+    <collision>
+     <origin xyz="${0.00854-0.0127} 0 0.034" rpy="0 0 0" />
+      <geometry>
+        <box size="0.05 0.14 0.068" rpy="0 0 0" />
+      </geometry>
+    </collision>
+    -->
+  </link>
+  <joint name="${azure_kinect_name}_holder_joint" type="fixed">
+    <parent link="${parent}" />
+    <child link="${azure_kinect_name}_holder" />
+    <origin xyz="0.0 0.0 0.095" rpy="0. 0. 0." />
+  </joint>
+
+  <!-- Google Pixel 6 Pro phone - not updated yet for current holder placement-->
+  <xacro:pixel_6_pro name="pixel_6_pro" />
+  <joint name="pixel_6_pro_mount_joint" type="fixed">
+    <parent link="${parent}" />
+    <child link="pixel_6_pro" />
+    <origin xyz="0.050 0.0 0.050" rpy="0. 0. 0." />
+  </joint>
+</xacro:macro>
+
+</robot>

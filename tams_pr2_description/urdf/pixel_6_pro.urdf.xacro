@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<!-- simplified URDF model of the Google "Pixel 6 Pro" smartphone.
+     Main body centered at origin, long axis along y, medium axis along z.
+     Cameras pointing towards +x. 
+     (c) 2022, fnh, hendrich@informatik.uni-hamburg.de 
+-->
+<robot name="pixel_6_pro" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:property name="pixel_6_pro_camera_bar_dy" value="-0.0534" />
+
+
+<xacro:macro name="pixel_6_pro" params="name" >
+
+  <material name="pixel_6_pro_black">
+    <color rgba="0. 0. 0. 1" />
+  </material>
+  <material name="pixel_6_pro_dark_grey">
+    <color rgba="0.1 0.1 0.1 1" />
+  </material>
+  <material name="pixel_6_pro_grey">
+    <color rgba="0.4 0.4 0.4 1" />
+  </material>
+  <material name="pixel_6_pro_white">
+    <color rgba="0.9 0.9 0.9 1" />
+  </material>
+
+  <!-- main body -->
+  <link name="${name}">
+    <!--
+    <visual>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <box size="0.0089 0.1639 0.0758" />
+      </geometry>
+      <material name="pixel_6_pro_white" />
+    </visual>
+    -->
+    <!-- thingiverse mesh -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.571 3.1415" />
+      <geometry>
+        <mesh filename="package://tams_pr2_description/meshes/pixel_6_pro.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="pixel_6_pro_white" />
+    </visual>
+    <!--
+    <collision>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <box size="0.0089 0.1639 0.0758" />
+      </geometry>
+      <material name="pixel_6_pro_white" />
+    </collision>
+    -->
+  </link>
+
+  <link name="${name}/camera_bar">
+    <visual>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <box size="0.003 0.022 0.0758" />
+      </geometry>
+      <material name="pixel_6_pro_black" />
+    </visual>
+    <!--
+    <collision>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <box size="0.002 0.022 0.0758" />
+      </geometry>
+      <material name="pixel_6_pro_black" />
+    </collision>
+    -->
+  </link>
+
+  <link name="${name}/main_camera">
+    <visual>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <cylinder radius="${0.0032/2}" length="0.0005" />
+      </geometry>
+      <material name="pixel_6_pro_grey" />
+    </visual>
+  </link>
+
+  <link name="${name}/ultra_wide_camera">
+    <visual>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <cylinder radius="${0.0024/2}" length="0.0005" />
+      </geometry>
+      <material name="pixel_6_pro_grey" />
+    </visual>
+  </link>
+
+  <link name="${name}/tele_camera">
+    <visual>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <box size="0.004 0.0055 0.0005" />
+      </geometry>
+      <material name="pixel_6_pro_grey" />
+    </visual>
+  </link>
+
+  <link name="${name}/flash_led">
+    <visual>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <cylinder radius="${0.0033/2}" length="0.0005" />
+      </geometry>
+      <material name="pixel_6_pro_white" />
+    </visual>
+  </link>
+
+  <joint name="${name}/camera_bar_joint" type="fixed">
+    <parent link="${name}" />
+    <child link="${name}/camera_bar" />
+    <origin xyz="${0.0089/2+0.003/2} ${pixel_6_pro_camera_bar_dy} 0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="${name}/main_camera_joint" type="fixed">
+    <parent link="${name}" />
+    <child link="${name}/main_camera" />
+    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${-0.0205}" rpy="0 1.571 0" />
+  </joint>
+
+  <joint name="${name}/ultra_wide_camera_joint" type="fixed">
+    <parent link="${name}" />
+    <child link="${name}/ultra_wide_camera" />
+    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${-0.0061}" rpy="0 1.571 0" />
+  </joint>
+
+  <joint name="${name}/tele_camera_joint" type="fixed">
+    <parent link="${name}" />
+    <child link="${name}/tele_camera" />
+    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${0.0029}" rpy="0 1.571 0" />
+  </joint>
+
+  <joint name="${name}/flash_led_joint" type="fixed">
+    <parent link="${name}" />
+    <child link="${name}/flash_led" />
+    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${0.0227}" rpy="0 1.571 0" />
+  </joint>
+
+</xacro:macro>
+
+</robot>
