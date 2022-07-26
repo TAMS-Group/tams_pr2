@@ -96,11 +96,33 @@
   </joint>
 
   <!-- Google Pixel 6 Pro phone - not updated yet for current holder placement-->
+  <!-- head top mounting plate is 95mm above head_plate_frame, center of phone is xxmm above the plate -->
   <xacro:pixel_6_pro name="pixel_6_pro" />
   <joint name="pixel_6_pro_mount_joint" type="fixed">
     <parent link="${parent}" />
     <child link="pixel_6_pro" />
-    <origin xyz="0.050 0.0 0.050" rpy="0. 0. 0." />
+    <origin xyz="0.052 0.0 ${0.095+0.0105}" rpy="0. 0. 0." />
+  </joint>
+
+  <link name="pixel_6_pro_holder" >
+     <!-- mesh for visual, no collision model (covered by generic collider) -->
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 1.571" />
+      <material name="pixel_6_pro_holder_material_white">
+        <color rgba="0.95 0.95 0.95 1.0" />
+      </material>
+      <geometry>
+        <mesh filename="package://tams_pr2_description/meshes/pr2_pixel_6_pro_holder_v3.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <!--
+    <collision/>
+    -->
+  </link>
+  <joint name="pixel_6_pro_holder_joint" type="fixed">
+    <parent link="${parent}" />
+    <child link="pixel_6_pro_holder" />
+    <origin xyz="${-2.5*0.0254} 0.0 ${0.0505}" rpy="0. 0. 0." />
   </joint>
 </xacro:macro>
 
