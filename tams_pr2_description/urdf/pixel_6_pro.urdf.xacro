@@ -12,7 +12,7 @@
 <xacro:macro name="pixel_6_pro" params="name" >
 
   <material name="pixel_6_pro_black">
-    <color rgba="0. 0. 0. 1" />
+    <color rgba="0. 0. 0. 0.7" />
   </material>
   <material name="pixel_6_pro_dark_grey">
     <color rgba="0.1 0.1 0.1 1" />
@@ -58,7 +58,7 @@
     <visual>
       <origin xyz="0 0 0" />
       <geometry>
-        <box size="0.003 0.022 0.0758" />
+        <box size="0.003 0.022 0.071" /> <!-- actually <box size="0.003 0.022 0.0758" /> -->
       </geometry>
       <material name="pixel_6_pro_black" />
     </visual>
@@ -119,28 +119,29 @@
     <origin xyz="${0.0089/2+0.003/2} ${pixel_6_pro_camera_bar_dy} 0" rpy="0 0 0" />
   </joint>
 
+  <!-- these links are oriented with z pointing forward, and could be called {xxx}_camera_optical_frame -->
   <joint name="${name}/main_camera_joint" type="fixed">
     <parent link="${name}" />
     <child link="${name}/main_camera" />
-    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${-0.0205}" rpy="0 1.571 0" />
+    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${-0.0215}" rpy="-1.571 0 -1.571" />
   </joint>
 
   <joint name="${name}/ultra_wide_camera_joint" type="fixed">
     <parent link="${name}" />
     <child link="${name}/ultra_wide_camera" />
-    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${-0.0061}" rpy="0 1.571 0" />
+    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${-0.0068}" rpy="-1.571 0 -1.571" />
   </joint>
 
   <joint name="${name}/tele_camera_joint" type="fixed">
     <parent link="${name}" />
     <child link="${name}/tele_camera" />
-    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${0.0029}" rpy="0 1.571 0" />
+    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${0.0034}" rpy="-1.571 0 -1.571" />
   </joint>
 
   <joint name="${name}/flash_led_joint" type="fixed">
     <parent link="${name}" />
     <child link="${name}/flash_led" />
-    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${0.0227}" rpy="0 1.571 0" />
+    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${0.0215}" rpy="0 1.571 0" />
   </joint>
 
 </xacro:macro>
