@@ -499,6 +499,57 @@
         <joint name="rh_THJ4" value="1.06241"/>
         <joint name="rh_THJ5" value="-0.105816"/>
     </group_state>
+    <group_state name="guzheng_initial" group="head">
+        <joint name="head_pan_joint" value="0.030846998775598305"/>
+        <joint name="head_tilt_joint" value="0.8361092505877994"/>
+    </group_state>
+    <group_state name="guzheng_initial" group="manipulation">
+        <joint name="torso_lift_joint" value="0.01624121725944388"/>
+        <joint name="l_shoulder_pan_joint" value="1.7601271342115512"/>
+        <joint name="l_shoulder_lift_joint" value="0.35675146304036004"/>
+        <joint name="l_upper_arm_roll_joint" value="2.310957073491005"/>
+        <joint name="l_elbow_flex_joint" value="-1.0631674166033998"/>
+        <joint name="l_forearm_roll_joint" value="0.349200572880194"/>
+        <joint name="l_wrist_flex_joint" value="-0.6659884907980385"/>
+        <joint name="l_wrist_roll_joint" value="-0.3947491073621596"/>
+        <joint name="l_gripper_l_finger_joint" value="0.022145054262650107"/>
+        <joint name="l_gripper_l_finger_tip_joint" value="0.022145054262650107"/>
+        <joint name="l_gripper_motor_slider_joint" value="0.0"/>
+        <joint name="l_gripper_motor_screw_joint" value="0.0"/>
+        <joint name="l_gripper_r_finger_joint" value="0.022145054262650107"/>
+        <joint name="l_gripper_r_finger_tip_joint" value="0.022145054262650107"/>
+        <joint name="l_gripper_joint" value="0.0036585850239521283"/>
+        <joint name="r_shoulder_pan_joint" value="-1.4139835072094344"/>
+        <joint name="r_shoulder_lift_joint" value="0.06802648449041794"/>
+        <joint name="r_upper_arm_roll_joint" value="-1.0768366502309952"/>
+        <joint name="r_elbow_flex_joint" value="-1.7660276690314922"/>
+        <joint name="r_forearm_roll_joint" value="-0.7227199898020147"/>
+        <joint name="rh_WRJ2" value="-0.06262856275306411"/>
+        <joint name="rh_WRJ1" value="0.17962483652372066"/>
+        <joint name="rh_FFJ4" value="-0.0028733903465170334"/>
+        <joint name="rh_FFJ3" value="0.3686121439481098"/>
+        <joint name="rh_FFJ2" value="0.24570516313936566"/>
+        <joint name="rh_FFJ1" value="0.3490658503988659"/>
+        <joint name="rh_LFJ5" value="0.011195700254018282"/>
+        <joint name="rh_LFJ4" value="0.0029961463556492816"/>
+        <joint name="rh_LFJ3" value="-0.25010149317568714"/>
+        <joint name="rh_LFJ2" value="0.0"/>
+        <joint name="rh_LFJ1" value="0.3490658503988659"/>
+        <joint name="rh_MFJ4" value="-0.0012051624826616403"/>
+        <joint name="rh_MFJ3" value="-0.26351985875711964"/>
+        <joint name="rh_MFJ2" value="-0.006283185307179586"/>
+        <joint name="rh_MFJ1" value="0.3490658503988659"/>
+        <joint name="rh_RFJ4" value="-0.00816304122498154"/>
+        <joint name="rh_RFJ3" value="-0.24709092882190373"/>
+        <joint name="rh_RFJ2" value="-0.0014490741022093142"/>
+        <joint name="rh_RFJ1" value="0.3490658503988659"/>
+        <joint name="rh_THJ5" value="-0.007459811295320285"/>
+        <joint name="rh_THJ4" value="0.0063208331821802384"/>
+        <joint name="rh_THJ3" value="0.010999675141382375"/>
+        <joint name="rh_THJ2" value="0.002868815013917977"/>
+        <joint name="rh_THJ1" value="0.3490658503988659"/>
+    </group_state>
+
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="left_gripper" parent_link="l_gripper_tool_frame" group="left_gripper"/>
     <end_effector name="right_hand" parent_link="rh_palm" group="right_hand" parent_group="right_arm_and_hand"/>
