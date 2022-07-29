@@ -58,4 +58,6 @@
         <arg name="pkg" value="tams_pr2_neopixel" />
         <arg name="launch" value="pr2_neopixel_eyes_driver.launch" />
     </include>
+    <!-- depending on which topics this nodes subscribes/publishes it should preferably run on the head instead -->
+    <node name="eye_controller" pkg="tams_pr2_neopixel" type="neopixel_arm_demo.py" />
 </launch>
