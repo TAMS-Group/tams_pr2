@@ -504,7 +504,7 @@
         <joint name="head_tilt_joint" value="0.8361092505877994"/>
     </group_state>
     <group_state name="guzheng_initial" group="manipulation">
-        <joint name="torso_lift_joint" value="0.01624121725944388"/>
+        <joint name="torso_lift_joint" value="0.12"/>
         <joint name="l_shoulder_pan_joint" value="1.7601271342115512"/>
         <joint name="l_shoulder_lift_joint" value="0.35675146304036004"/>
         <joint name="l_upper_arm_roll_joint" value="2.310957073491005"/>
