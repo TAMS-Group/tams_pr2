@@ -29,11 +29,3 @@ laser_calib_ref: 0.0
 
 ## torso joints
 torso_calib_ref: 0.00475
-
-## kinect2 joints
-head_mount_kinect2_joint_x: -0.128057
-head_mount_kinect2_joint_y: 0.00874907
-head_mount_kinect2_joint_z: 0.0983058
-head_mount_kinect2_joint_a: 0.00443006
-head_mount_kinect2_joint_b: -0.00219447
-head_mount_kinect2_joint_c: -0.00477909
