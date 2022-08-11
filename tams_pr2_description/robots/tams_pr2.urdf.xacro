@@ -16,8 +16,6 @@
   <xacro:include filename="$(find pr2_description)/urdf/tilting_laser_v0/tilting_laser.urdf.xacro" />
   <!-- PR2 torso -->
   <xacro:include filename="$(find pr2_description)/urdf/torso_v0/torso.urdf.xacro" />
-  <!-- PR2 base -->
-  <xacro:include filename="$(find pr2_description)/urdf/base_v0/base.urdf.xacro" />
   <!-- Head sensors -->
   <xacro:include filename="$(find pr2_description)/urdf/sensors/head_sensor_package.urdf.xacro" />
   <!-- Camera sensors -->
@@ -36,6 +34,8 @@
   <xacro:include filename="$(find tams_pr2_description)/urdf/turn_gravity_off.urdf.xacro" />
   <xacro:include filename="$(find tams_pr2_description)/urdf/tams_head_additions.urdf.xacro" />
   <xacro:include filename="$(find tams_motorhand_description)/urdf/tams_motorhand.urdf.xacro" />
+  <!-- PR2 base -->
+  <xacro:include filename="$(find tams_pr2_description)/urdf/tams_base.urdf.xacro" />
 
   <xacro:arg name="calib_config" default="$(find tams_pr2_description)/config/calibration_config.yaml" />
   <xacro:property name="calib" value="${xacro.load_yaml('$(arg calib_config)')}"/>

@@ -30,7 +30,7 @@
   <!-- Controllers that come up started -->
   <node name="default_controllers_spawner"
         pkg="pr2_controller_manager" type="spawner" output="screen"
-        args="--wait-for=calibrated base_controller base_odometry head_traj_controller laser_tilt_controller torso_controller l_gripper_controller l_arm_controller" />
+        args="--wait-for=calibrated head_traj_controller laser_tilt_controller torso_controller l_gripper_controller l_arm_controller" />
 
   <node name="r_arm_controller_spawner"
         pkg="pr2_controller_manager" type="spawner" output="screen"

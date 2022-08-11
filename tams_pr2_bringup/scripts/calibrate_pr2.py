@@ -278,7 +278,7 @@ def main():
         # parse options
         allowed_flags = ['alpha-casters', 'alpha-head', 'alpha2b-head', 'arms=', 'force_calibration', 'recalibrate']
         opts, args = getopt.gnu_getopt(rospy.myargv(), 'h', allowed_flags)
-        caster_list = ['caster_fl', 'caster_fr', 'caster_bl', 'caster_br']
+        caster_list = ['caster_fr', 'caster_bl', 'caster_br']
         head_list = ['head_pan', 'head_tilt']
         arms = 'auto'
         recalibrate = False
