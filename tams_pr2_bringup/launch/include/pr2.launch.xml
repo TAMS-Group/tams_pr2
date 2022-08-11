@@ -93,6 +93,10 @@
   <include file="$(find pr2_bringup)/config/l_forearm_cam.launch" />
 
   <!-- Tray Laser -->
+  <!-- disconnected from the electric system for now. If you need it and the 5A limit
+       of the 12V PR2 subsystem allows for it, connect it to the power board in the back
+       - v4hn@20220811 -->
+  <!--
   <node pkg="urg_node" type="urg_node" name="tray_hokuyo_node">
     <remap from="scan" to="tray_scan" />
     <param name="serial_port" type="string" value="/etc/ros/sensors/tray_laser" />
@@ -101,6 +105,7 @@
     <param name="angle_max" type="double" value="2.2689" />
     <param name="publish_intensity" value="true" />
   </node>
+  -->
 
   <!-- Sound -->
   <node pkg="sound_play" type="soundplay_node.py" machine="c1" name="sound_play" />
