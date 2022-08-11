@@ -132,6 +132,22 @@
   </joint>
 -->
 
+  <link name="${name}_depth_sensor" >
+    <visual>
+      <origin xyz="${0.013/2} 0 0" rpy="0 ${tau/4} 0" />
+      <geometry>
+        <cylinder radius="${0.0185/2}" length="0.014" />
+      </geometry>
+      <material name="tams_azure_kinect_dark_grey" />
+    </visual>
+  </link>
+
+  <joint name="${name}_camera_base_to_depth_sensor_joint" type="fixed">
+    <parent link="${name}_camera_base" />
+    <child link="${name}_depth_sensor" />
+    <origin xyz="${-0.01158} ${-0.103/2+0.0195+0.0320} ${0.0213-0.0195}"  rpy="0 0 0" />
+  </joint>
+
   <link name="${name}_rgb_sensor" >
     <visual>
       <origin xyz="${0.02/2} 0 0" rpy="0 ${tau/4} 0" />
@@ -148,20 +164,16 @@
     <origin xyz="${-0.01792} ${-0.103/2+0.0195} 0" rpy="0 0 0" />
   </joint>
 
-  <link name="${name}_depth_sensor" >
-    <visual>
-      <origin xyz="${0.013/2} 0 0" rpy="0 ${tau/4} 0" />
-      <geometry>
-        <cylinder radius="${0.0185/2}" length="0.014" />
-      </geometry>
-      <material name="tams_azure_kinect_dark_grey" />
-    </visual>
-  </link>
+  <!--
+  The real ${name}_rgb_camera_link is published by the azure from its internal calibration.
+  The link here should use the same calibration (extracted via TF) and is required for robot_calibration
+  -->
+  <link name="${name}_rgb_camera_link_urdf" />
 
-  <joint name="${name}_camera_base_to_depth_sensor_joint" type="fixed">
-    <parent link="${name}_camera_base" />
-    <child link="${name}_depth_sensor" />
-    <origin xyz="${-0.01158} ${-0.103/2+0.0195+0.0320} ${0.0213-0.0195}"  rpy="0 0 0" />
+  <joint name="${name}_rgb_sensor_to_rgb_camera_joint" type="fixed">
+    <parent link="${name}_rgb_sensor" />
+    <child link="${name}_rgb_camera_link_urdf" />
+    <origin xyz="0.01411221072129154 -5.274945064383946e-05 -0.00025686822127624076" rpy="-1.576436 0.0016804 -1.5680018" />
   </joint>
 
 </xacro:macro>
