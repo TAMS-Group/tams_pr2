@@ -134,7 +134,7 @@
 
   <link name="${name}_rgb_sensor" >
     <visual>
-      <origin xyz="${0.02/2} 0 0" rpy="0 1.571 0" />
+      <origin xyz="${0.02/2} 0 0" rpy="0 ${tau/4} 0" />
       <geometry>
         <cylinder radius="${0.0295/2}" length="0.021" />
       </geometry>
@@ -150,7 +150,7 @@
 
   <link name="${name}_depth_sensor" >
     <visual>
-      <origin xyz="${0.013/2} 0 0" rpy="0 1.571 0" />
+      <origin xyz="${0.013/2} 0 0" rpy="0 ${tau/4} 0" />
       <geometry>
         <cylinder radius="${0.0185/2}" length="0.014" />
       </geometry>
