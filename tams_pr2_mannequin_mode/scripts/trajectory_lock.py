@@ -66,7 +66,7 @@ def callback(msg):
 
     exceeded = [abs(x) > y for x,y in zip(msg.error.positions, joint_bounds)]
 
-    print("All: %s" % "  ".join(["% .4f" % x for x in msg.error.positions] ))
+    rospy.logdebug("All: %s" % "  ".join(["% .4f" % x for x in msg.error.positions] ))
 
     if any(exceeded):
         print("Exceeded: %.4f" % max_error)
@@ -80,7 +80,7 @@ def callback(msg):
         cmd.points[0].positions = msg.actual.positions
         pub.publish(cmd)
     else:
-        print("Small: %.4f" % max_error)
+        rospy.logdebug("Small: %.4f" % max_error)
 
 def toggle_service(req):
     global run
