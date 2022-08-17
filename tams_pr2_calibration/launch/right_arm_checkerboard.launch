@@ -2,8 +2,10 @@
 <launch>
   <arg name="bag" default="" doc="rosbag file to read observation from (record new observations manually if not set)"/>
 
+  <arg name="_bag_full_path" default="$(arg bag)" if="$(eval len(bag) > 0 and bag[0] == '/')" />
+  <arg name="_bag_full_path" default="$(env PWD)/$(arg bag)" if="$(eval len(bag) > 0 and bag[0] != '/')" />
   <node pkg="robot_calibration" type="calibrate" name="robot_calibration"
-        args="$(eval '--manual' if len(bag) == 0 else '--from-bag {}'.format(bag))" clear_params="true"
+        args="$(eval '--manual' if len(bag) == 0 else '--from-bag {}'.format(_bag_full_path))" clear_params="true"
         output="screen" required="true">
     <rosparam file="$(find tams_pr2_calibration)/config/right_arm_capture_checkerboard.yaml" command="load" />
     <rosparam file="$(find tams_pr2_calibration)/config/right_arm_calibrate_checkerboard.yaml" command="load" />
