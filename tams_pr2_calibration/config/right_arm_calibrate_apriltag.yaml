@@ -4,10 +4,9 @@ models:
  - name: right_arm
    type: chain
    frame: r_forearm_roll_link
- - name: kinect2_camera
+ - name: azure_kinect
    type: camera3d
-   frame: head_mount_kinect2_rgb_optical_frame
-   topic: /kinect2/qhd/image_color_rect
+   frame: azure_kinect_rgb_camera_link_urdf
 free_params:
  - r_shoulder_pan_joint
  - r_shoulder_lift_joint
@@ -19,20 +18,33 @@ free_frames:
    x: true
    y: true
    z: true
-   roll: true
+   roll: false
+   pitch: false
+   yaw: false
+ - name: azure_kinect_camera_base_joint
+   x: true
+   y: true
+   z: true
+   roll: false
    pitch: true
-   yaw: true
+   yaw: false
 free_frames_initial_values:
  - name: tag_63
    # transformation from tool frame
-   x: 0.22
-   y: 0.07
-   z: 0.0
-   roll: 0.0
-   pitch: 0.0
+   x: 0.20
+   y: -0.07
+   z: 0.01
+   roll: 1.5707963267948968
+   pitch: -1.5707963267948963
    yaw: 0.0
 error_blocks:
  - name: hand_eye
    type: chain3d_to_chain3d
-   model_a: kinect2_camera
+   model_a: azure_kinect
    model_b: right_arm
+ - name: restrict_camera
+   type: outrageous
+   param: azure_kinect_camera_base_joint
+   joint_scale: 0.0
+   position_scale: 0.1
+   rotation_scale: 0.1
