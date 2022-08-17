@@ -1,22 +1,20 @@
 ###############################################
-# Pr2 calibration values
+# PR2 calibration values
 ###############################################
 
-## shoulder joints
-r_shoulder_pan_calib_ref: -0.742357
-r_shoulder_lift_calib_ref: -0.0205444
-r_upper_arm_roll_calib_ref: -1.56191
+## right arm (excluding Shadow Hand)
+r_shoulder_pan_calib_ref: -0.74550427
+r_shoulder_lift_calib_ref: 0.02804656
+r_upper_arm_roll_calib_ref: -1.5587278
+r_elbow_flex_calib_ref: -1.15635323
+r_forearm_roll_calib_ref: 0.0015972
+
+## left arm
 l_shoulder_pan_calib_ref: 0.820049
 l_shoulder_lift_calib_ref: -0.00294615
 l_upper_arm_roll_calib_ref: 1.5892
-
-## upper arm joints
-r_forearm_roll_calib_ref: -0.0662134
-l_forearm_roll_calib_ref: 0.0299425
-r_elbow_flex_calib_ref: -1.07634
 l_elbow_flex_calib_ref: -1.28568
-
-## forearm joints
+l_forearm_roll_calib_ref: 0.0299425
 l_wrist_flex_calib_ref: -0.527021
 l_wrist_roll_calib_ref: -1.50075
 
