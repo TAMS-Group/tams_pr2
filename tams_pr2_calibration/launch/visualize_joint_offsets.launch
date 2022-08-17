@@ -4,6 +4,7 @@
 
   <node pkg="tams_pr2_calibration" type="visualize_calibration_offsets.py" name="visualize_calibration_offsets"
         clear_params="true" required="true">
-    <rosparam file="$(arg calibration_offsets)" command="load" ns="offsets" />
+    <rosparam file="$(arg calibration_offsets)" command="load" ns="offsets" if="$(eval calibration_offsets[0] == '/')" />
+    <rosparam file="$(env PWD)/$(arg calibration_offsets)" command="load" ns="offsets" unless="$(eval calibration_offsets[0] == '/')" />
   </node>
 </launch>
