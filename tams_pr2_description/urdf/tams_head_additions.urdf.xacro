@@ -66,7 +66,7 @@
   <joint name="${azure_kinect_name}_camera_base_joint" type="fixed">
     <parent link="${parent}" />
     <child link="${azure_kinect_name}_camera_base" />
-    <origin xyz="${0.0+0.022+0.026} 0.0 ${0.095 + 0.068 + 0.008}" rpy="0 0 0" />
+    <origin xyz="${0.0+0.022+0.026+calib['azure_kinect_camera_base_pos_x']} ${0.0+calib['azure_kinect_camera_base_pos_y']} ${0.095 + 0.068 + 0.008 + calib['azure_kinect_camera_base_pos_z']}" rpy="${calib['azure_kinect_camera_base_rot_r']} ${calib['azure_kinect_camera_base_rot_p']} ${calib['azure_kinect_camera_base_rot_y']}" />
   </joint>
 
   <link name="${azure_kinect_name}_holder" >

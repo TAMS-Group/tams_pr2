@@ -27,3 +27,12 @@ laser_calib_ref: 0.0
 
 ## torso joints
 torso_calib_ref: 0.00475
+
+## azure offset
+azure_kinect_camera_base_pos_x: 0.0
+azure_kinect_camera_base_pos_y: 0.0
+azure_kinect_camera_base_pos_z: 0.0
+
+azure_kinect_camera_base_rot_r: 0.0
+azure_kinect_camera_base_rot_p: 0.0
+azure_kinect_camera_base_rot_y: 0.0
