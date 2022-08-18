@@ -13,6 +13,8 @@ free_params:
  - r_upper_arm_roll_joint
  - r_elbow_flex_joint
  - r_forearm_roll_joint
+# - head_pan_joint
+# - head_tilt_joint
 free_frames:
  - name: checkerboard
    x: true
@@ -30,9 +32,9 @@ free_frames:
 #   yaw: false
 free_frames_initial_values:
  - name: checkerboard
-   x: 0.22
-   y: -0.07
-   z: -0.04
+   x: 0.24005
+   y: -0.0537838
+   z: -0.0601343
    roll: 1.5707963267948966
    pitch: 0.0
    yaw: 3.141592653589793
@@ -41,9 +43,9 @@ error_blocks:
    type: chain3d_to_chain3d
    model_a: azure_kinect
    model_b: right_arm
- - name: restrict_camera
-   type: outrageous
-   param: azure_kinect_camera_base_joint
-   joint_scale: 0.0
-   position_scale: 0.1
-   rotation_scale: 0.1
+# - name: restrict_camera
+#   type: outrageous
+#   param: azure_kinect_camera_base_joint
+#   joint_scale: 0.0
+#   position_scale: 0.1
+#   rotation_scale: 0.1
