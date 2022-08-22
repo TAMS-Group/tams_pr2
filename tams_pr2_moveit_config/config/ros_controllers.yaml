@@ -64,7 +64,6 @@ torso_controller:
   type: position_controllers/JointTrajectoryController
   joints:
     - torso_lift_joint
-    - torso_lift_motor_screw_joint
   gains:
     torso_lift_joint:
       p: 100
