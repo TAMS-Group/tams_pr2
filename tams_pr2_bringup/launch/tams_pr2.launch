@@ -60,4 +60,7 @@
     </include>
     <!-- depending on which topics this nodes subscribes/publishes it should preferably run on the head instead -->
     <node name="eye_controller" pkg="tams_pr2_neopixel" type="neopixel_arm_demo.py" />
+
+    <!-- Audio feedback on system errors -->
+    <include file="$(find tams_audio_monitor)/launch/audio_monitor.launch" />
 </launch>
