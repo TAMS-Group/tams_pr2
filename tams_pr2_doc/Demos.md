@@ -20,7 +20,7 @@ List of instructed users:
 * Connect to Trixi: `ssh c1`
     * optionally: use screen session
 * Launch order (in single sessions/windows on c1):
-    * `roslaunch tams_pr2_bringup trixi.launch`
+    * `roslaunch tams_pr2_bringup tams_pr2.launch`
         * ensure safety space around Trixi for calibration (Trixi will move up and down, the left arm and the head)
         * move away right arm (with Shadow Hand) to the right side
         * activate run-stop
