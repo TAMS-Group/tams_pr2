@@ -1,12 +1,12 @@
 TAMS PR2 Doc Links:
 
-[Demos](https://gogs.crossmodal-learning.org/TAMS/tams_pr2/wiki/Demos/)
+[Demos](Demos.md)
 
-[Network](https://gogs.crossmodal-learning.org/TAMS/tams_pr2/wiki/Network/)
+[Network](Network.md)
 
 [Calibration](calibration.md)
 
-[Docker](https://gogs.crossmodal-learning.org/TAMS/pr2_docker/wiki/Home/)
+[Docker](Docker.md)
 
 [Base Station Setup](Base_Station_Setup/)
 
