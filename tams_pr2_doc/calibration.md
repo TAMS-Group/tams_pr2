@@ -1,4 +1,4 @@
-Calibrating a PR2 or Trixi is not as straight forward as it seems, as we not only need to calibrate a camera or a kinematic chain, but a whole robot mobile platform. In the following list, all parts that needs to be calibrated are shown, we are able to calibrate all **checked** entries whithin this tutorial:
+Calibrating our PR2 is not as straight forward as it seems, as we not only need to calibrate a camera or a kinematic chain, but a whole robot mobile platform. In the following list, all parts that needs to be calibrated are shown, we are able to calibrate all **checked** entries whithin this tutorial:
 
 #### Cameras:
 - [ ] narrow/wide stereo

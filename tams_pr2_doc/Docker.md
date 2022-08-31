@@ -6,7 +6,7 @@ Docker is usually used for cloud computing and providing a dynamic amount of app
 
 
 #### How to start the robot
-You can connect the the c1 docker container similar to c1 with ssh. With `ssh c1 -p 122` or with the aliases `c1-docker` or `ssh docker-c1`. The same applies to c2. After connecting to the container, you are located in the home directory of the docker container, this looks and works just the same as your host shell. Now you can continue the same way as usual with `roslaunch tams_pr2_bringup trixi.launch` and so on.
+You can connect the the c1 docker container similar to c1 with ssh. With `ssh c1 -p 122` or with the aliases `c1-docker` or `ssh docker-c1`. The same applies to c2. After connecting to the container, you are located in the home directory of the docker container, this looks and works just the same as your host shell. Now you can continue the same way as usual with `roslaunch tams_pr2_bringup tams_pr2.launch` and so on.
 
 #### How to develop
 Everything in the home directory is shared with the host system, you can find it at `~/pr2_docker/home/`. This directory will not reverse after a restart of the robot (or the container). You need to compile and run your code inside the docker container, remember that the host system still runs with ubuntu 14.04. and ros-indigo. Only within the container you have a 16.04. Ubuntu and ros-kinetic. To be save, you should never connect to the c1 host, but to the c1-docker during the development. Within the container and your workspace you can use `catkin_make` or `catkin build` as usual.

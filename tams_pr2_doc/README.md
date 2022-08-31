@@ -13,4 +13,4 @@ TAMS PR2 Doc Links:
 [Troubleshooting Reports](Troubleshooting-Reports/)
 
 
-For a number of useful one-shot helper scripts, please review the files in `tams43:/home/pr2admin/scripts_trixi/` (or use the scriptpanel to turn them into clickable buttons)
+For a number of useful one-shot helper scripts, please review the files in `tamsPR2:/home/pr2admin/scripts/` (or use the scriptpanel to turn them into clickable buttons)
