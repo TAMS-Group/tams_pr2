@@ -24,12 +24,6 @@
 
     <rosparam file="$(find tams_pr2_bringup)/config/robot.yaml" />
 
-    <include file="$(find tams_pr2_bringup)/launch/remote.launch.xml" >
-        <arg name="machine" value="pr2-head" />
-        <arg name="pkg" value="tams_pr2_azure_kinect" />
-        <arg name="launch" value="azure_on_pr2.launch" />
-    </include>
-
     <include file="$(find tams_pr2_moveit_config)/launch/move_group.launch">
         <arg name="load_robot_description" value="false"/>
     </include>
@@ -50,14 +44,14 @@
         <arg name="launch" value="right_biotac_hand_in_ns.launch" />
     </include>
     <include file="$(find tams_motorhand)/launch/right_biotac_hand_stub_on_pr2.launch" unless="$(arg no_stub)"/>
-
-    <!-- Neopixel infrastructure on pr2-head -->
-    <!-- Start `roslaunch` on pr2-head to interpret launch parameters there -->
+   
+    <!-- Launch head specific components on pr2-head --> 
     <include file="$(find tams_pr2_bringup)/launch/remote.launch.xml" >
         <arg name="machine" value="pr2-head" />
-        <arg name="pkg" value="tams_pr2_neopixel" />
-        <arg name="launch" value="pr2_neopixel_eyes_driver.launch" />
+        <arg name="pkg" value="tams_pr2_head_bringup" />
+        <arg name="launch" value="tams_pr2_head.launch" />
     </include>
+
     <!-- depending on which topics this nodes subscribes/publishes it should preferably run on the head instead -->
     <node name="eye_controller" pkg="tams_pr2_neopixel" type="neopixel_arm_demo.py" />
 
