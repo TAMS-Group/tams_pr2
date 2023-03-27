@@ -38,18 +38,18 @@
 
     <!-- Shadow-Hand infrastructure on C2 -->
     <!-- Start `roslaunch` on C2 to interpret launch parameters there -->
-    <include file="$(find tams_pr2_bringup)/launch/remote.launch.xml" if="$(arg with_hand)">
+    <include file="$(find tams_execute)/launch/execute.launch" if="$(arg with_hand)">
         <arg name="machine" value="c2" />
         <arg name="pkg" value="tams_motorhand" />
-        <arg name="launch" value="right_biotac_hand_in_ns.launch" />
+        <arg name="exe" value="right_biotac_hand_in_ns.launch" />
     </include>
     <include file="$(find tams_motorhand)/launch/right_biotac_hand_stub_on_pr2.launch" unless="$(arg no_stub)"/>
    
     <!-- Launch head specific components on pr2-head --> 
-    <include file="$(find tams_pr2_bringup)/launch/remote.launch.xml" >
+    <include file="$(find tams_execute)/launch/execute.launch" >
         <arg name="machine" value="pr2-head" />
         <arg name="pkg" value="tams_pr2_head_bringup" />
-        <arg name="launch" value="tams_pr2_head.launch" />
+        <arg name="exe" value="tams_pr2_head.launch" />
     </include>
 
     <!-- depending on which topics this nodes subscribes/publishes it should preferably run on the head instead -->
