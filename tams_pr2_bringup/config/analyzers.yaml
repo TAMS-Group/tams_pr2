@@ -100,8 +100,11 @@ analyzers:
       network:
         type: diagnostic_aggregator/GenericAnalyzer
         path: Network
-        num_items: 1
-        expected: ['Wifi Status (ddwrt)']
+        num_items: 4
+        expected: ['Wifi Status (ddwrt)',
+                   'Network Usage (c1)',
+                   'Network Usage (c2)',
+                   'Network Usage (pr2_head)']
         #num_items: 5
         #find_and_remove_prefix: 'multi_interface_roam: '
   motors:

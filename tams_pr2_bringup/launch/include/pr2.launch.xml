@@ -179,4 +179,9 @@
   <!-- Power monitor -->
   <node pkg="power_monitor" type="power_monitor" name="power_monitor" respawn="true" output="screen"/>
 
+  <!-- Network monitor -->
+  <node pkg="system_monitor" name="net_c1" type="net_monitor.py" args="--diag-hostname=c1" machine="c1">
+    <param name="net_level_warn" value="0.95" />
+    <rosparam param="ifaces_capacity">{tun0: 37.0, wan0: 116.0, lan0: 116.0, lan1: 116.0, ecat0: 116.0}</rosparam>
+  </node>
 </launch>

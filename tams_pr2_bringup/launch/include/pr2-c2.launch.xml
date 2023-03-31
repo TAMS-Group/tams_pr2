@@ -46,4 +46,9 @@
   <!-- Disk usage monitoring script monitors HD temperature, usage on diagnostics -->
   <node pkg="pr2_computer_monitor" name="realtime_hd_monitor_c2" type="hd_monitor.py" args="$(optenv HOME /home) --diag-hostname=c2" machine="c2"/>
 
+  <!-- Network monitor -->
+  <node pkg="system_monitor" name="net_c2" type="net_monitor.py" args="--diag-hostname=c2" machine="c2">
+    <param name="net_level_warn" value="0.95" />
+    <rosparam param="ifaces_capacity">{eth1: 116.0, lan2: 116.0}</rosparam>
+  </node>
 </launch>
