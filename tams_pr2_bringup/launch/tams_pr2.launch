@@ -67,7 +67,7 @@
 
     <!-- Text-To-Speech node -->
     <include file="$(find tams_execute)/launch/execute.launch" >
-        <arg name="machine" value="c2" />
+        <arg name="machine" value="basestation" />
         <arg name="pkg" value="tams_tts" />
         <arg name="exe" value="tts.launch" />
         <arg name="workspace" value="~/tts/devel" />
