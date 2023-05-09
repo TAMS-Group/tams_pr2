@@ -8,7 +8,7 @@ debug: false
 rate: 0.5
 
 # can go that far outside limits without an error
-limit_tolerance: 0.05
+limit_tolerance: 0.2
 # getting that close to the limits (fraction of full range) will trigger a warning
 warn_close_to_limit_fraction: 0.05
 
