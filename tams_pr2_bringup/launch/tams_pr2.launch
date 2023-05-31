@@ -51,6 +51,13 @@
         <arg name="pkg" value="tams_pr2_head_bringup" />
         <arg name="exe" value="tams_pr2_head.launch" />
     </include>
+    <!-- sound source localization on pr2-head -->
+    <include file="$(find tams_execute)/launch/execute.launch" >
+        <arg name="machine" value="pr2-head" />
+        <arg name="pkg" value="tams_pr2_ssloc" />
+        <arg name="exe" value="azure.launch" />
+        <arg name="workspace" value="~/sound_source_localization/devel" />
+    </include>
 
     <!-- depending on which topics this nodes subscribes/publishes it should preferably run on the head instead -->
     <node name="eye_controller" pkg="tams_pr2_neopixel" type="neopixel_arm_demo.py" />
