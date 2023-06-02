@@ -37,7 +37,7 @@
     -->
     <!-- thingiverse mesh -->
     <visual>
-      <origin xyz="0 0 0" rpy="0 1.571 3.1415" />
+      <origin xyz="0 0 0" rpy="0 ${tau/4} ${tau/2}" />
       <geometry>
         <mesh filename="package://tams_pr2_description/meshes/pixel_6_pro.stl" scale="0.001 0.001 0.001" />
       </geometry>
@@ -123,25 +123,25 @@
   <joint name="${name}/main_camera_joint" type="fixed">
     <parent link="${name}" />
     <child link="${name}/main_camera" />
-    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${-0.0215}" rpy="-1.571 0 -1.571" />
+    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${-0.0215}" rpy="${tau/4} 0 ${tau/4}" />
   </joint>
 
   <joint name="${name}/ultra_wide_camera_joint" type="fixed">
     <parent link="${name}" />
     <child link="${name}/ultra_wide_camera" />
-    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${-0.0068}" rpy="-1.571 0 -1.571" />
+    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${-0.0068}" rpy="${tau/4} 0 ${tau/4}" />
   </joint>
 
   <joint name="${name}/tele_camera_joint" type="fixed">
     <parent link="${name}" />
     <child link="${name}/tele_camera" />
-    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${0.0034}" rpy="-1.571 0 -1.571" />
+    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${0.0034}" rpy="${tau/4} 0 ${tau/4}" />
   </joint>
 
   <joint name="${name}/flash_led_joint" type="fixed">
     <parent link="${name}" />
     <child link="${name}/flash_led" />
-    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${0.0215}" rpy="0 1.571 0" />
+    <origin xyz="${0.0089/2+0.003} ${pixel_6_pro_camera_bar_dy} ${0.0215}" rpy="0 ${tau/4} 0" />
   </joint>
 
 </xacro:macro>
