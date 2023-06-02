@@ -4,10 +4,11 @@ models:
  - name: left_arm
    type: chain
    frame: l_wrist_roll_link
- - name: kinect2_camera
+ - name: azure_kinect
    type: camera3d
-   frame: head_mount_kinect2_rgb_optical_frame
-   topic: /kinect2/qhd/points
+   frame: azure_kinect_rgb_camera_link_urdf
+#   topic: /kinect2/qhd/points
+#   topic: /azure_kinect/rgb/image_raw
 free_params:
  - l_shoulder_pan_joint
  - l_shoulder_lift_joint
@@ -16,39 +17,39 @@ free_params:
  - l_forearm_roll_joint
  - l_wrist_flex_joint
  - l_wrist_roll_joint
- - head_pan_joint
- - head_tilt_joint
+# - head_pan_joint
+# - head_tilt_joint
 free_frames:
- - name: head_mount_kinect2_joint
-   x: true
-   y: true
-   z: true
-   roll: true
-   pitch: true
-   yaw: true
+# - name: azure_kinect_camera_base_joint
+#   x: true
+#   y: true
+#   z: true
+#   roll: true
+#   pitch: true
+#   yaw: true
  - name: checkerboard
    x: true
    y: true
    z: true
    roll: true
-   pitch: true
-   yaw: true
+   pitch: false
+   yaw: false
 free_frames_initial_values:
  - name: checkerboard
-   x: 0.25
+   x: 0.282147
    y: 0.0
-   z: -0.049
-   roll: 1.57
+   z: -0.0429423
+   roll: 1.57707963267948966
    pitch: 0.0
    yaw: 0.0
 error_blocks:
  - name: hand_eye
    type: chain3d_to_chain3d
-   model_a: kinect2_camera
+   model_a: azure_kinect
    model_b: left_arm
- - name: restrict_camera
-   type: outrageous
-   param: head_mount_kinect2_joint
-   joint_scale: 0.0
-   position_scale: 0.1
-   rotation_scale: 0.1
+# - name: restrict_camera
+#   type: outrageous
+#   param: azure_kinect_camera_base_joint
+#   joint_scale: 0.0
+#   position_scale: 0.1
+#   rotation_scale: 0.1
