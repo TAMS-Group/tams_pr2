@@ -10,13 +10,13 @@ r_elbow_flex_calib_ref: -1.15635323
 r_forearm_roll_calib_ref: 0.0015972
 
 ## left arm
-l_shoulder_pan_calib_ref: 0.820049
-l_shoulder_lift_calib_ref: -0.00294615
-l_upper_arm_roll_calib_ref: 1.5892
-l_elbow_flex_calib_ref: -1.28568
-l_forearm_roll_calib_ref: 0.0299425
-l_wrist_flex_calib_ref: -0.527021
-l_wrist_roll_calib_ref: -1.50075
+l_shoulder_pan_calib_ref: 0.82713499
+l_shoulder_lift_calib_ref: 0.029331549999999998
+l_upper_arm_roll_calib_ref: 1.6001292999999999
+l_elbow_flex_calib_ref: -1.3127588
+l_forearm_roll_calib_ref: 0.063877
+l_wrist_flex_calib_ref: -0.5442714999999999
+l_wrist_roll_calib_ref: -1.49252392
 
 ## head joints
 head_pan_calib_ref: 0.0303234
