@@ -113,7 +113,7 @@ int main(int argc, char** argv){
   std::getline(std::cin, throwaway);
 
   {
-    moveit::planning_interface::MoveGroupInterface group("right_arm");
+    moveit::planning_interface::MoveGroupInterface group("right_arm_pr2");
     group.setNamedTarget("right_arm_to_side");
     while(!group.move() && ros::ok());
   }
