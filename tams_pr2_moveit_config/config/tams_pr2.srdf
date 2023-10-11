@@ -503,7 +503,7 @@
         <joint name="head_pan_joint" value="0.11985879062730902"/>
         <joint name="head_tilt_joint" value="-0.3895307633326986"/>
     </group_state>
-    <group_state name="guzheng_initial" group="head">
+    <group_state name="look_down" group="head">
         <joint name="head_pan_joint" value="0.030846998775598305"/>
         <joint name="head_tilt_joint" value="0.8361092505877994"/>
     </group_state>
@@ -598,6 +598,24 @@
         <joint name="rh_THJ3" value="0.022424386018522174"/>
         <joint name="rh_THJ2" value="0.012185709103890876"/>
         <joint name="rh_THJ1" value="0.3490658503988659"/>
+    </group_state>
+    <group_state name="ready" group="left_arm">
+        <joint name="l_shoulder_pan_joint" value="1.1000326915876977"/>
+        <joint name="l_shoulder_lift_joint" value="0.2462462196382295"/>
+        <joint name="l_upper_arm_roll_joint" value="1.8367465335955708"/>
+        <joint name="l_elbow_flex_joint" value="-2.1212999999999997"/>
+        <joint name="l_forearm_roll_joint" value="3.5509066989511147"/>
+        <joint name="l_wrist_flex_joint" value="-1.1468030491497114"/>
+        <joint name="l_wrist_roll_joint" value="1.505896577939046"/>
+    </group_state>
+    <group_state name="down" group="torso">
+        <joint name="torso_lift_joint" value="0.0"/>
+    </group_state>
+    <group_state name="regular" group="torso">
+        <joint name="torso_lift_joint" value="0.2"/>
+    </group_state>
+    <group_state name="up" group="torso">
+        <joint name="torso_lift_joint" value="0.33"/>
     </group_state>
 
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
