@@ -26,6 +26,9 @@
                 move_group/TfPublisher
                 moveit_monitoring/Monitoring
                 "/>
+<!-- add to capabilities above if you have the MoveIt Task Constructor and want to execute its solutions
+		move_group/ExecuteTaskSolutionCapability
+-->
 
   <rosparam command="load" ns="move_group/monitoring" file="$(dirname)/../config/monitoring_capability.yaml" />
 
