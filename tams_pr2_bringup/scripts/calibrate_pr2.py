@@ -424,7 +424,10 @@ def main():
     finally:
         rospy.loginfo("Bringing down calibration node")
 
-        rospy.set_param(calibration_params_namespace, "")
+        # we keep the parameters around for further introspection
+        # note that we did not change the loading logic, so the parameters are still reloaded from yaml on rerun
+        # (sorry) -- v4hn@20231107
+        #rospy.set_param(calibration_params_namespace, "")
 
         if not imustatus and not joints_status:
             rospy.logerr("Both mechanism and IMU calibration failed")
