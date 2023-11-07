@@ -51,6 +51,8 @@ cal_r_shoulder_lift:
     i_clamp_max: 6
     i_clamp_min: -6
 cal_l_shoulder_lift:
+  # pr2_calibration_controller can read that to recalibrate
+  #force_calibration: true
   type: pr2_calibration_controllers/JointCalibrationController
   joint: l_shoulder_lift_joint
   actuator: l_shoulder_lift_motor
