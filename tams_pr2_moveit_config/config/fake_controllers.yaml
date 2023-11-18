@@ -286,7 +286,7 @@ controller_list:
 initial:  # Define initial robot poses per group
   - group: left_arm
     pose: left_arm_to_side
-  - group: right_arm
+  - group: right_arm_pr2
     pose: right_arm_to_side
   - group: left_gripper
     pose: open
