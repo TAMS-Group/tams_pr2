@@ -112,6 +112,14 @@ torso_lift_position_controller:
     i_clamp_max: 0.0
     i_clamp_min: -0.0
 
+head_pan_position_controller: # TODO: values are not tuned yet - this does nothing @ v4hn@20231208
+  type: robot_mechanism_controllers/JointPositionController
+  joint: head_pan_joint
+  pid:
+    p: 0.0
+    d: 0.0
+    i: 0.0
+    i_clamp: 0.0
 
 head_tilt_position_controller:
   type: robot_mechanism_controllers/JointPositionController
