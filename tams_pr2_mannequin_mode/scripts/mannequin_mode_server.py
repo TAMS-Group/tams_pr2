@@ -1,8 +1,10 @@
 #! /usr/bin/env python
 
+from tams_pr2_look.srv import SetTarget
 from pr2_mechanism_msgs.srv import *
 from std_srvs.srv import *
 from std_msgs.msg import Bool
+from geometry_msgs.msg import PointStamped
 import rospy
 
 
@@ -15,6 +17,16 @@ global loose_controllers
 def toggle_service(req):
     global run
     run = req.data
+
+    # Set look node to mode inactive
+    if run:
+        rospy.wait_for_service('/look/target')
+        try:
+            set_look_inactive = rospy.ServiceProxy('/look/target', SetTarget)
+            set_look_inactive('inactive', PointStamped(), '')
+        except rospy.ServiceException as e:
+            print("Service call failed: %s"%e)
+            return
 
     # switch to controllers with low gains / normal controllers
     rospy.wait_for_service('pr2_controller_manager/switch_controller')

@@ -79,4 +79,9 @@
         <arg name="exe" value="tts.launch" />
         <arg name="workspace" value="~/tts/devel" />
     </include>
+
+    <!-- Look modes for head -->
+    <include file="$(find tams_pr2_look)/launch/look.launch">
+        <arg name="mode" value="inactive" />
+    </include>
 </launch>
