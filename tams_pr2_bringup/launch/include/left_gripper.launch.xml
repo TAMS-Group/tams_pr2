@@ -8,4 +8,8 @@
       <rosparam command="load" file="$(find tams_pr2_bringup)/config/left_gripper_ft/ft17226_params.yaml"/>
       <rosparam command="load" file="/usr/share/pr2-ft/trunk/wg035_revF_params.yaml"/>
     </group>
+    <node name="l_gripper_pressure_sensor_info" pkg="fingertip_pressure" type="sensor_info.py"/>
+    <node name="l_gripper_pressure_viz" pkg="fingertip_pressure" type="sphere_viz.py">
+      <remap from="/visualization_marker" to="/l_gripper/pressure_viz"/>
+    </node>
 </launch> 
