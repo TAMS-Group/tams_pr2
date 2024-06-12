@@ -5,7 +5,28 @@ The user should follow generally the instructions on the official [ATOM document
 
 ## Record a Bagfile
 
-To record a bagfile, use the `rosbag` command-line tool. This tool allows you to record data from one or more ROS topics for later playback.
+To record a bagfile, you can use various commands, depending on what topics you want to record.
+
+
+If you want to record all needed topics for a full calibration, please run:
+
+```sh
+roslaunch tams_pr2_atom_calibration record.launch
+```
+
+If you want to record the needed topics for a visual calibration, please run:
+
+```sh
+roslaunch tams_pr2_atom_calibration record_visual.launch
+```
+
+If you want to record the needed topics for a tactile calibration, please run:
+
+```sh
+roslaunch tams_pr2_atom_calibration record_tactile.launch
+```
+
+If you want to record a custom set of messages, you can use the `rosbag` command-line tool:
 
 ```sh
 rosbag record -O my_bagfile.bag /topic1 /topic2 ...
