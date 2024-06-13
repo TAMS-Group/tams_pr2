@@ -14,7 +14,7 @@ head_pan_calib_ref: 0.015480068463014635
 head_tilt_calib_ref: 0.03374015910628988
 laser_calib_ref: 0.0
 torso_calib_ref: 0.00475
-azure_kinect_camera_base_pos_x: 0.046439199083781725
+azure_kinect_camera_base_pos_x: -0.001560800916218276
 azure_kinect_camera_base_pos_y: 0.010873822309647299
 azure_kinect_camera_base_pos_z: -0.0034401250085261117
 azure_kinect_camera_base_rot_r: -0.011229592652682889
