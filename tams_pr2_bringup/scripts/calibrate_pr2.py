@@ -278,7 +278,7 @@ def main():
         # parse options
         allowed_flags = ['alpha-casters', 'alpha-head', 'alpha2b-head', 'arms=', 'force_calibration', 'recalibrate']
         opts, args = getopt.gnu_getopt(rospy.myargv(), 'h', allowed_flags)
-        caster_list = ['caster_fr', 'caster_bl', 'caster_br']
+        caster_list = ['caster_fl', 'caster_bl', 'caster_fr', 'caster_br']
         head_list = ['head_pan', 'head_tilt']
         arms = 'auto'
         recalibrate = False
@@ -366,7 +366,8 @@ def main():
         arm = CalibrateSequence(arm_list, status)
         gripper = CalibrateSequence([gripper_list], status)
         head = CalibrateSequence([head_list, ['laser_tilt']], status)
-        caster = CalibrateSequence([caster_list], status)
+        # disable calibration of casters with fixed wheel urdf, uncomment below to use casters -- v4hn@20240619
+        # caster = CalibrateSequence([caster_list], status)
 
         # if recalibrating, stop all running controllers first
         if recalibrate:
@@ -413,7 +414,7 @@ def main():
         # calibrate rest of robot
         gripper.calibrate()
         head.calibrate()
-        caster.calibrate()
+        # caster.calibrate()
 
         joints_status = True
         status.publish()

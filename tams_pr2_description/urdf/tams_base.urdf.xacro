@@ -10,6 +10,8 @@
   <!-- all link geometry sizes are obtained from Function provided CAD model unless stated otherwise -->
   <!-- all simplified collision geometry are hand approximated from CAD model, sometimes from respective bounding boxes -->
 
+  <xacro:property name="fixed_wheels" value="true" />
+
   <xacro:property name="M_PI" value="3.1415926535897931" />
 
   <xacro:property name="caster_offset_x" value="0.2246" />
@@ -44,14 +46,14 @@
   <!--           wheel                                      -->
   <!--                                                      -->
   <xacro:macro name="pr2_wheel_v0" params="suffix parent reflect">
-    <xacro:if value="${parent == 'fl_caster'}">
+    <xacro:if value="${fixed_wheels}">
     <joint name="${parent}_${suffix}_wheel_joint" type="fixed">
       <origin xyz="0 ${reflect*caster_wheel_offset_y} 0" rpy="0 0 0" />
       <parent link="${parent}_rotation_link"/>
       <child link="${parent}_${suffix}_wheel_link"/>
     </joint>
     </xacro:if>
-    <xacro:unless value="${parent == 'fl_caster'}">
+    <xacro:unless value="${fixed_wheels}">
     <joint name="${parent}_${suffix}_wheel_joint" type="continuous">
       <axis xyz="0 1 0" />
       <limit effort="7" velocity="15"/> <!-- alpha tested effort and velocity limits -->
@@ -61,7 +63,9 @@
       <parent link="${parent}_rotation_link"/>
       <child link="${parent}_${suffix}_wheel_link"/>
     </joint>
+    <xacro:pr2_wheel_transmission_v0 parent="${parent}" suffix="${suffix}" reflect="${reflect}" />
     </xacro:unless>
+
     <link name="${parent}_${suffix}_wheel_link">
       <inertial>
         <mass value="0.44036" />
@@ -87,22 +91,18 @@
 
     <!-- extensions -->
     <xacro:pr2_wheel_gazebo_v0 parent="${parent}" suffix="${suffix}" />
-    <xacro:unless value="${parent == 'fl_caster'}">
-    <xacro:pr2_wheel_transmission_v0 parent="${parent}" suffix="${suffix}" reflect="${reflect}" />
-    </xacro:unless>
-
   </xacro:macro>
 
   <!-- Macro for PR2 Caster hub only -->
   <xacro:macro name="pr2_caster_hub_v0" params="suffix parent *origin ref_position" >
-    <xacro:if value="${suffix == 'fl_caster'}">
+    <xacro:if value="${fixed_wheels}">
     <joint name="${suffix}_rotation_joint" type="fixed">
       <xacro:insert_block name="origin" />
       <parent link="${parent}"/>
       <child link="${suffix}_rotation_link" />
     </joint>
     </xacro:if>
-    <xacro:unless value="${suffix == 'fl_caster'}">
+    <xacro:unless value="${fixed_wheels}">
     <joint name="${suffix}_rotation_joint" type="continuous">
       <axis xyz="0 0 1" />
       <limit effort="6.5" velocity="10"/> <!-- alpha tested velocity and effort limits -->
@@ -113,6 +113,7 @@
       <parent link="${parent}"/>
       <child link="${suffix}_rotation_link" />
     </joint>
+    <xacro:pr2_caster_transmission_v0 suffix="${suffix}" />
     </xacro:unless>
     <link name="${suffix}_rotation_link">
 
@@ -141,9 +142,6 @@
     </link>
 
     <!-- extensions -->
-    <xacro:unless value="${suffix == 'fl_caster'}">
-    <xacro:pr2_caster_transmission_v0 suffix="${suffix}" />
-    </xacro:unless>
   </xacro:macro>
 
   <xacro:macro name="pr2_caster_v0" params="suffix parent *origin ref_position">
