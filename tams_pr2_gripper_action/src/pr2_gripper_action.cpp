@@ -45,8 +45,8 @@ public:
   Pr2GripperAction(ros::NodeHandle &n) :
     node_(n),
     action_server_(node_, "gripper_action",
-                   boost::bind(&Pr2GripperAction::goalCB, this, _1),
-                   boost::bind(&Pr2GripperAction::cancelCB, this, _1),
+                   [this](auto handle){ goalCB(handle); },
+                   [this](auto handle){ cancelCB(handle); },
                    false),
     has_active_goal_(false)
   {
