@@ -65,12 +65,13 @@
     <!-- Audio feedback on system errors -->
     <include file="$(find tams_audio_monitor)/launch/audio_monitor.launch" />
 
-    <node name="audio_play" pkg="audio_play" type="audio_play">
-        <param name="format" value="wave" />
-        <param name="channels" value="1" />
-        <param name="depth" value="16" />
-        <param name="sample_rate" value="16000" />
-    </node>
+    <!-- play audio from basestation until there is a new loudspeaker installed in the PR2 -->
+    <include file="$(find tams_execute)/launch/execute.launch" >
+        <arg name="machine" value="basestation" />
+        <arg name="pkg" value="tams_pr2_bringup" />
+        <arg name="exe" value="audio_play.launch.xml" />
+        <arg name="workspace" value="~/ros/devel" />
+    </include>
 
     <!-- Text-To-Speech node -->
     <include file="$(find tams_execute)/launch/execute.launch" >
