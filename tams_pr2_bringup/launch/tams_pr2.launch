@@ -81,6 +81,14 @@
         <arg name="workspace" value="~/tts/devel" />
     </include>
 
+    <!-- Face Detection -->
+    <include file="$(find tams_execute)/launch/execute.launch" >
+        <arg name="machine" value="c2" />
+        <arg name="pkg" value="speakerdetection" />
+        <arg name="exe" value="facedetection" />
+        <arg name="workspace" value="~/face_detection/devel" />
+    </include>
+
     <!-- Look modes for head -->
     <include file="$(find tams_pr2_look)/launch/look.launch">
         <arg name="mode" value="inactive" />
