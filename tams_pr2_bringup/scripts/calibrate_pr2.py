@@ -366,6 +366,7 @@ def main():
         arm = CalibrateSequence(arm_list, status)
         gripper = CalibrateSequence([gripper_list], status)
         head = CalibrateSequence([head_list, ['laser_tilt']], status)
+        caster = None
         # disable calibration of casters with fixed wheel urdf, uncomment below to use casters -- v4hn@20240619
         # caster = CalibrateSequence([caster_list], status)
 
@@ -414,7 +415,8 @@ def main():
         # calibrate rest of robot
         gripper.calibrate()
         head.calibrate()
-        # caster.calibrate()
+        if caster:
+            caster.calibrate()
 
         joints_status = True
         status.publish()
